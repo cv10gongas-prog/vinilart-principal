@@ -25,6 +25,11 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
       return;
     }
 
+    if (typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -37,7 +42,14 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Segurança: nunca deixar conteúdo invisível se o observador não disparar.
+    const fallback = window.setTimeout(() => setVisible(true), 1600);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   const Tag = as as "div";
