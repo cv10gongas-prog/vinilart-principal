@@ -5,7 +5,6 @@ import { BrandBar, BrushGlow } from "@/components/brand";
 import { CtaLink } from "@/components/cta-button";
 import { FinalCta } from "@/components/final-cta";
 import { MediaSlot } from "@/components/media-slot";
-import { PortfolioGrid } from "@/components/portfolio-grid";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { SportBlock } from "@/components/sport-block";
@@ -25,8 +24,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content:
-          "VinilArt — Damos forma às tuas ideias",
+        content: "VinilArt — Damos forma às tuas ideias",
       },
       {
         property: "og:description",
@@ -35,80 +33,88 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
+
   component: Index,
 });
 
 function Hero() {
   return (
-    <section className="surface-grain relative min-h-[100svh] overflow-hidden bg-ink pb-16 pt-32 sm:pt-40 lg:flex lg:min-h-[880px] lg:items-center lg:pt-32">
+    <section className="surface-grain relative min-h-[100svh] overflow-hidden bg-ink pb-14 pt-28 sm:pb-20 sm:pt-36 lg:flex lg:min-h-[880px] lg:items-center lg:pb-24 lg:pt-32">
       <BrushGlow
         tone="magenta"
-        className="left-[-18%] top-[-10%] h-[680px] w-[680px] opacity-65"
+        className="left-[-30%] top-[-8%] h-[520px] w-[520px] opacity-55 sm:left-[-20%] sm:h-[650px] sm:w-[650px]"
       />
 
       <BrushGlow
         tone="cyan"
-        className="right-[-14%] top-[12%] h-[700px] w-[700px] opacity-55"
+        className="right-[-35%] top-[28%] h-[520px] w-[520px] opacity-45 sm:right-[-18%] sm:top-[14%] sm:h-[680px] sm:w-[680px]"
       />
 
       <div
-        className="surface-grid pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] opacity-35 lg:block"
         aria-hidden="true"
+        className="surface-grid pointer-events-none absolute inset-y-0 right-0 hidden w-[52%] opacity-30 md:block"
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.96fr_1.04fr] lg:gap-16 lg:px-10">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] items-center gap-12 px-5 sm:px-8 md:gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-10 xl:gap-20">
         <div>
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="bar-brand h-[2px] w-10" />
+              <span className="bar-brand h-[2px] w-9 sm:w-10" />
+
               <span className="eyebrow">
                 Comunicação visual · Oeiras
               </span>
             </div>
           </Reveal>
 
-          <Reveal delay={80}>
-            <h1 className="mt-7 max-w-[760px] text-[3.15rem] leading-[0.9] tracking-[-0.06em] sm:text-[4.7rem] lg:text-[5.35rem] xl:text-[5.9rem]">
+          <Reveal delay={70}>
+            <h1 className="mt-6 max-w-[760px] text-[3.05rem] leading-[0.9] tracking-[-0.06em] min-[390px]:text-[3.45rem] sm:mt-7 sm:text-[4.55rem] md:text-[5rem] lg:text-[5.25rem] xl:text-[5.9rem]">
               Damos forma
               <br />
               às tuas
               <br />
+
               <span className="text-gradient-brand">
                 ideias.
               </span>
             </h1>
           </Reveal>
 
-          <Reveal delay={150}>
-            <p className="mt-8 max-w-[620px] font-display text-base font-semibold uppercase leading-[1.45] text-foreground/88 sm:text-lg">
-              Design, impressão e personalização para marcas
-              que querem destacar-se.
+          <Reveal delay={130}>
+            <p className="mt-7 max-w-[610px] font-display text-[0.92rem] font-semibold uppercase leading-[1.5] text-foreground/88 sm:mt-8 sm:text-lg">
+              Design, impressão e personalização para marcas que
+              querem destacar-se.
             </p>
 
-            <p className="mt-5 max-w-[560px] text-base leading-7 text-foreground/55">
-              Da ideia à aplicação final, transformamos
-              conceitos em soluções visuais com presença,
-              identidade e impacto.
+            <p className="mt-4 max-w-[560px] text-[0.95rem] leading-7 text-foreground/58 sm:mt-5 sm:text-base">
+              Da ideia à aplicação final, transformamos conceitos
+              em soluções visuais com presença, identidade e
+              impacto.
             </p>
           </Reveal>
 
-          <Reveal delay={220}>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <CtaLink to="/contactos" hash="pedido">
+          <Reveal delay={190}>
+            <div className="mt-8 flex flex-col gap-3 min-[440px]:flex-row min-[440px]:flex-wrap">
+              <CtaLink
+                to="/contactos"
+                hash="pedido"
+                className="w-full min-[440px]:w-auto"
+              >
                 Pedir orçamento
               </CtaLink>
 
               <CtaLink
                 to="/portfolio"
                 variant="outline"
+                className="w-full min-[440px]:w-auto"
               >
                 Ver trabalhos
               </CtaLink>
             </div>
           </Reveal>
 
-          <Reveal delay={280}>
-            <div className="mt-12 grid max-w-[570px] grid-cols-3 border-y border-white/[0.07]">
+          <Reveal delay={250}>
+            <div className="mt-10 grid max-w-[570px] grid-cols-3 border-y border-white/[0.07] sm:mt-12">
               {[
                 ["01", "Design"],
                 ["02", "Impressão"],
@@ -118,17 +124,17 @@ function Hero() {
                   key={label}
                   className={
                     index === 1
-                      ? "border-x border-white/[0.07] px-4 py-4"
+                      ? "border-x border-white/[0.07] px-3 py-4 sm:px-4"
                       : index === 0
-                        ? "py-4 pr-4"
-                        : "py-4 pl-4"
+                        ? "py-4 pr-3 sm:pr-4"
+                        : "py-4 pl-3 sm:pl-4"
                   }
                 >
-                  <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-foreground/30">
+                  <p className="text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-foreground/28 sm:text-[0.6rem]">
                     {number}
                   </p>
 
-                  <p className="mt-1.5 font-display text-sm font-bold uppercase text-foreground/85">
+                  <p className="mt-1.5 font-display text-[0.68rem] font-bold uppercase text-foreground/82 sm:text-sm">
                     {label}
                   </p>
                 </div>
@@ -137,62 +143,87 @@ function Hero() {
           </Reveal>
         </div>
 
-        <Reveal
-          delay={140}
-          className="relative mx-auto w-full max-w-[680px] lg:justify-self-end"
-        >
-          <div className="relative min-h-[520px] sm:min-h-[620px] lg:min-h-[670px]">
-            <div className="absolute left-[3%] top-[9%] z-10 w-[67%]">
+        <Reveal delay={120}>
+          <div className="md:hidden">
+            <div className="relative">
               <MediaSlot
-                label="Aplicação de vinil em viatura"
-                ratio="4 / 5"
+                label="Aplicação VinilArt"
+                ratio="4 / 3"
                 tone="cyan"
                 showLabel={false}
-                className="shadow-[0_35px_100px_rgba(0,0,0,0.42)]"
+                className="shadow-[0_30px_80px_rgba(0,0,0,.45)]"
               />
+
+              <div className="absolute bottom-4 left-4 bg-ink/90 px-4 py-3 backdrop-blur-xl">
+                <p className="text-[0.55rem] uppercase tracking-[0.18em] text-foreground/35">
+                  VinilArt
+                </p>
+
+                <p className="mt-1.5 font-display text-xs font-extrabold uppercase leading-4">
+                  Saber fazer...
+                  <br />
+                  como deve ser.
+                </p>
+
+                <BrandBar className="mt-3 w-12" />
+              </div>
             </div>
+          </div>
 
-            <div className="float-soft absolute right-[2%] top-[1%] z-20 w-[39%]">
-              <MediaSlot
-                label="Impressão de grande formato"
-                ratio="1 / 1"
-                tone="magenta"
-                showLabel={false}
-                className="shadow-[0_28px_80px_rgba(0,0,0,0.45)]"
-              />
-            </div>
+          <div className="relative mx-auto hidden w-full max-w-[680px] md:block lg:justify-self-end">
+            <div className="relative min-h-[610px] lg:min-h-[670px]">
+              <div className="absolute left-[3%] top-[9%] z-10 w-[67%]">
+                <MediaSlot
+                  label="Aplicação de vinil em viatura"
+                  ratio="4 / 5"
+                  tone="cyan"
+                  showLabel={false}
+                  className="shadow-[0_35px_100px_rgba(0,0,0,0.42)]"
+                />
+              </div>
 
-            <div className="absolute bottom-[7%] right-[4%] z-30 w-[49%]">
-              <MediaSlot
-                label="Montra decorada"
-                ratio="4 / 3"
-                tone="yellow"
-                showLabel={false}
-                className="shadow-[0_35px_90px_rgba(0,0,0,0.46)]"
-              />
-            </div>
+              <div className="float-soft absolute right-[2%] top-[1%] z-20 w-[39%]">
+                <MediaSlot
+                  label="Impressão de grande formato"
+                  ratio="1 / 1"
+                  tone="magenta"
+                  showLabel={false}
+                  className="shadow-[0_28px_80px_rgba(0,0,0,0.45)]"
+                />
+              </div>
 
-            <div className="absolute bottom-[10%] left-[8%] z-40 hidden bg-ink/92 px-5 py-4 shadow-xl backdrop-blur-xl sm:block">
-              <p className="text-[0.58rem] uppercase tracking-[0.2em] text-foreground/35">
-                VinilArt
-              </p>
+              <div className="absolute bottom-[7%] right-[4%] z-30 w-[49%]">
+                <MediaSlot
+                  label="Montra decorada"
+                  ratio="4 / 3"
+                  tone="yellow"
+                  showLabel={false}
+                  className="shadow-[0_35px_90px_rgba(0,0,0,0.46)]"
+                />
+              </div>
 
-              <p className="mt-2 font-display text-sm font-extrabold uppercase leading-5">
-                Saber fazer...
-                <br />
-                como deve ser.
-              </p>
+              <div className="absolute bottom-[10%] left-[8%] z-40 bg-ink/92 px-5 py-4 shadow-xl backdrop-blur-xl">
+                <p className="text-[0.58rem] uppercase tracking-[0.2em] text-foreground/35">
+                  VinilArt
+                </p>
 
-              <BrandBar className="mt-4 w-16" />
+                <p className="mt-2 font-display text-sm font-extrabold uppercase leading-5">
+                  Saber fazer...
+                  <br />
+                  como deve ser.
+                </p>
+
+                <BrandBar className="mt-4 w-16" />
+              </div>
             </div>
           </div>
         </Reveal>
       </div>
 
-      <div className="relative z-10 mx-auto mt-6 flex max-w-[1440px] items-center gap-3 px-5 text-foreground/35 sm:px-8 lg:absolute lg:bottom-7 lg:left-1/2 lg:w-full lg:-translate-x-1/2 lg:px-10">
+      <div className="relative z-10 mx-auto mt-8 flex max-w-[1440px] items-center gap-3 px-5 text-foreground/32 sm:px-8 lg:absolute lg:bottom-7 lg:left-1/2 lg:mt-0 lg:w-full lg:-translate-x-1/2 lg:px-10">
         <ChevronDown className="h-4 w-4 animate-bounce" />
 
-        <span className="text-[0.6rem] uppercase tracking-[0.22em]">
+        <span className="text-[0.58rem] uppercase tracking-[0.22em]">
           Descobrir
         </span>
       </div>
@@ -200,115 +231,81 @@ function Hero() {
   );
 }
 
-function Intro() {
-  const values = [
-    {
-      n: "01",
-      title: "Criatividade",
-      text:
-        "Cada projeto começa com uma ideia e uma solução visual pensada para lhe dar identidade.",
-    },
-    {
-      n: "02",
-      title: "Atenção ao detalhe",
-      text:
-        "Do conceito à aplicação, cada elemento contribui para o resultado final.",
-    },
-    {
-      n: "03",
-      title: "Soluções adaptadas",
-      text:
-        "Cada espaço, marca ou suporte pede uma abordagem própria.",
-    },
-    {
-      n: "04",
-      title: "Impacto visual",
-      text:
-        "Comunicação criada para ser vista, reconhecida e lembrada.",
-    },
-  ];
-
+function BrandManifesto() {
   return (
-    <section className="relative overflow-hidden bg-charcoal/20 py-24 lg:py-36">
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-charcoal/20 py-20 sm:py-24 lg:py-28">
       <BrushGlow
         tone="magenta"
-        className="bottom-[-50%] left-[-20%] h-[520px] w-[520px] opacity-20"
+        className="bottom-[-70%] left-[-20%] h-[500px] w-[500px] opacity-18"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-24">
+      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-24">
         <Reveal>
-          <div className="relative">
-            <MediaSlot
-              label="Trabalho de produção na oficina VinilArt"
-              ratio="4 / 5"
-              tone="magenta"
-            />
+          <div>
+            <div className="flex items-center gap-3">
+              <BrandBar className="h-[2px] w-9" />
 
-            <div className="absolute -bottom-5 -right-4 hidden max-w-[270px] bg-ink/95 p-6 shadow-[0_30px_80px_rgba(0,0,0,.5)] backdrop-blur-xl sm:block">
               <span className="eyebrow">
-                Da ideia à aplicação
+                A forma de trabalhar
               </span>
-
-              <p className="mt-3 font-display text-lg font-extrabold uppercase leading-tight">
-                Soluções pensadas
-                <br />
-                para cada projeto.
-              </p>
-
-              <BrandBar className="mt-5 w-20" />
             </div>
+
+            <h2 className="mt-6 max-w-[780px] text-[2.7rem] leading-[0.94] sm:text-5xl lg:text-[4.1rem]">
+              Saber fazer…
+              <br />
+
+              <span className="text-gradient-brand">
+                como deve ser.
+              </span>
+            </h2>
           </div>
         </Reveal>
 
-        <div>
-          <SectionHeading
-            eyebrow="VinilArt"
-            title={
-              <>
-                Saber fazer…
-                <br />
-                <span className="text-gradient-brand">
-                  como deve ser.
-                </span>
-              </>
-            }
-            subtitle="Na VinilArt transformamos ideias em soluções de comunicação visual e personalização. Do conceito à aplicação final, trabalhamos cada projeto com atenção ao detalhe e foco no resultado."
-          />
+        <Reveal delay={100}>
+          <div>
+            <p className="max-w-xl text-base leading-7 text-foreground/60 sm:text-lg sm:leading-8">
+              Na VinilArt cada projeto passa por diferentes fases,
+              mas o objetivo mantém-se: transformar uma ideia
+              numa solução visual que funcione no mundo real.
+            </p>
 
-          <div className="mt-12">
-            {values.map((value, index) => (
-              <Reveal
-                key={value.n}
-                delay={80 + index * 70}
-                className="group"
-              >
-                <div className="grid gap-3 border-t border-white/[0.07] py-6 last:border-b sm:grid-cols-[48px_180px_1fr] sm:items-start sm:gap-6">
-                  <span className="font-display text-xs font-bold text-foreground/22 transition-colors group-hover:text-magenta">
-                    {value.n}
+            <div className="mt-8 grid grid-cols-3 border-y border-white/[0.07]">
+              {[
+                ["Criar", "Ideia"],
+                ["Produzir", "Forma"],
+                ["Aplicar", "Resultado"],
+              ].map(([title, text], index) => (
+                <div
+                  key={title}
+                  className={
+                    index === 1
+                      ? "border-x border-white/[0.07] px-3 py-5 sm:px-5"
+                      : index === 0
+                        ? "py-5 pr-3 sm:pr-5"
+                        : "py-5 pl-3 sm:pl-5"
+                  }
+                >
+                  <span className="font-display text-sm font-extrabold uppercase sm:text-base">
+                    {title}
                   </span>
 
-                  <h3 className="text-lg font-extrabold uppercase">
-                    {value.title}
-                  </h3>
-
-                  <p className="max-w-xl text-sm leading-6 text-foreground/58">
-                    {value.text}
-                  </p>
+                  <span className="mt-1 block text-[0.64rem] uppercase tracking-[0.14em] text-foreground/32">
+                    {text}
+                  </span>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <Reveal delay={400}>
-            <CtaLink
+            <Link
               to="/sobre"
-              variant="outline"
-              className="mt-9"
+              className="group mt-7 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/58 transition-colors hover:text-cyan"
             >
               Conhecer a VinilArt
-            </CtaLink>
-          </Reveal>
-        </div>
+
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -316,17 +313,21 @@ function Intro() {
 
 function ServicesSection() {
   return (
-    <section className="relative overflow-hidden bg-ink py-24 lg:py-36">
-      <div className="surface-grid pointer-events-none absolute inset-y-0 right-0 w-[44%] opacity-20" />
+    <section className="relative overflow-hidden bg-ink py-20 sm:py-24 lg:py-32">
+      <div
+        aria-hidden="true"
+        className="surface-grid pointer-events-none absolute inset-y-0 right-0 hidden w-[44%] opacity-18 lg:block"
+      />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-16">
           <SectionHeading
             eyebrow="Serviços"
             title={
               <>
                 Fazemos ideias
                 <br />
+
                 <span className="text-gradient-brand">
                   ganhar presença.
                 </span>
@@ -335,7 +336,7 @@ function ServicesSection() {
           />
 
           <Reveal>
-            <p className="max-w-xl text-base leading-7 text-foreground/55 lg:ml-auto">
+            <p className="max-w-xl text-base leading-7 text-foreground/58 lg:ml-auto">
               Da identidade de uma marca ao espaço físico onde
               ela vive. Criamos, produzimos e aplicamos soluções
               visuais para diferentes suportes e necessidades.
@@ -343,39 +344,43 @@ function ServicesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-14 lg:mt-16">
           {services.map((service, index) => (
             <Reveal
               key={service.slug}
-              delay={(index % 4) * 50}
+              delay={(index % 4) * 45}
               className="group"
             >
               <Link
                 to="/servicos"
                 hash={service.slug}
-                className="grid items-center gap-5 border-t border-white/[0.07] py-7 transition-colors last:border-b hover:bg-white/[0.018] sm:grid-cols-[70px_1.05fr_1.4fr_40px] sm:px-3"
+                className="grid grid-cols-[38px_1fr] gap-x-4 gap-y-3 border-t border-white/[0.07] py-6 transition-colors last:border-b hover:bg-white/[0.018] sm:grid-cols-[48px_1fr] sm:px-2 lg:grid-cols-[70px_1.05fr_1.4fr_40px] lg:items-center lg:gap-5 lg:px-3 lg:py-7"
               >
-                <span className="font-display text-sm font-extrabold text-foreground/20 transition-colors group-hover:text-magenta">
+                <span className="font-display text-xs font-extrabold text-foreground/20 transition-colors group-hover:text-magenta sm:text-sm">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <h3 className="text-2xl sm:text-3xl">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl">
                   {service.title}
                 </h3>
 
-                <p className="max-w-xl text-sm leading-6 text-foreground/50">
+                <p className="col-start-2 max-w-xl text-sm leading-6 text-foreground/52 lg:col-start-auto">
                   {service.text}
                 </p>
 
-                <ArrowUpRight className="h-5 w-5 text-foreground/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-cyan" />
+                <ArrowUpRight className="hidden h-5 w-5 text-foreground/22 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-cyan lg:block" />
               </Link>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <div className="mt-12 flex justify-end">
-            <CtaLink to="/servicos" variant="outline">
+          <div className="mt-9 flex sm:justify-end lg:mt-12">
+            <CtaLink
+              to="/servicos"
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
               Explorar serviços
             </CtaLink>
           </div>
@@ -387,10 +392,10 @@ function ServicesSection() {
 
 function Processo() {
   return (
-    <section className="relative overflow-hidden bg-charcoal/20 py-24 lg:py-36">
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-charcoal/20 py-20 sm:py-24 lg:py-32">
       <BrushGlow
         tone="cyan"
-        className="right-[-15%] top-[-30%] h-[520px] w-[520px] opacity-18"
+        className="right-[-30%] top-[-35%] h-[500px] w-[500px] opacity-16 sm:right-[-15%]"
       />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
@@ -399,6 +404,7 @@ function Processo() {
           title={
             <>
               Da ideia ao{" "}
+
               <span className="text-gradient-brand">
                 resultado.
               </span>
@@ -407,28 +413,28 @@ function Processo() {
           subtitle="Um processo simples para transformar uma ideia numa solução visual pronta para ganhar forma."
         />
 
-        <ol className="relative mt-16 grid gap-10 md:grid-cols-4 md:gap-0">
+        <ol className="relative mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-0">
           <div
             aria-hidden="true"
-            className="bar-brand absolute left-0 right-0 top-[22px] hidden h-px opacity-45 md:block"
+            className="bar-brand absolute left-0 right-0 top-[21px] hidden h-px opacity-38 lg:block"
           />
 
           {processSteps.map((step, index) => (
             <Reveal
               as="li"
               key={step.n}
-              delay={index * 80}
-              className="relative md:pr-10"
+              delay={index * 70}
+              className="relative border-t border-white/[0.07] pt-5 md:border-t-0 md:pt-0 lg:pr-10"
             >
-              <span className="relative z-10 flex h-11 w-11 items-center justify-center bg-ink font-display text-xs font-extrabold">
+              <span className="relative z-10 flex h-10 w-10 items-center justify-center bg-ink font-display text-xs font-extrabold text-foreground/60">
                 {step.n}
               </span>
 
-              <h3 className="mt-7 text-2xl">
+              <h3 className="mt-6 text-2xl">
                 {step.title}
               </h3>
 
-              <p className="mt-4 max-w-[260px] text-sm leading-6 text-foreground/55">
+              <p className="mt-3 max-w-[300px] text-sm leading-6 text-foreground/55">
                 {step.text}
               </p>
             </Reveal>
@@ -439,109 +445,19 @@ function Processo() {
   );
 }
 
-function PortfolioSection() {
-  return (
-    <section className="bg-ink py-24 lg:py-36">
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-          <SectionHeading
-            eyebrow="Portefólio"
-            title={
-              <>
-                O nosso trabalho
-                <br />
-                <span className="text-gradient-brand">
-                  fala por nós.
-                </span>
-              </>
-            }
-          />
-
-          <Reveal>
-            <p className="max-w-lg text-base leading-7 text-foreground/55 lg:ml-auto">
-              Viaturas, espaços, impressão, estampagem e
-              personalização. Cada projeto é diferente porque
-              cada ideia também é.
-            </p>
-          </Reveal>
-        </div>
-
-        <PortfolioGrid limit={6} />
-
-        <Reveal className="mt-12">
-          <CtaLink to="/portfolio" variant="outline">
-            Ver portefólio completo
-          </CtaLink>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Sobre() {
-  return (
-    <section className="relative overflow-hidden bg-charcoal/20 py-24 lg:py-36">
-      <div className="relative z-10 mx-auto grid max-w-[1400px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-24">
-        <div>
-          <SectionHeading
-            eyebrow="Sobre nós"
-            title={
-              <>
-                Criatividade
-                <br />
-                <span className="text-gradient-brand">
-                  que ganha forma.
-                </span>
-              </>
-            }
-            subtitle="Na VinilArt desenvolvemos soluções de comunicação visual e personalização adaptadas a cada projeto, acompanhando a ideia desde o conceito até à aplicação final."
-          />
-
-          <Reveal>
-            <CtaLink
-              to="/sobre"
-              variant="outline"
-              className="mt-9"
-            >
-              Conhecer a VinilArt
-            </CtaLink>
-          </Reveal>
-        </div>
-
-        <Reveal delay={100}>
-          <div className="relative">
-            <MediaSlot
-              label="Fotografia da equipa, oficina ou produção VinilArt"
-              ratio="4 / 3"
-              tone="cyan"
-            />
-
-            <div className="absolute -bottom-5 left-6 right-6 hidden bg-ink/94 px-6 py-5 backdrop-blur sm:block">
-              <p className="font-display text-lg font-extrabold uppercase">
-                Saber fazer…
-                <span className="text-gradient-brand">
-                  {" "}
-                  como deve ser.
-                </span>
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function Index() {
   return (
     <>
       <Hero />
-      <Intro />
+
+      <BrandManifesto />
+
       <ServicesSection />
+
       <Processo />
-      <PortfolioSection />
+
       <SportBlock />
-      <Sobre />
+
       <FinalCta />
     </>
   );
