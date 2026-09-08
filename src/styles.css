@@ -4,12 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * VinilArt design system.
- * Base: 70% preto/carvão, 20% branco/cinza, 10% magenta + ciano + amarelo.
- * Todas as cores em oklch e usadas apenas por tokens semânticos.
- */
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -51,33 +45,40 @@
 :root {
   --radius: 0.25rem;
 
-  --ink: oklch(0.145 0.008 260);
-  --charcoal: oklch(0.203 0.008 260);
-  --graphite: oklch(0.29 0.008 260);
+  --ink: oklch(0.132 0.008 260);
+  --charcoal: oklch(0.182 0.009 260);
+  --graphite: oklch(0.255 0.01 260);
 
-  --background: oklch(0.145 0.008 260);
-  --foreground: oklch(0.965 0 0);
-  --card: oklch(0.203 0.008 260);
-  --card-foreground: oklch(0.965 0 0);
-  --popover: oklch(0.203 0.008 260);
-  --popover-foreground: oklch(0.965 0 0);
+  --background: var(--ink);
+  --foreground: oklch(0.975 0 0);
 
-  --magenta: oklch(0.63 0.21 355);
-  --cyan: oklch(0.68 0.13 232);
+  --card: var(--charcoal);
+  --card-foreground: var(--foreground);
+
+  --popover: var(--charcoal);
+  --popover-foreground: var(--foreground);
+
+  --magenta: oklch(0.64 0.22 355);
+  --cyan: oklch(0.7 0.14 232);
   --yellow: oklch(0.9 0.18 105);
 
-  --primary: oklch(0.965 0 0);
-  --primary-foreground: oklch(0.145 0.008 260);
-  --secondary: oklch(0.29 0.008 260);
-  --secondary-foreground: oklch(0.965 0 0);
-  --muted: oklch(0.24 0.008 260);
+  --primary: var(--foreground);
+  --primary-foreground: var(--ink);
+
+  --secondary: var(--graphite);
+  --secondary-foreground: var(--foreground);
+
+  --muted: oklch(0.225 0.008 260);
   --muted-foreground: oklch(0.72 0.01 260);
+
   --accent: var(--magenta);
-  --accent-foreground: oklch(0.965 0 0);
+  --accent-foreground: var(--foreground);
+
   --destructive: oklch(0.63 0.21 25);
-  --destructive-foreground: oklch(0.965 0 0);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
+  --destructive-foreground: var(--foreground);
+
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
   --ring: var(--cyan);
 
   --gradient-brand: linear-gradient(
@@ -86,12 +87,8 @@
     var(--cyan) 55%,
     var(--yellow) 100%
   );
-  --gradient-glow: radial-gradient(
-    60% 60% at 50% 40%,
-    color-mix(in oklab, var(--magenta) 28%, transparent) 0%,
-    transparent 70%
-  );
-  --shadow-lift: 0 24px 60px -30px oklch(0 0 0 / 90%);
+
+  --shadow-lift: 0 30px 80px -35px oklch(0 0 0 / 95%);
 }
 
 @layer base {
@@ -108,6 +105,7 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
@@ -117,7 +115,7 @@
   h4 {
     font-family: var(--font-display);
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     line-height: 0.95;
     text-wrap: balance;
   }
@@ -127,8 +125,6 @@
     color: var(--foreground);
   }
 }
-
-/* ---------- Utilities ---------- */
 
 @utility text-gradient-brand {
   background-image: var(--gradient-brand);
@@ -143,72 +139,98 @@
 @utility eyebrow {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: color-mix(in oklab, var(--foreground) 52%, transparent);
 }
 
-/* Textura subtil de grão sobre fundos escuros */
 @utility surface-grain {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.35;
-    background-image: radial-gradient(
-        oklch(1 0 0 / 4%) 1px,
-        transparent 1px
-      ),
-      radial-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 2px 3px;
+    z-index: 0;
+    opacity: 0.17;
+
+    background-image:
+      radial-gradient(oklch(1 0 0 / 4%) 0.8px, transparent 0.8px),
+      radial-gradient(oklch(1 0 0 / 2.5%) 0.8px, transparent 0.8px);
+
+    background-size:
+      4px 4px,
+      9px 9px;
+
+    background-position:
+      0 0,
+      3px 4px;
   }
 }
 
-/* Linhas diagonais para blocos energéticos (VinilArt Sport) */
 @utility surface-diagonal {
   background-image: repeating-linear-gradient(
     115deg,
-    oklch(1 0 0 / 5%) 0px,
-    oklch(1 0 0 / 5%) 1px,
+    oklch(1 0 0 / 3.5%) 0,
+    oklch(1 0 0 / 3.5%) 1px,
     transparent 1px,
-    transparent 14px
+    transparent 16px
   );
 }
 
-/* Placeholder de imagem: bloco gráfico escuro substituível por foto real */
+@utility surface-grid {
+  background-image:
+    linear-gradient(oklch(1 0 0 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(1 0 0 / 3%) 1px, transparent 1px);
+
+  background-size: 44px 44px;
+}
+
 @utility media-slot {
   position: relative;
   overflow: hidden;
+
   background-color: var(--charcoal);
-  background-image: linear-gradient(
-      135deg,
-      color-mix(in oklab, var(--magenta) 16%, transparent) 0%,
-      transparent 45%
+
+  background-image:
+    radial-gradient(
+      70% 70% at 0% 10%,
+      color-mix(in oklab, var(--magenta) 20%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      75% 75% at 100% 95%,
+      color-mix(in oklab, var(--cyan) 18%, transparent),
+      transparent 70%
     ),
     linear-gradient(
-      315deg,
-      color-mix(in oklab, var(--cyan) 16%, transparent) 0%,
-      transparent 50%
+      145deg,
+      oklch(1 0 0 / 2%),
+      transparent 55%
     );
+
   border: 1px solid var(--border);
 }
 
 @utility link-underline {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -4px;
+
     height: 2px;
     width: 0;
+
     background-image: var(--gradient-brand);
+
     transition: width 0.35s ease;
   }
+
   &:hover::after {
     width: 100%;
   }
@@ -219,11 +241,34 @@
   100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(2%, -2%, 0) scale(1.04);
   }
 }
 
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
 @utility brush-drift {
   animation: brush-drift 16s ease-in-out infinite;
+}
+
+@utility float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brush-drift,
+  .float-soft {
+    animation: none !important;
+  }
 }
