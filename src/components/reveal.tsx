@@ -16,6 +16,15 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+
+    const reduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -25,7 +34,7 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
           }
         }
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -36,8 +45,15 @@ export function Reveal({ children, className, delay = 0, as = "div" }: RevealPro
   return (
     <Tag
       ref={ref as never}
-      className={cn("reveal", visible && "reveal-in", className)}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn(className)}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "none" : "translateY(18px)",
+        transition:
+          "opacity 700ms cubic-bezier(0.22,1,0.36,1), transform 700ms cubic-bezier(0.22,1,0.36,1)",
+        transitionDelay: `${delay}ms`,
+        willChange: "opacity, transform",
+      }}
     >
       {children}
     </Tag>
