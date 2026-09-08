@@ -32,7 +32,7 @@ export function MediaSlot({
       aria-label={label}
       style={{ aspectRatio: ratio }}
       className={cn(
-        "media-slot surface-grain group/slot flex h-full w-full items-end",
+        "media-slot surface-grain group/slot flex w-full items-end",
         "before:absolute before:left-0 before:top-0 before:h-full before:w-[3px] before:content-['']",
         toneRing[tone],
         className,
