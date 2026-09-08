@@ -10,8 +10,8 @@ export function PortfolioGrid({
   limit,
   lightbox = true,
 }: {
-  limit?: number;
-  lightbox?: boolean;
+  limit?: number | undefined;
+  lightbox?: boolean | undefined;
 }) {
   const [filter, setFilter] = useState<string>("Todos");
   const [active, setActive] = useState<PortfolioItem | null>(null);

@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 type MediaSlotProps = {
   /** Descrição da fotografia real que irá substituir este bloco. */
   label: string;
-  className?: string;
-  ratio?: string;
-  tone?: "magenta" | "cyan" | "yellow" | "neutral";
-  showLabel?: boolean;
+  className?: string | undefined;
+  ratio?: string | undefined;
+  tone?: ("magenta" | "cyan" | "yellow" | "neutral") | undefined;
+  showLabel?: boolean | undefined;
 };
 
 const toneRing: Record<NonNullable<MediaSlotProps["tone"]>, string> = {

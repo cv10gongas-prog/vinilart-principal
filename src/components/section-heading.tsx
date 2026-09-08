@@ -13,10 +13,10 @@ export function SectionHeading({
 }: {
   eyebrow: string;
   title: ReactNode;
-  subtitle?: string;
-  className?: string;
-  align?: "left" | "center";
-  children?: ReactNode;
+  subtitle?: string | undefined;
+  className?: string | undefined;
+  align?: ("left" | "center") | undefined;
+  children?: ReactNode | undefined;
 }) {
   return (
     <Reveal

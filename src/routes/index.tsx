@@ -158,8 +158,15 @@ function Intro() {
 }
 
 function Servicos() {
-  const [logos3d, design, impressao, montras, interiores, viaturas, brindes, estampagem] =
-    services;
+  const svc = (slug: string) => services.find((s) => s.slug === slug)!;
+  const logos3d = svc("logotipos-3d");
+  const design = svc("design");
+  const impressao = svc("impressao");
+  const montras = svc("decoracao-de-montras");
+  const interiores = svc("decoracao-de-interiores");
+  const viaturas = svc("decoracao-de-viaturas");
+  const brindes = svc("brindes");
+  const estampagem = svc("estampagem");
 
   return (
     <section className="bg-ink py-24 lg:py-32">
@@ -215,9 +222,9 @@ function FeatureCard({
   compact = false,
 }: {
   service: (typeof services)[number];
-  className?: string;
-  tall?: boolean;
-  compact?: boolean;
+  className?: string | undefined;
+  tall?: boolean | undefined;
+  compact?: boolean | undefined;
 }) {
   return (
     <Reveal className={className}>

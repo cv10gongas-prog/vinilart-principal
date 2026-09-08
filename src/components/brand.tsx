@@ -4,8 +4,8 @@ export function Wordmark({
   className,
   sport = false,
 }: {
-  className?: string;
-  sport?: boolean;
+  className?: string | undefined;
+  sport?: boolean | undefined;
 }) {
   return (
     <span
@@ -27,7 +27,7 @@ export function Wordmark({
 }
 
 /** Faixa gráfica magenta / ciano / amarelo. */
-export function BrandBar({ className }: { className?: string }) {
+export function BrandBar({ className }: { className?: string | undefined }) {
   return <div className={cn("bar-brand h-[3px] w-full", className)} aria-hidden="true" />;
 }
 
@@ -36,8 +36,8 @@ export function BrushGlow({
   className,
   tone = "magenta",
 }: {
-  className?: string;
-  tone?: "magenta" | "cyan" | "yellow";
+  className?: string | undefined;
+  tone?: ("magenta" | "cyan" | "yellow") | undefined;
 }) {
   const color =
     tone === "magenta"

@@ -8,7 +8,7 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: string;
-  text?: string;
+  text?: string | undefined;
 }) {
   return (
     <section className="surface-grain relative overflow-hidden border-b border-border bg-charcoal/30 pb-16 pt-36 sm:pb-20 sm:pt-44">

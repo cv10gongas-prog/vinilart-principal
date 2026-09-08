@@ -27,16 +27,16 @@ export function CtaLink({
   arrow = true,
 }: {
   to: string;
-  hash?: string;
-  variant?: Variant;
-  className?: string;
+  hash?: string | undefined;
+  variant?: Variant | undefined;
+  className?: string | undefined;
   children: ReactNode;
-  arrow?: boolean;
+  arrow?: boolean | undefined;
 }) {
   return (
     <Link
       to={to as never}
-      hash={hash}
+      {...(hash ? { hash } : {})}
       className={cn(base, variants[variant], className)}
     >
       {children}
@@ -56,11 +56,11 @@ export function CtaAnchor({
   external = false,
 }: {
   href: string;
-  variant?: Variant;
-  className?: string;
+  variant?: Variant | undefined;
+  className?: string | undefined;
   children: ReactNode;
-  arrow?: boolean;
-  external?: boolean;
+  arrow?: boolean | undefined;
+  external?: boolean | undefined;
 }) {
   return (
     <a
