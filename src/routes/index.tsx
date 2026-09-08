@@ -15,8 +15,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title:
-          "VinilArt — Design, Impressão e Personalização em Oeiras",
+        title: "VinilArt — Design, Impressão e Personalização em Oeiras",
       },
       {
         name: "description",
@@ -25,8 +24,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content:
-          "VinilArt — Design, Impressão e Personalização em Oeiras",
+        content: "VinilArt — Design, Impressão e Personalização em Oeiras",
       },
       {
         property: "og:description",
@@ -40,7 +38,7 @@ export const Route = createFileRoute("/")({
 
 function Hero() {
   return (
-    <section className="surface-grain relative min-h-[100svh] overflow-hidden bg-ink pb-16 pt-32 sm:pb-20 sm:pt-40 lg:flex lg:min-h-[920px] lg:items-center lg:pb-24 lg:pt-36">
+    <section className="surface-grain relative min-h-[100svh] overflow-hidden bg-ink pb-16 pt-32 sm:pb-20 sm:pt-40 lg:flex lg:min-h-[900px] lg:items-center lg:pb-24 lg:pt-36">
       <BrushGlow
         tone="magenta"
         className="left-[-15%] top-[-8%] h-[620px] w-[620px] opacity-70"
@@ -65,39 +63,33 @@ function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20 lg:px-10">
+      <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.96fr_1.04fr] lg:gap-16 lg:px-10">
         <div className="relative z-10">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="bar-brand h-[2px] w-10" />
-
-              <span className="eyebrow">
-                Comunicação visual · Oeiras
-              </span>
+              <span className="eyebrow">Comunicação visual · Oeiras</span>
             </div>
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="mt-7 max-w-[760px] text-[3rem] leading-[0.91] tracking-[-0.055em] sm:text-[4.6rem] lg:text-[5.7rem] xl:text-[6.25rem]">
+            <h1 className="mt-7 max-w-[760px] text-[3rem] leading-[0.91] tracking-[-0.055em] sm:text-[4.6rem] lg:text-[5.35rem] xl:text-[5.9rem]">
               Damos forma
               <br />
-              às tuas{" "}
-              <span className="text-gradient-brand">
-                ideias.
-              </span>
+              às tuas
+              <br />
+              <span className="text-gradient-brand">ideias.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={150}>
             <p className="mt-8 max-w-[640px] font-display text-[1rem] font-semibold uppercase leading-[1.45] tracking-[-0.01em] text-foreground/88 sm:text-[1.15rem]">
-              Design, impressão e personalização para marcas
-              que querem destacar-se.
+              Design, impressão e personalização para marcas que querem destacar-se.
             </p>
 
             <p className="mt-5 max-w-[590px] text-[0.98rem] leading-7 text-foreground/54 sm:text-base">
-              Da ideia à aplicação final, criamos soluções
-              visuais pensadas para dar presença, identidade e
-              impacto a cada projeto.
+              Da ideia à aplicação final, criamos soluções visuais pensadas para dar
+              presença, identidade e impacto a cada projeto.
             </p>
           </Reveal>
 
@@ -150,10 +142,10 @@ function Hero() {
 
         <Reveal
           delay={150}
-          className="relative mx-auto w-full max-w-[720px] lg:mx-0"
+          className="relative mx-auto w-full max-w-[680px] lg:mx-0 lg:justify-self-end"
         >
-          <div className="relative min-h-[560px] sm:min-h-[660px] lg:min-h-[720px]">
-            <div className="absolute left-0 top-[7%] z-10 w-[72%]">
+          <div className="relative min-h-[540px] sm:min-h-[630px] lg:min-h-[680px]">
+            <div className="absolute left-[2%] top-[8%] z-10 w-[68%]">
               <MediaSlot
                 label="Aplicação de vinil em viatura"
                 ratio="4 / 5"
@@ -163,7 +155,7 @@ function Hero() {
               />
             </div>
 
-            <div className="absolute right-0 top-0 z-20 w-[43%]">
+            <div className="absolute right-[1%] top-[1%] z-20 w-[39%]">
               <MediaSlot
                 label="Impressão de grande formato"
                 ratio="1 / 1"
@@ -173,7 +165,7 @@ function Hero() {
               />
             </div>
 
-            <div className="absolute bottom-[5%] right-[2%] z-30 w-[53%]">
+            <div className="absolute bottom-[7%] right-[4%] z-30 w-[49%]">
               <MediaSlot
                 label="Montra decorada"
                 ratio="4 / 3"
@@ -183,7 +175,7 @@ function Hero() {
               />
             </div>
 
-            <div className="absolute bottom-[8%] left-[5%] z-40 hidden border border-white/[0.08] bg-ink/90 px-5 py-4 backdrop-blur-md sm:block">
+            <div className="absolute bottom-[10%] left-[8%] z-40 hidden border border-white/[0.08] bg-ink/90 px-5 py-4 backdrop-blur-md sm:block">
               <p className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-foreground/35">
                 VinilArt
               </p>
@@ -199,12 +191,12 @@ function Hero() {
 
             <div
               aria-hidden="true"
-              className="absolute right-[10%] top-[17%] -z-10 h-[55%] w-[52%] border border-white/[0.06]"
+              className="absolute right-[12%] top-[19%] -z-10 h-[50%] w-[48%] border border-white/[0.06]"
             />
 
             <div
               aria-hidden="true"
-              className="absolute bottom-[14%] left-[8%] -z-10 h-[42%] w-[48%] border border-white/[0.04]"
+              className="absolute bottom-[16%] left-[10%] -z-10 h-[38%] w-[44%] border border-white/[0.04]"
             />
           </div>
         </Reveal>
@@ -222,49 +214,104 @@ function Hero() {
 }
 
 function Intro() {
+  const values = [
+    {
+      n: "01",
+      title: "Criatividade",
+      text: "Cada projeto começa com uma ideia e uma solução visual pensada para lhe dar identidade.",
+    },
+    {
+      n: "02",
+      title: "Atenção ao detalhe",
+      text: "Do conceito à aplicação, cada elemento é trabalhado para contribuir para o resultado final.",
+    },
+    {
+      n: "03",
+      title: "Soluções adaptadas",
+      text: "Não trabalhamos com uma solução igual para todos. Cada projeto pede uma abordagem própria.",
+    },
+    {
+      n: "04",
+      title: "Impacto visual",
+      text: "Criamos comunicação que se vê, se reconhece e ajuda cada marca ou espaço a destacar-se.",
+    },
+  ];
+
   return (
-    <section className="border-y border-border bg-charcoal/30 py-24 lg:py-32">
-      <div className="mx-auto grid max-w-[1400px] gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+    <section className="relative overflow-hidden border-y border-white/[0.06] bg-charcoal/20 py-24 lg:py-32">
+      <BrushGlow
+        tone="magenta"
+        className="left-[-20%] bottom-[-45%] h-[500px] w-[500px] opacity-25"
+      />
+
+      <div className="relative mx-auto grid max-w-[1400px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-24">
         <Reveal className="relative">
-          <MediaSlot
-            label="Trabalho de produção na oficina VinilArt"
-            ratio="4 / 5"
-            tone="magenta"
-          />
+          <div className="relative">
+            <MediaSlot
+              label="Trabalho de produção na oficina VinilArt"
+              ratio="4 / 5"
+              tone="magenta"
+            />
+
+            <div className="absolute -bottom-5 -right-4 hidden border border-white/[0.08] bg-ink/95 px-6 py-5 shadow-2xl backdrop-blur sm:block">
+              <p className="eyebrow">Da ideia à aplicação</p>
+
+              <p className="mt-2 max-w-[220px] font-display text-lg font-extrabold uppercase leading-tight text-foreground">
+                Soluções pensadas para cada projeto.
+              </p>
+
+              <BrandBar className="mt-4 w-20" />
+            </div>
+          </div>
         </Reveal>
 
-        <div className="lg:pt-10">
+        <div>
           <SectionHeading
             eyebrow="VinilArt"
             title={
               <>
                 Saber fazer…
                 <br />
-                <span className="text-gradient-brand">
-                  como deve ser.
-                </span>
+                <span className="text-gradient-brand">como deve ser.</span>
               </>
             }
             subtitle="Na VinilArt transformamos ideias em soluções de comunicação visual e personalização. Do conceito à aplicação final, trabalhamos cada projeto com atenção ao detalhe e foco no resultado."
           />
 
-          <Reveal delay={120}>
-            <div className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2">
-              {[
-                "Criatividade",
-                "Atenção ao detalhe",
-                "Soluções adaptadas",
-                "Impacto visual",
-              ].map((v) => (
-                <div
-                  key={v}
-                  className="bg-ink px-5 py-5"
-                >
-                  <span className="font-display text-sm font-bold uppercase tracking-[0.12em] text-foreground/85">
-                    {v}
+          <div className="mt-12 border-t border-white/[0.07]">
+            {values.map((value, index) => (
+              <Reveal
+                key={value.n}
+                delay={100 + index * 70}
+                className="group"
+              >
+                <div className="grid gap-4 border-b border-white/[0.07] py-6 sm:grid-cols-[52px_190px_1fr] sm:items-start sm:gap-6">
+                  <span className="font-display text-sm font-bold text-foreground/25 transition-colors duration-300 group-hover:text-magenta">
+                    {value.n}
                   </span>
+
+                  <h3 className="font-display text-lg font-extrabold uppercase tracking-tight text-foreground/90">
+                    {value.title}
+                  </h3>
+
+                  <p className="max-w-xl text-sm leading-6 text-foreground/52">
+                    {value.text}
+                  </p>
                 </div>
-              ))}
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={420}>
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <CtaLink to="/sobre" variant="outline">
+                Conhecer a VinilArt
+              </CtaLink>
+
+              <p className="max-w-[300px] text-xs leading-5 text-foreground/35">
+                Design, produção e personalização com uma abordagem adaptada
+                a cada necessidade.
+              </p>
             </div>
           </Reveal>
         </div>
@@ -274,8 +321,7 @@ function Intro() {
 }
 
 function Servicos() {
-  const svc = (slug: string) =>
-    services.find((s) => s.slug === slug)!;
+  const svc = (slug: string) => services.find((s) => s.slug === slug)!;
 
   const logos3d = svc("logotipos-3d");
   const design = svc("design");
@@ -294,53 +340,28 @@ function Servicos() {
           title={
             <>
               Soluções que dão{" "}
-              <span className="text-gradient-brand">
-                vida
-              </span>{" "}
-              às ideias.
+              <span className="text-gradient-brand">vida</span> às ideias.
             </>
           }
         />
 
         <div className="mt-14 grid gap-4 lg:grid-cols-12">
-          <FeatureCard
-            service={viaturas}
-            className="lg:col-span-7"
-            tall
-          />
+          <FeatureCard service={viaturas} className="lg:col-span-7" tall />
 
           <div className="grid gap-4 lg:col-span-5">
             <FeatureCard service={montras} />
-
             <FeatureCard service={logos3d} />
           </div>
 
-          <FeatureCard
-            service={impressao}
-            className="lg:col-span-5"
-          />
+          <FeatureCard service={impressao} className="lg:col-span-5" />
 
-          <FeatureCard
-            service={interiores}
-            className="lg:col-span-4"
-          />
+          <FeatureCard service={interiores} className="lg:col-span-4" />
 
-          <FeatureCard
-            service={design}
-            className="lg:col-span-3"
-            compact
-          />
+          <FeatureCard service={design} className="lg:col-span-3" compact />
 
-          <FeatureCard
-            service={estampagem}
-            className="lg:col-span-4"
-          />
+          <FeatureCard service={estampagem} className="lg:col-span-4" />
 
-          <FeatureCard
-            service={brindes}
-            className="lg:col-span-4"
-            compact
-          />
+          <FeatureCard service={brindes} className="lg:col-span-4" compact />
 
           <Reveal
             delay={100}
@@ -349,9 +370,7 @@ function Servicos() {
             <p className="font-display text-2xl font-extrabold uppercase leading-tight tracking-tight">
               Cada suporte
               <br />
-              <span className="text-gradient-brand">
-                é uma oportunidade.
-              </span>
+              <span className="text-gradient-brand">é uma oportunidade.</span>
             </p>
 
             <Link
@@ -391,9 +410,7 @@ function FeatureCard({
         ) : null}
 
         <div className="p-6">
-          <h3 className="text-2xl">
-            {service.title}
-          </h3>
+          <h3 className="text-2xl">{service.title}</h3>
 
           <p className="mt-3 text-sm leading-relaxed text-foreground/60">
             {service.text}
@@ -415,9 +432,7 @@ function Processo() {
           title={
             <>
               Da ideia ao{" "}
-              <span className="text-gradient-brand">
-                resultado.
-              </span>
+              <span className="text-gradient-brand">resultado.</span>
             </>
           }
         />
@@ -434,9 +449,7 @@ function Processo() {
                 {step.n}
               </span>
 
-              <h3 className="mt-4 text-xl">
-                {step.title}
-              </h3>
+              <h3 className="mt-4 text-xl">{step.title}</h3>
 
               <p className="mt-3 text-sm leading-relaxed text-foreground/60">
                 {step.text}
@@ -460,9 +473,7 @@ function PortfolioSection() {
           title={
             <>
               O nosso trabalho{" "}
-              <span className="text-gradient-brand">
-                fala por nós.
-              </span>
+              <span className="text-gradient-brand">fala por nós.</span>
             </>
           }
           subtitle="Cada projeto é uma oportunidade de transformar uma ideia em algo visível, marcante e único."
@@ -471,10 +482,7 @@ function PortfolioSection() {
         <PortfolioGrid limit={6} />
 
         <Reveal className="mt-12">
-          <CtaLink
-            to="/portfolio"
-            variant="outline"
-          >
+          <CtaLink to="/portfolio" variant="outline">
             Ver portefólio completo
           </CtaLink>
         </Reveal>
@@ -493,20 +501,14 @@ function Sobre() {
             title={
               <>
                 Criatividade que{" "}
-                <span className="text-gradient-brand">
-                  ganha forma.
-                </span>
+                <span className="text-gradient-brand">ganha forma.</span>
               </>
             }
             subtitle="Na VinilArt desenvolvemos soluções de comunicação visual e personalização adaptadas a diferentes projetos. Trabalhamos desde a fase de conceito até à aplicação final, procurando sempre criar soluções com impacto visual e identidade própria."
           />
 
           <Reveal delay={120}>
-            <CtaLink
-              to="/sobre"
-              variant="outline"
-              className="mt-10"
-            >
+            <CtaLink to="/sobre" variant="outline" className="mt-10">
               Conhecer a VinilArt
             </CtaLink>
           </Reveal>
