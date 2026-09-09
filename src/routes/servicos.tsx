@@ -39,9 +39,10 @@ export const Route = createFileRoute("/servicos")({
 function ServicosPage() {
   const visualServices = services.filter((service) =>
     [
-      "decoracao-de-viaturas",
       "decoracao-de-montras",
-      "estampagem",
+      "decoracao-de-interiores",
+      "impressao",
+      "decoracao-de-viaturas",
     ].includes(service.slug),
   );
 
@@ -193,24 +194,17 @@ function ServicosPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {visualServices.map((service, index) => (
               <Reveal
                 key={service.slug}
                 delay={index * 80}
-                className={
-                  index === 0
-                    ? "sm:col-span-2 lg:col-span-6"
-                    : "lg:col-span-3"
-                }
               >
                 <MediaSlot
                   label={service.image}
-                  ratio={
-                    index === 0
-                      ? "16 / 10"
-                      : "4 / 5"
-                  }
+                  sublabel={service.sublabel}
+                  src={service.src}
+                  ratio="4 / 5"
                   tone={service.tone}
                 />
               </Reveal>

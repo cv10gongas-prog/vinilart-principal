@@ -127,6 +127,7 @@ export function PortfolioGrid({
             >
               <MediaSlot
                 label={item.image}
+                src={item.src}
                 ratio={item.ratio}
                 tone={item.tone}
                 showLabel={false}
@@ -143,6 +144,12 @@ export function PortfolioGrid({
                   <p className="mt-1 max-w-[28ch] font-display text-sm font-extrabold uppercase leading-5 text-white sm:text-base">
                     {item.image}
                   </p>
+
+                  {item.sublabel ? (
+                    <p className="mt-1 max-w-[32ch] text-xs text-white/70">
+                      {item.sublabel}
+                    </p>
+                  ) : null}
 
                   {lightbox ? (
                     <span className="mt-3 hidden w-fit text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-white/55 sm:block">
@@ -187,6 +194,7 @@ export function PortfolioGrid({
           >
             <MediaSlot
               label={active.image}
+              src={active.src}
               ratio={active.ratio}
               tone={active.tone}
               showLabel={false}
@@ -204,6 +212,12 @@ export function PortfolioGrid({
                 <p className="mt-2 font-display text-lg font-extrabold uppercase sm:text-xl">
                   {active.image}
                 </p>
+
+                {active.sublabel ? (
+                  <p className="mt-1 text-sm text-foreground/70 sm:text-base">
+                    {active.sublabel}
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>

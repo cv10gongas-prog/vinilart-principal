@@ -33,6 +33,8 @@ export type Service = {
   title: string;
   text: string;
   image: string;
+  sublabel?: string;
+  src?: string;
   tone: "magenta" | "cyan" | "yellow" | "neutral";
 };
 
@@ -55,21 +57,27 @@ export const services: Service[] = [
     slug: "impressao",
     title: "Impressão",
     text: "Soluções de impressão para diferentes aplicações, formatos e suportes.",
-    image: "Impressão de grande formato em produção",
+    image: "Impressão & fachadas",
+    sublabel: "Comunicação visual exterior e substituição de elementos gráficos",
+    src: "/portfolio/farmacia-pombalina-fachada.jpg",
     tone: "cyan",
   },
   {
     slug: "decoracao-de-montras",
     title: "Decoração de Montras",
     text: "Comunicação visual e personalização para transformar montras em pontos de contacto com a marca.",
-    image: "Montra decorada com aplicação de vinil",
+    image: "Montras & fachadas",
+    sublabel: "Comunicação visual exterior e aplicação de identidade",
+    src: "/portfolio/exclusive-barbershop-montra.jpg",
     tone: "magenta",
   },
   {
     slug: "decoracao-de-interiores",
     title: "Decoração de Interiores",
     text: "Aplicações visuais para dar identidade a espaços comerciais, profissionais ou institucionais.",
-    image: "Parede interior com aplicação gráfica",
+    image: "Decoração de interiores",
+    sublabel: "Aplicação de vinil fosco e identidade visual em vidro",
+    src: "/portfolio/arqbrundi-interiores.jpg",
     tone: "cyan",
   },
   {
@@ -113,6 +121,8 @@ export type PortfolioItem = {
     "Todos"
   >;
   image: string;
+  sublabel?: string;
+  src?: string;
   ratio: string;
   tone: "magenta" | "cyan" | "yellow" | "neutral";
 };
@@ -120,73 +130,81 @@ export type PortfolioItem = {
 export const portfolio: PortfolioItem[] = [
   {
     id: "p01",
-    category: "Viaturas",
-    image: "Viatura personalizada — vista lateral",
+    category: "Interiores",
+    image: "ARQBRUNDI",
+    sublabel: "Aplicação de vinil fosco e identidade visual em vidro",
+    src: "/portfolio/arqbrundi-interiores.jpg",
     ratio: "4 / 5",
     tone: "cyan",
   },
   {
     id: "p02",
     category: "Montras",
+    image: "Exclusive Barbershop",
+    sublabel: "Comunicação visual exterior e aplicação de identidade",
+    src: "/portfolio/exclusive-barbershop-montra.jpg",
+    ratio: "4 / 5",
+    tone: "magenta",
+  },
+  {
+    id: "p03",
+    category: "Impressão",
+    image: "Farmácia Pombalina",
+    sublabel: "Comunicação visual exterior e substituição de elementos gráficos",
+    src: "/portfolio/farmacia-pombalina-fachada.jpg",
+    ratio: "4 / 3",
+    tone: "cyan",
+  },
+  {
+    id: "p04",
+    category: "Interiores",
+    image: "Sinalética interior",
+    sublabel: "Aplicação gráfica personalizada em espaço interior",
+    src: "/portfolio/sinaletica-interior-linhas.jpg",
+    ratio: "4 / 5",
+    tone: "yellow",
+  },
+  {
+    id: "p05",
+    category: "Viaturas",
+    image: "Viatura personalizada — vista lateral",
+    ratio: "4 / 5",
+    tone: "cyan",
+  },
+  {
+    id: "p06",
+    category: "Montras",
     image: "Montra comercial decorada",
     ratio: "4 / 3",
     tone: "magenta",
   },
   {
-    id: "p03",
+    id: "p07",
     category: "Logotipos 3D",
     image: "Logotipo 3D em receção",
     ratio: "1 / 1",
     tone: "yellow",
   },
   {
-    id: "p04",
-    category: "Interiores",
-    image: "Espaço interior com aplicação gráfica",
-    ratio: "16 / 10",
-    tone: "cyan",
-  },
-  {
-    id: "p05",
+    id: "p08",
     category: "Estampagem",
     image: "Vestuário personalizado",
     ratio: "4 / 5",
     tone: "magenta",
   },
   {
-    id: "p06",
-    category: "Impressão",
-    image: "Impressão de grande formato",
-    ratio: "4 / 3",
-    tone: "neutral",
-  },
-  {
-    id: "p07",
+    id: "p09",
     category: "Brindes",
     image: "Conjunto de brindes personalizados",
     ratio: "1 / 1",
     tone: "yellow",
   },
   {
-    id: "p08",
+    id: "p10",
     category: "Viaturas",
     image: "Frota de viaturas personalizada",
     ratio: "16 / 10",
     tone: "magenta",
-  },
-  {
-    id: "p09",
-    category: "Montras",
-    image: "Vinil de corte em vidro",
-    ratio: "1 / 1",
-    tone: "cyan",
-  },
-  {
-    id: "p10",
-    category: "Interiores",
-    image: "Sinalética interior",
-    ratio: "4 / 5",
-    tone: "yellow",
   },
   {
     id: "p11",

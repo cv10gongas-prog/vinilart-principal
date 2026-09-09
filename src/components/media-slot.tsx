@@ -15,6 +15,12 @@ type MediaSlotProps = {
     | undefined;
 
   showLabel?: boolean | undefined;
+
+  src?: string | undefined;
+
+  sublabel?: string | undefined;
+
+  imageAlt?: string | undefined;
 };
 
 const toneRing: Record<
@@ -33,6 +39,9 @@ export function MediaSlot({
   ratio = "4 / 3",
   tone = "neutral",
   showLabel = true,
+  src,
+  sublabel,
+  imageAlt,
 }: MediaSlotProps) {
   return (
     <figure
@@ -50,14 +59,31 @@ export function MediaSlot({
         className,
       )}
     >
+      {src ? (
+        <img
+          src={src}
+          alt={imageAlt || label}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover/slot:scale-[1.03]"
+        />
+      ) : null}
+
       <div
         aria-hidden="true"
-        className="surface-diagonal pointer-events-none absolute inset-0 opacity-22"
+        className={cn(
+          "surface-diagonal pointer-events-none absolute inset-0",
+          src ? "opacity-10" : "opacity-22",
+        )}
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-white/[0.015]"
+        className={cn(
+          "pointer-events-none absolute inset-0",
+          src
+            ? "bg-gradient-to-t from-black/85 via-black/25 to-black/15"
+            : "bg-gradient-to-t from-black/25 via-transparent to-white/[0.015]",
+        )}
       />
 
       <div
@@ -72,13 +98,15 @@ export function MediaSlot({
 
       {showLabel ? (
         <figcaption className="relative z-10 w-full p-4 sm:p-5">
-          <span className="eyebrow block text-[0.56rem] text-foreground/35">
-            Imagem
-          </span>
-
-          <span className="mt-1.5 block max-w-[26ch] text-xs leading-snug text-foreground/58 sm:text-sm">
+          <span className="eyebrow block text-[0.56rem] text-foreground/50">
             {label}
           </span>
+
+          {sublabel ? (
+            <span className="mt-1 block max-w-[28ch] text-xs leading-snug text-foreground/80 sm:text-sm">
+              {sublabel}
+            </span>
+          ) : null}
         </figcaption>
       ) : null}
     </figure>
