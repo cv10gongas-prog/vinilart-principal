@@ -81,7 +81,7 @@ export function MediaSlot({
         className={cn(
           "pointer-events-none absolute inset-0",
           src
-            ? "bg-gradient-to-t from-black/85 via-black/25 to-black/15"
+            ? "bg-gradient-to-t from-black/95 via-black/55 via-35% to-transparent"
             : "bg-gradient-to-t from-black/25 via-transparent to-white/[0.015]",
         )}
       />
@@ -98,12 +98,22 @@ export function MediaSlot({
 
       {showLabel ? (
         <figcaption className="relative z-10 w-full p-4 sm:p-5">
-          <span className="eyebrow block text-[0.56rem] text-foreground/50">
+          <span
+            className={cn(
+              "eyebrow block text-[0.56rem]",
+              src ? "text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" : "text-foreground/50",
+            )}
+          >
             {label}
           </span>
 
           {sublabel ? (
-            <span className="mt-1 block max-w-[28ch] text-xs leading-snug text-foreground/80 sm:text-sm">
+            <span
+              className={cn(
+                "mt-1 block max-w-[28ch] text-xs leading-snug sm:text-sm",
+                src ? "font-medium text-white/95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]" : "text-foreground/80",
+              )}
+            >
               {sublabel}
             </span>
           ) : null}

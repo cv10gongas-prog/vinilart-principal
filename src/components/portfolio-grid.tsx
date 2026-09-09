@@ -133,26 +133,33 @@ export function PortfolioGrid({
                 showLabel={false}
               />
 
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent opacity-75 transition-opacity duration-500 sm:opacity-0 sm:group-hover:opacity-100" />
+              <div
+                className={cn(
+                  "pointer-events-none absolute inset-0 bg-gradient-to-t transition-opacity duration-500",
+                  item.src
+                    ? "from-black/95 via-black/55 via-35% to-transparent opacity-85 sm:opacity-0 sm:group-hover:opacity-100"
+                    : "from-black/85 via-black/10 to-transparent opacity-75 sm:opacity-0 sm:group-hover:opacity-100",
+                )}
+              />
 
               <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
                 <div className="transition-all duration-500 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                  <span className="text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-cyan sm:text-[0.6rem]">
+                  <span className="text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-cyan drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] sm:text-[0.6rem]">
                     {item.category}
                   </span>
 
-                  <p className="mt-1 max-w-[28ch] font-display text-sm font-extrabold uppercase leading-5 text-white sm:text-base">
+                  <p className="mt-1 max-w-[28ch] font-display text-sm font-extrabold uppercase leading-5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] sm:text-base">
                     {item.image}
                   </p>
 
                   {item.sublabel ? (
-                    <p className="mt-1 max-w-[32ch] text-xs text-white/70">
+                    <p className="mt-1 max-w-[32ch] text-xs font-medium text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       {item.sublabel}
                     </p>
                   ) : null}
 
                   {lightbox ? (
-                    <span className="mt-3 hidden w-fit text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-white/55 sm:block">
+                    <span className="mt-3 hidden w-fit text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-white/70 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] sm:block">
                       Ver projeto
                     </span>
                   ) : null}
