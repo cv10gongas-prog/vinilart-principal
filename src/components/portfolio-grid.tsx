@@ -181,7 +181,7 @@ export function PortfolioGrid({
 
       {active ? (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/96 p-4 backdrop-blur-xl sm:p-8"
+          className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-ink/96 p-4 backdrop-blur-xl sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={active.image}
@@ -189,46 +189,59 @@ export function PortfolioGrid({
             setActive(null);
           }}
         >
+          {/* Botão fechar fixo no canto superior direito */}
           <button
             type="button"
             aria-label="Fechar"
-            className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center border border-white/[0.1] bg-ink/70 text-foreground transition-colors hover:bg-white hover:text-ink sm:right-6 sm:top-6"
-            onClick={() => {
+            className="fixed right-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-ink/90 text-white shadow-2xl transition-all duration-200 hover:scale-105 hover:border-white/40 hover:bg-white hover:text-ink sm:right-6 sm:top-6 sm:h-13 sm:w-13"
+            onClick={(e) => {
+              e.stopPropagation();
               setActive(null);
             }}
           >
-            <X className="h-5 w-5" />
+            <X className="h-6 w-6 stroke-[2.5]" />
           </button>
 
           <div
-            className="w-full max-w-5xl"
+            className="relative my-auto flex max-h-[90vh] w-fit max-w-[90vw] flex-col items-center justify-center"
             onClick={(event) => {
               event.stopPropagation();
             }}
           >
-            <MediaSlot
-              label={active.image}
-              src={active.src}
-              ratio={active.ratio}
-              tone={active.tone}
-              showLabel={false}
-              className="max-h-[72vh]"
-            />
+            {active.src ? (
+              <div className="relative flex max-h-[78vh] max-w-[90vw] items-center justify-center overflow-hidden rounded-sm border border-white/10 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+                <img
+                  src={active.src}
+                  alt={active.image}
+                  className="max-h-[78vh] max-w-[90vw] object-contain"
+                />
+              </div>
+            ) : (
+              <div className="w-full max-w-4xl">
+                <MediaSlot
+                  label={active.image}
+                  ratio={active.ratio}
+                  tone={active.tone}
+                  showLabel={false}
+                  className="max-h-[72vh]"
+                />
+              </div>
+            )}
 
-            <div className="mt-5 flex items-start gap-4">
+            <div className="mt-4 flex w-full max-w-full items-start gap-4 px-1">
               <span className="bar-brand mt-2 h-[2px] w-9 shrink-0" />
 
-              <div>
+              <div className="min-w-0">
                 <span className="eyebrow text-cyan">
                   {active.category}
                 </span>
 
-                <p className="mt-2 font-display text-lg font-extrabold uppercase sm:text-xl">
+                <p className="mt-1 font-display text-lg font-extrabold uppercase sm:text-xl">
                   {active.image}
                 </p>
 
                 {active.sublabel ? (
-                  <p className="mt-1 text-sm text-foreground/70 sm:text-base">
+                  <p className="mt-1 text-sm text-foreground/75 sm:text-base">
                     {active.sublabel}
                   </p>
                 ) : null}
