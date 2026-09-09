@@ -4,6 +4,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 import { MediaSlot } from "@/components/media-slot";
 import { Reveal } from "@/components/reveal";
@@ -27,6 +28,12 @@ export function PortfolioGrid({
 
   const [active, setActive] =
     useState<PortfolioItem | null>(null);
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const items = useMemo(() => {
     const list =
@@ -179,77 +186,80 @@ export function PortfolioGrid({
         ))}
       </div>
 
-      {active ? (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-ink/96 p-4 backdrop-blur-xl sm:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={active.image}
-          onClick={() => {
-            setActive(null);
-          }}
-        >
-          {/* Botão fechar fixo no canto superior direito */}
-          <button
-            type="button"
-            aria-label="Fechar"
-            className="fixed right-4 top-4 z-[110] flex h-12 w-12 items-center justify-center rounded-full border border-white/30 bg-black/85 text-white shadow-[0_4px_24px_rgba(0,0,0,0.7)] backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-white/60 hover:bg-white hover:text-ink sm:right-6 sm:top-6 sm:h-13 sm:w-13"
-            onClick={(e) => {
-              e.stopPropagation();
-              setActive(null);
-            }}
-          >
-            <X className="h-6 w-6 stroke-[2.5]" />
-          </button>
+      {mounted && active
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-ink/96 p-4 backdrop-blur-xl sm:p-8"
+              role="dialog"
+              aria-modal="true"
+              aria-label={active.image}
+              onClick={() => {
+                setActive(null);
+              }}
+            >
+              {/* Botão fechar fixo no canto superior direito do viewport */}
+              <button
+                type="button"
+                aria-label="Fechar"
+                className="fixed right-4 top-4 z-[10000] flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/30 bg-black/90 text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-200 hover:scale-105 hover:border-white/60 hover:bg-white hover:text-ink sm:right-6 sm:top-6 sm:h-13 sm:w-13"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActive(null);
+                }}
+              >
+                <X className="h-6 w-6 stroke-[2.5]" />
+              </button>
 
-          <div
-            className="relative my-auto flex max-h-[90vh] w-fit max-w-[90vw] flex-col items-center justify-center"
-            onClick={(event) => {
-              event.stopPropagation();
-            }}
-          >
-            {active.src ? (
-              <div className="relative flex max-h-[78vh] max-w-[90vw] items-center justify-center overflow-hidden rounded-sm border border-white/10 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
-                <img
-                  src={active.src}
-                  alt={active.image}
-                  className="max-h-[78vh] max-w-[90vw] object-contain"
-                />
+              <div
+                className="relative my-auto flex max-h-[90vh] w-fit max-w-[90vw] flex-col items-center justify-center"
+                onClick={(event) => {
+                  event.stopPropagation();
+                }}
+              >
+                {active.src ? (
+                  <div className="relative flex max-h-[78vh] max-w-[90vw] items-center justify-center overflow-hidden rounded-sm border border-white/10 bg-black/60 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+                    <img
+                      src={active.src}
+                      alt={active.image}
+                      className="max-h-[78vh] max-w-[90vw] object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full max-w-4xl">
+                    <MediaSlot
+                      label={active.image}
+                      ratio={active.ratio}
+                      tone={active.tone}
+                      showLabel={false}
+                      className="max-h-[72vh]"
+                    />
+                  </div>
+                )}
+
+                <div className="mt-4 flex w-full max-w-full items-start gap-4 px-1">
+                  <span className="bar-brand mt-2 h-[2px] w-9 shrink-0" />
+
+                  <div className="min-w-0">
+                    <span className="eyebrow text-cyan">
+                      {active.category}
+                    </span>
+
+                    <p className="mt-1 font-display text-lg font-extrabold uppercase sm:text-xl">
+                      {active.image}
+                    </p>
+
+                    {active.sublabel ? (
+                      <p className="mt-1 text-sm text-foreground/75 sm:text-base">
+                        {active.sublabel}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
               </div>
-            ) : (
-              <div className="w-full max-w-4xl">
-                <MediaSlot
-                  label={active.image}
-                  ratio={active.ratio}
-                  tone={active.tone}
-                  showLabel={false}
-                  className="max-h-[72vh]"
-                />
-              </div>
-            )}
-
-            <div className="mt-4 flex w-full max-w-full items-start gap-4 px-1">
-              <span className="bar-brand mt-2 h-[2px] w-9 shrink-0" />
-
-              <div className="min-w-0">
-                <span className="eyebrow text-cyan">
-                  {active.category}
-                </span>
-
-                <p className="mt-1 font-display text-lg font-extrabold uppercase sm:text-xl">
-                  {active.image}
-                </p>
-
-                {active.sublabel ? (
-                  <p className="mt-1 text-sm text-foreground/75 sm:text-base">
-                    {active.sublabel}
-                  </p>
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
