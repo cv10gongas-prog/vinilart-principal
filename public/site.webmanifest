@@ -1,0 +1,21 @@
+{
+  "name": "VinilArt — Design, Impressão e Personalização",
+  "short_name": "VinilArt",
+  "description": "Design, impressão, decoração, estampagem e personalização para empresas, marcas e projetos em Oeiras.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1829",
+  "theme_color": "#1a1829",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
