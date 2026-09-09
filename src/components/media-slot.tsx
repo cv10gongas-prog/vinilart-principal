@@ -97,26 +97,34 @@ export function MediaSlot({
       />
 
       {showLabel ? (
-        <figcaption className="relative z-10 w-full p-4 sm:p-5">
-          <span
+        <figcaption className="relative z-10 w-full p-3 sm:p-4">
+          <div
             className={cn(
-              "eyebrow block text-[0.56rem]",
-              src ? "text-white/80 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" : "text-foreground/50",
+              src
+                ? "w-fit max-w-[calc(100%-0.5rem)] rounded-sm border border-white/[0.08] bg-black/65 px-3 py-2 shadow-[0_4px_16px_rgba(0,0,0,0.5)] backdrop-blur-md sm:px-3.5 sm:py-2.5"
+                : "",
             )}
           >
-            {label}
-          </span>
-
-          {sublabel ? (
             <span
               className={cn(
-                "mt-1 block max-w-[28ch] text-xs leading-snug sm:text-sm",
-                src ? "font-medium text-white/95 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]" : "text-foreground/80",
+                "eyebrow block text-[0.56rem]",
+                src ? "text-white/85" : "text-foreground/50",
               )}
             >
-              {sublabel}
+              {label}
             </span>
-          ) : null}
+
+            {sublabel ? (
+              <span
+                className={cn(
+                  "mt-1 block max-w-[28ch] text-xs leading-snug sm:text-sm",
+                  src ? "font-medium text-white" : "text-foreground/80",
+                )}
+              >
+                {sublabel}
+              </span>
+            ) : null}
+          </div>
         </figcaption>
       ) : null}
     </figure>

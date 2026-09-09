@@ -142,24 +142,31 @@ export function PortfolioGrid({
                 )}
               />
 
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                <div className="transition-all duration-500 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                  <span className="text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-cyan drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] sm:text-[0.6rem]">
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                <div
+                  className={cn(
+                    "transition-all duration-500 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100",
+                    item.src
+                      ? "w-fit max-w-[calc(100%-0.5rem)] rounded-sm border border-white/[0.08] bg-black/65 p-3 shadow-[0_4px_16px_rgba(0,0,0,0.5)] backdrop-blur-md sm:p-3.5"
+                      : "",
+                  )}
+                >
+                  <span className="text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-cyan sm:text-[0.6rem]">
                     {item.category}
                   </span>
 
-                  <p className="mt-1 max-w-[28ch] font-display text-sm font-extrabold uppercase leading-5 text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] sm:text-base">
+                  <p className="mt-1 max-w-[28ch] font-display text-sm font-extrabold uppercase leading-5 text-white sm:text-base">
                     {item.image}
                   </p>
 
                   {item.sublabel ? (
-                    <p className="mt-1 max-w-[32ch] text-xs font-medium text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    <p className="mt-1 max-w-[32ch] text-xs font-medium text-white/90">
                       {item.sublabel}
                     </p>
                   ) : null}
 
                   {lightbox ? (
-                    <span className="mt-3 hidden w-fit text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-white/70 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] sm:block">
+                    <span className="mt-2.5 hidden w-fit text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-white/70 sm:block">
                       Ver projeto
                     </span>
                   ) : null}
