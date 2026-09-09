@@ -1,23 +1,87 @@
-import { useState } from "react";
-import { ArrowUpRight } from "lucide-react";
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import {
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+} from "lucide-react";
 
 import { BrandBar } from "@/components/brand";
 import { services } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 const fieldClass =
   "w-full border border-white/[0.08] bg-ink/65 px-4 py-3.5 text-sm text-foreground placeholder:text-foreground/25 outline-none transition-all duration-300 hover:border-white/[0.14] focus:border-cyan focus:bg-ink";
 
+const serviceOptions = [
+  ...services.map((service) => service.title),
+  "VinilArt Sport",
+  "Outro",
+];
+
 export function QuoteForm() {
-  const [sent, setSent] =
-    useState(false);
+  const [sent, setSent] = useState(false);
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+
+  const serviceRef =
+    useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onPointerDown = (
+      event: PointerEvent,
+    ) => {
+      if (
+        serviceRef.current &&
+        !serviceRef.current.contains(
+          event.target as Node,
+        )
+      ) {
+        setServiceOpen(false);
+      }
+    };
+
+    const onKeyDown = (
+      event: KeyboardEvent,
+    ) => {
+      if (event.key === "Escape") {
+        setServiceOpen(false);
+      }
+    };
+
+    document.addEventListener(
+      "pointerdown",
+      onPointerDown,
+    );
+
+    window.addEventListener(
+      "keydown",
+      onKeyDown,
+    );
+
+    return () => {
+      document.removeEventListener(
+        "pointerdown",
+        onPointerDown,
+      );
+
+      window.removeEventListener(
+        "keydown",
+        onKeyDown,
+      );
+    };
+  }, []);
 
   return (
     <form
       id="pedido"
-      className="relative scroll-mt-28 overflow-hidden border border-white/[0.08] bg-charcoal/35 p-5 sm:p-7 lg:p-8"
+      className="relative scroll-mt-28 border border-white/[0.08] bg-charcoal/35 p-5 sm:p-7 lg:p-8"
       onSubmit={(event) => {
         event.preventDefault();
-
         setSent(true);
       }}
     >
@@ -75,8 +139,14 @@ export function QuoteForm() {
         </label>
 
         <label className="flex flex-col gap-2">
-          <span className="eyebrow text-[0.58rem]">
-            Telefone
+          <span className="flex items-center gap-2">
+            <span className="eyebrow text-[0.58rem]">
+              Telefone
+            </span>
+
+            <span className="text-[0.55rem] uppercase tracking-[0.12em] text-foreground/25">
+              Opcional
+            </span>
           </span>
 
           <input
@@ -89,8 +159,14 @@ export function QuoteForm() {
         </label>
 
         <label className="flex flex-col gap-2">
-          <span className="eyebrow text-[0.58rem]">
-            Empresa
+          <span className="flex items-center gap-2">
+            <span className="eyebrow text-[0.58rem]">
+              Empresa
+            </span>
+
+            <span className="text-[0.55rem] uppercase tracking-[0.12em] text-foreground/25">
+              Opcional
+            </span>
           </span>
 
           <input
@@ -101,41 +177,111 @@ export function QuoteForm() {
           />
         </label>
 
-        <label className="flex flex-col gap-2 sm:col-span-2">
+        <div
+          ref={serviceRef}
+          className="relative flex flex-col gap-2 sm:col-span-2"
+        >
           <span className="eyebrow text-[0.58rem]">
             Serviço pretendido
           </span>
 
-          <select
+          <input
+            type="hidden"
             name="servico"
-            className={fieldClass}
-            defaultValue=""
+            value={selectedService}
+          />
+
+          <button
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded={serviceOpen}
+            onClick={() => {
+              setServiceOpen(
+                (value) => !value,
+              );
+            }}
+            className={cn(
+              fieldClass,
+              "flex min-h-[50px] items-center justify-between gap-4 text-left",
+              serviceOpen &&
+                "border-cyan bg-ink",
+              selectedService
+                ? "text-foreground"
+                : "text-foreground/42",
+            )}
           >
-            <option
-              value=""
-              disabled
+            <span className="truncate">
+              {selectedService ||
+                "Seleciona um serviço"}
+            </span>
+
+            <ChevronDown
+              className={cn(
+                "h-4 w-4 shrink-0 text-foreground/40 transition-transform duration-300",
+                serviceOpen &&
+                  "rotate-180 text-cyan",
+              )}
+            />
+          </button>
+
+          {serviceOpen ? (
+            <div
+              role="listbox"
+              aria-label="Serviço pretendido"
+              className="absolute left-0 right-0 top-full z-50 mt-2 max-h-[320px] overflow-y-auto border border-white/[0.1] bg-[#101214] p-1.5 shadow-[0_24px_70px_rgba(0,0,0,.65)] backdrop-blur-xl"
             >
-              Seleciona um serviço
-            </option>
+              {serviceOptions.map(
+                (option, index) => {
+                  const active =
+                    selectedService === option;
 
-            {services.map((service) => (
-              <option
-                key={service.slug}
-                value={service.title}
-              >
-                {service.title}
-              </option>
-            ))}
+                  return (
+                    <button
+                      key={option}
+                      type="button"
+                      role="option"
+                      aria-selected={active}
+                      onClick={() => {
+                        setSelectedService(
+                          option,
+                        );
 
-            <option value="VinilArt Sport">
-              VinilArt Sport
-            </option>
+                        setServiceOpen(false);
+                        setSent(false);
+                      }}
+                      className={cn(
+                        "group flex w-full items-center justify-between gap-4 px-3.5 py-3 text-left text-sm transition-colors",
 
-            <option value="Outro">
-              Outro
-            </option>
-          </select>
-        </label>
+                        active
+                          ? "bg-white/[0.075] text-foreground"
+                          : "text-foreground/62 hover:bg-white/[0.045] hover:text-foreground",
+                      )}
+                    >
+                      <span className="flex min-w-0 items-center gap-3">
+                        <span className="w-5 shrink-0 font-display text-[0.6rem] font-bold text-foreground/18 transition-colors group-hover:text-magenta">
+                          {String(
+                            index + 1,
+                          ).padStart(
+                            2,
+                            "0",
+                          )}
+                        </span>
+
+                        <span className="truncate">
+                          {option}
+                        </span>
+                      </span>
+
+                      {active ? (
+                        <Check className="h-4 w-4 shrink-0 text-cyan" />
+                      ) : null}
+                    </button>
+                  );
+                },
+              )}
+            </div>
+          ) : null}
+        </div>
 
         <label className="flex flex-col gap-2 sm:col-span-2">
           <span className="eyebrow text-[0.58rem]">
@@ -171,9 +317,9 @@ export function QuoteForm() {
           className="mt-6 border-l-2 border-cyan bg-cyan/[0.04] px-4 py-4"
         >
           <p className="text-sm leading-6 text-foreground/70">
-            Pedido preparado. Para o envio ficar
-            ativo falta apenas indicar o email de
-            destino da VinilArt.
+            Pedido preparado. Para o envio
+            ficar ativo falta apenas indicar
+            o email de destino da VinilArt.
           </p>
         </div>
       ) : null}
