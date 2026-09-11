@@ -28,6 +28,54 @@ export const nav = [
   },
 ];
 
+export interface HeroProject {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+  alt: string;
+  role: "dominant" | "secondary";
+  tone?: "magenta" | "cyan" | "yellow";
+  aspectRatio?: string;
+  objectPosition?: string;
+}
+
+export const heroProjects: [HeroProject, HeroProject, HeroProject] = [
+  {
+    id: "urban-obras",
+    title: "Urban Obras",
+    category: "Logótipo e letras em relevo 3D",
+    image: "/portfolio/urban-obras-letras-3d.png",
+    alt: "Aplicação de logótipo e letras em relevo 3D Urban Obras",
+    role: "dominant",
+    tone: "cyan",
+    aspectRatio: "4 / 3",
+    objectPosition: "center",
+  },
+  {
+    id: "jardins-de-oeiras",
+    title: "Jardins de Oeiras",
+    category: "Personalização de viatura",
+    image: "/portfolio/carrinha-jardins-de-oeiras.jpg",
+    alt: "Decoração gráfica de viatura comercial Jardins de Oeiras",
+    role: "secondary",
+    tone: "yellow",
+    aspectRatio: "4 / 3",
+    objectPosition: "center 25%",
+  },
+  {
+    id: "explicandum",
+    title: "Explicandum",
+    category: "Decoração de montra e fachada",
+    image: "/portfolio/explicandum-fachada-montra.jpg",
+    alt: "Decoração de montra e comunicação exterior Explicandum",
+    role: "secondary",
+    tone: "magenta",
+    aspectRatio: "4 / 3",
+    objectPosition: "center",
+  },
+];
+
 export type Service = {
   slug: string;
   title: string;

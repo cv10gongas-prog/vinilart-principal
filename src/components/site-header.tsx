@@ -66,17 +66,16 @@ export function SiteHeader() {
         <Link
           to="/"
           onClick={() => setOpen(false)}
-          className="group flex shrink-0 items-center gap-2.5 sm:gap-3"
+          className="group flex shrink-0 items-center"
           aria-label="VinilArt — Início"
         >
           <img
-            src="/vinilart-symbol.png"
+            src="/brand/official/vinilart-logo-horizontal-notagline.png"
             alt="VinilArt"
-            width={36}
-            height={36}
-            className="size-[30px] object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-3 sm:size-[36px]"
+            width={144}
+            height={32}
+            className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-8"
           />
-          <Wordmark className="text-[1.3rem] transition-transform duration-300 group-hover:scale-[1.025] sm:text-[1.45rem]" />
         </Link>
 
         <nav className="hidden items-center gap-7 xl:flex 2xl:gap-8">

@@ -4,11 +4,10 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { BrandBar, BrushGlow } from "@/components/brand";
 import { CtaLink } from "@/components/cta-button";
 import { FinalCta } from "@/components/final-cta";
-import { MediaSlot } from "@/components/media-slot";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { SportBlock } from "@/components/sport-block";
-import { processSteps, services } from "@/data/site";
+import { heroProjects, processSteps, services } from "@/data/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,6 +35,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Hero() {
+  const [dominantProject, secondaryProject1, secondaryProject2] = heroProjects;
+
   return (
     <section className="surface-grain relative min-h-[100svh] overflow-hidden bg-ink pb-16 pt-28 sm:pb-20 sm:pt-36 lg:flex lg:min-h-[880px] lg:items-center lg:pb-24 lg:pt-32">
       <BrushGlow
@@ -126,81 +127,108 @@ function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={120}>
+        <Reveal delay={120} className="min-w-0">
+          {/* MOBILE (390px): 1 FOTOGRAFIA DOMINANTE COM MÁXIMA NITIDEZ E ZERO POLUIÇÃO */}
           <div className="md:hidden">
-            <div className="relative">
-              <MediaSlot
-                label="Urban Obras — Logotipo e letras em relevo 3D"
-                src="/portfolio/urban-obras-letras-3d.png"
-                ratio="16 / 10"
-                tone="cyan"
-                showLabel={false}
-                className="shadow-[0_30px_80px_rgba(0,0,0,.5)]"
-              />
+            <div className="group relative overflow-hidden border border-white/[0.09] bg-charcoal/40 shadow-[0_25px_60px_rgba(0,0,0,0.55)]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img
+                  src={dominantProject.image}
+                  alt={dominantProject.alt}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: dominantProject.objectPosition ?? "center" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-60" />
 
-              <div className="absolute bottom-4 left-4 bg-ink/90 px-4 py-3.5 backdrop-blur-xl">
-                <p className="text-[0.52rem] uppercase tracking-[0.2em] text-foreground/38">
-                  VinilArt
-                </p>
-
-                <p className="mt-1.5 font-display text-xs font-extrabold uppercase leading-[1.3]">
-                  Saber fazer…
-                  <br />
-                  como deve ser.
-                </p>
-
-                <BrandBar className="mt-3 w-10" />
+                <div className="absolute bottom-3 left-3 z-10 flex items-center gap-2 border border-white/[0.09] bg-ink/92 px-3 py-1.5 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
+                  <span className="text-[0.58rem] font-bold uppercase tracking-[0.14em] text-foreground/90">
+                    {dominantProject.title}
+                  </span>
+                  <span className="text-[0.58rem] text-foreground/40">·</span>
+                  <span className="text-[0.55rem] uppercase tracking-[0.08em] text-foreground/60">
+                    {dominantProject.category}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="relative mx-auto hidden w-full max-w-[680px] md:block lg:justify-self-end">
-            <div className="relative min-h-[610px] lg:min-h-[670px]">
-              <div className="absolute left-[3%] top-[9%] z-10 w-[67%]">
-                <MediaSlot
-                  label="Urban Obras — Relevo 3D"
-                  src="/portfolio/urban-obras-letras-3d.png"
-                  ratio="4 / 3"
-                  tone="cyan"
-                  showLabel={false}
-                  className="shadow-[0_35px_100px_rgba(0,0,0,0.48)]"
+          {/* DESKTOP (1024px, 1280px, 1440px, 1920px): COMPOSIÇÃO EDITORIAL CONTROLADA POR DADOS */}
+          <div className="relative mx-auto hidden w-full max-w-[660px] md:block lg:justify-self-end">
+            {/* Foto Dominante Principal — Sem sobreposições destrutivas */}
+            <div className="group relative overflow-hidden border border-white/[0.09] bg-charcoal/40 shadow-[0_30px_90px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-white/[0.18]">
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <img
+                  src={dominantProject.image}
+                  alt={dominantProject.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  style={{ objectPosition: dominantProject.objectPosition ?? "center" }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-transparent opacity-50 transition-opacity duration-300 group-hover:opacity-40" />
+
+                {/* Tag de identificação: posicionada no rodapé da foto onde não cobre o lettering */}
+                <div className="absolute bottom-4 left-4 z-10 flex items-center gap-2.5 border border-white/[0.09] bg-ink/92 px-3.5 py-2 shadow-lg backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
+                  <span className="text-[0.62rem] font-bold uppercase tracking-[0.16em] text-foreground/90">
+                    {dominantProject.title}
+                  </span>
+                  <span className="text-[0.62rem] text-foreground/40">·</span>
+                  <span className="text-[0.6rem] uppercase tracking-[0.1em] text-foreground/60">
+                    {dominantProject.category}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Dupla de Fotos Secundárias em Grelha Equilibrada */}
+            <div className="mt-4 grid grid-cols-2 gap-4 lg:mt-5 lg:gap-5">
+              {/* Secundária 1 */}
+              <div className="group relative overflow-hidden border border-white/[0.08] bg-charcoal/30 shadow-[0_15px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:border-white/[0.18]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    src={secondaryProject1.image}
+                    alt={secondaryProject1.alt}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{ objectPosition: secondaryProject1.objectPosition ?? "center" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                    <div className="min-w-0">
+                      <p className="truncate font-display text-[0.68rem] font-bold uppercase tracking-[0.05em] text-foreground/90">
+                        {secondaryProject1.title}
+                      </p>
+                      <p className="truncate text-[0.55rem] uppercase tracking-[0.08em] text-foreground/50">
+                        {secondaryProject1.category}
+                      </p>
+                    </div>
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-yellow" />
+                  </div>
+                </div>
               </div>
 
-              <div className="float-soft absolute right-[2%] top-[1%] z-20 w-[42%]">
-                <MediaSlot
-                  label="Jardins de Oeiras — Decoração de viatura"
-                  src="/portfolio/carrinha-jardins-de-oeiras.jpg"
-                  ratio="3 / 4"
-                  tone="magenta"
-                  showLabel={false}
-                  className="shadow-[0_28px_80px_rgba(0,0,0,0.5)]"
-                />
-              </div>
-
-              <div className="absolute bottom-[7%] right-[4%] z-30 w-[50%]">
-                <MediaSlot
-                  label="Explicandum — Fachada e montra"
-                  src="/portfolio/explicandum-fachada-montra.jpg"
-                  ratio="4 / 3"
-                  tone="yellow"
-                  showLabel={false}
-                  className="shadow-[0_35px_90px_rgba(0,0,0,0.5)]"
-                />
-              </div>
-
-              <div className="absolute bottom-[10%] left-[8%] z-40 border border-white/[0.06] bg-ink/94 px-5 py-4 shadow-[0_20px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl">
-                <p className="text-[0.55rem] uppercase tracking-[0.22em] text-foreground/38">
-                  VinilArt
-                </p>
-
-                <p className="mt-2 font-display text-sm font-extrabold uppercase leading-[1.2]">
-                  Saber fazer…
-                  <br />
-                  como deve ser.
-                </p>
-
-                <BrandBar className="mt-4 w-14" />
+              {/* Secundária 2 */}
+              <div className="group relative overflow-hidden border border-white/[0.08] bg-charcoal/30 shadow-[0_15px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:border-white/[0.18]">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    src={secondaryProject2.image}
+                    alt={secondaryProject2.alt}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{ objectPosition: secondaryProject2.objectPosition ?? "center" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                    <div className="min-w-0">
+                      <p className="truncate font-display text-[0.68rem] font-bold uppercase tracking-[0.05em] text-foreground/90">
+                        {secondaryProject2.title}
+                      </p>
+                      <p className="truncate text-[0.55rem] uppercase tracking-[0.08em] text-foreground/50">
+                        {secondaryProject2.category}
+                      </p>
+                    </div>
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-magenta" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

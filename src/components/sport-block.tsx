@@ -4,7 +4,6 @@ import { BrandBar, BrushGlow, Wordmark } from "@/components/brand";
 
 import { CtaAnchor, CtaLink } from "@/components/cta-button";
 
-import { MediaSlot } from "@/components/media-slot";
 import { Reveal } from "@/components/reveal";
 
 import { SPORT_STORE_URL, sportServices } from "@/data/site";
@@ -111,56 +110,82 @@ export function SportBlock() {
           </div>
 
           <Reveal delay={100} className="min-w-0">
-            {/* TELEFONE + TABLET */}
-            <div className="lg:hidden">
-              <div className="relative overflow-hidden">
-                <MediaSlot
-                  label="Equipamentos e artigos personalizados VinilArt Sport"
-                  ratio="16 / 10"
-                  tone="yellow"
-                  showLabel={false}
-                  className="shadow-[0_30px_90px_rgba(0,0,0,.5)]"
+            {/* CARTAZ DE MARCA OFICIAL VINILART SPORT */}
+            <div className="group relative mx-auto w-full max-w-[620px]">
+              {/* Nuance de luz CMYK de fundo */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-3 rounded-2xl opacity-25 blur-2xl transition-opacity duration-700 group-hover:opacity-40"
+                style={{
+                  background:
+                    "radial-gradient(circle at 20% 30%, rgba(0, 188, 242, 0.28), transparent 60%), radial-gradient(circle at 80% 40%, rgba(236, 0, 140, 0.25), transparent 60%), radial-gradient(circle at 50% 80%, rgba(255, 237, 0, 0.2), transparent 60%)",
+                }}
+              />
+
+              {/* Contentor do Cartaz Editorial */}
+              <div className="relative overflow-hidden border border-white/[0.09] bg-[#0c1016] p-7 sm:p-9 lg:p-11 shadow-[0_30px_90px_rgba(0,0,0,0.65)]">
+                {/* Texturas subtis de fundo */}
+                <div
+                  aria-hidden="true"
+                  className="surface-grid pointer-events-none absolute inset-0 opacity-20"
+                />
+                <div
+                  aria-hidden="true"
+                  className="surface-diagonal pointer-events-none absolute inset-0 opacity-15"
                 />
 
-                <div className="absolute bottom-4 left-4 max-w-[190px] bg-ink/92 px-4 py-3 shadow-xl backdrop-blur-xl sm:bottom-5 sm:left-5 sm:max-w-[230px] sm:px-5 sm:py-4">
-                  <p className="text-[0.52rem] uppercase tracking-[0.2em] text-foreground/30 sm:text-[0.58rem]">
-                    VinilArt Sport
-                  </p>
-
-                  <p className="mt-2 font-display text-sm font-extrabold uppercase leading-tight sm:text-lg">
-                    O teu clube.
-                    <br />
-                    As tuas cores.
-                  </p>
-
-                  <BrandBar className="mt-3 w-14 sm:mt-4 sm:w-16" />
+                {/* Topo do cartaz com marcas de registo editorial */}
+                <div className="relative z-10 flex items-center justify-between border-b border-white/[0.08] pb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-yellow" />
+                    <span className="text-[0.58rem] font-semibold uppercase tracking-[0.2em] text-foreground/50">
+                      Identidade Oficial
+                    </span>
+                  </div>
+                  <span className="text-[0.56rem] font-mono uppercase tracking-[0.16em] text-foreground/30">
+                    ED. SPORT // 2026
+                  </span>
                 </div>
-              </div>
-            </div>
 
-            {/* DESKTOP */}
-            <div className="hidden lg:block">
-              <div className="relative mx-auto max-w-[620px] overflow-hidden">
-                <MediaSlot
-                  label="Equipamentos e artigos personalizados VinilArt Sport"
-                  ratio="4 / 5"
-                  tone="yellow"
-                  showLabel={false}
-                  className="shadow-[0_40px_120px_rgba(0,0,0,.55)]"
-                />
+                {/* Logótipo Oficial VinilArt Sport com autoridade e destaque */}
+                <div className="relative z-10 flex flex-col items-center justify-center py-10 sm:py-14 lg:py-16">
+                  <div className="relative w-full max-w-[320px] sm:max-w-[390px] lg:max-w-[430px]">
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 -translate-y-2 scale-110 opacity-30 blur-xl"
+                      style={{
+                        background:
+                          "radial-gradient(circle at 50% 50%, rgba(236, 0, 140, 0.35), rgba(0, 188, 242, 0.25), transparent 70%)",
+                      }}
+                    />
+                    <img
+                      src="/brand/official/vinilart-sport-logo-horizontal.png"
+                      alt="VinilArt Sport — Logótipo Oficial"
+                      width={1018}
+                      height={264}
+                      className="relative z-10 h-auto w-full object-contain drop-shadow-[0_12px_28px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
 
-                <div className="absolute bottom-6 left-6 max-w-[250px] bg-ink/94 px-6 py-5 shadow-[0_25px_70px_rgba(0,0,0,.55)] backdrop-blur-xl xl:bottom-7 xl:left-7">
-                  <p className="text-[0.56rem] uppercase tracking-[0.22em] text-foreground/30">
-                    VinilArt Sport
-                  </p>
-
-                  <p className="mt-2 font-display text-lg font-extrabold uppercase leading-[1.05] xl:text-xl">
-                    O teu clube.
-                    <br />
-                    As tuas cores.
-                  </p>
-
-                  <BrandBar className="mt-4 w-16 xl:w-20" />
+                {/* Rodapé do cartaz: Slogan como elemento secundário de apoio */}
+                <div className="relative z-10 border-t border-white/[0.08] pt-5">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <p className="text-[0.55rem] font-semibold uppercase tracking-[0.22em] text-yellow/80">
+                        Slogan Oficial
+                      </p>
+                      <p className="mt-1 font-display text-base font-extrabold uppercase tracking-tight text-foreground/90 sm:text-lg">
+                        O teu clube. As tuas cores.
+                      </p>
+                    </div>
+                    <div className="sm:text-right">
+                      <p className="text-[0.58rem] uppercase tracking-[0.14em] text-foreground/45">
+                        Equipamentos · Têxtil · Merchandising
+                      </p>
+                    </div>
+                  </div>
+                  <BrandBar className="mt-4 h-[2px] opacity-70" />
                 </div>
               </div>
             </div>

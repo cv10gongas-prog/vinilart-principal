@@ -9,20 +9,12 @@ export function Wordmark({
 }) {
   if (sport) {
     return (
-      <span
-        className={cn(
-          "font-display inline-flex items-center gap-2 text-xl font-extrabold uppercase tracking-tight",
-          className,
-        )}
-      >
+      <span className={cn("inline-flex items-center", className)}>
         <img
-          src="/brand/vinilart-wordmark-white.png"
-          alt="VinilArt"
-          className="h-[1.1em] w-auto object-contain"
+          src="/brand/official/vinilart-sport-logo-horizontal.png"
+          alt="VinilArt Sport"
+          className="h-[1.3em] w-auto object-contain"
         />
-        <span className="font-display text-[0.55em] font-bold uppercase tracking-[0.28em] text-yellow">
-          Sport
-        </span>
       </span>
     );
   }
@@ -30,7 +22,7 @@ export function Wordmark({
   return (
     <span className={cn("inline-flex items-center", className)}>
       <img
-        src="/brand/vinilart-wordmark-white.png"
+        src="/brand/official/vinilart-wordmark-white.png"
         alt="VinilArt"
         className="h-[1.15em] w-auto object-contain"
       />
