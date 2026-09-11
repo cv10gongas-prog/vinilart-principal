@@ -19,19 +19,8 @@ export function SectionHeading({
   children?: ReactNode | undefined;
 }) {
   return (
-    <Reveal
-      className={cn(
-        "max-w-3xl",
-        align === "center" && "mx-auto text-center",
-        className,
-      )}
-    >
-      <div
-        className={cn(
-          "flex items-center gap-3",
-          align === "center" && "justify-center",
-        )}
-      >
+    <Reveal className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
+      <div className={cn("flex items-center gap-3", align === "center" && "justify-center")}>
         <span className="bar-brand h-[2px] w-8" />
         <span className="eyebrow">{eyebrow}</span>
       </div>

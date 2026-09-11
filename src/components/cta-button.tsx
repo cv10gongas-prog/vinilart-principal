@@ -10,10 +10,8 @@ const base =
 const variants = {
   primary:
     "border border-transparent bg-foreground text-ink hover:bg-magenta hover:text-foreground",
-  outline:
-    "border border-white/[0.14] text-foreground hover:border-cyan hover:text-cyan",
-  ghost:
-    "border border-transparent px-0 text-foreground/80 hover:text-yellow",
+  outline: "border border-white/[0.14] text-foreground hover:border-cyan hover:text-cyan",
+  ghost: "border border-transparent px-0 text-foreground/80 hover:text-yellow",
 } as const;
 
 type Variant = keyof typeof variants;

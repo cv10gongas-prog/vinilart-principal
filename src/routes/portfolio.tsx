@@ -10,23 +10,20 @@ export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       {
-        title:
-          "Portefólio — Trabalhos de comunicação visual | VinilArt",
+        title: "Portefólio — Trabalhos de comunicação visual | VinilArt",
       },
       {
         name: "description",
         content:
-          "Galeria de trabalhos VinilArt: viaturas, montras, interiores, estampagem, logotipos 3D, impressão e brindes.",
+          "Galeria de trabalhos VinilArt: viaturas, montras, interiores, estampagem, logotipos 3D, sinalética e brindes.",
       },
       {
         property: "og:title",
-        content:
-          "Portefólio VinilArt — Ideias que ganham forma",
+        content: "Portefólio VinilArt — Ideias que ganham forma",
       },
       {
         property: "og:description",
-        content:
-          "Vê os trabalhos de personalização, impressão e decoração da VinilArt.",
+        content: "Vê os trabalhos de personalização, impressão e decoração da VinilArt.",
       },
     ],
   }),
@@ -43,10 +40,7 @@ function PortfolioPage() {
           <>
             Ideias que
             <br />
-
-            <span className="text-gradient-brand">
-              ganham forma.
-            </span>
+            <span className="text-gradient-brand">ganham forma.</span>
           </>
         }
         text="Explora diferentes áreas do trabalho VinilArt e descobre como cada ideia pode ganhar uma presença própria."
@@ -62,17 +56,12 @@ function PortfolioPage() {
           <Reveal>
             <div className="grid gap-7 border-b border-white/[0.07] pb-8 sm:grid-cols-[1fr_auto] sm:items-end lg:pb-10">
               <div>
-                <span className="eyebrow">
-                  Trabalhos
-                </span>
+                <span className="eyebrow">Trabalhos</span>
 
                 <h2 className="mt-5 text-[2.4rem] leading-[0.94] sm:text-5xl">
                   Cada projeto
                   <br />
-
-                  <span className="text-gradient-brand">
-                    tem a sua forma.
-                  </span>
+                  <span className="text-gradient-brand">tem a sua forma.</span>
                 </h2>
               </div>
 
@@ -80,9 +69,7 @@ function PortfolioPage() {
                 <BrandBar className="mb-4 h-[2px] w-12" />
 
                 <p className="text-sm leading-6 text-foreground/50">
-                  Filtra a galeria por área para
-                  encontrares o tipo de trabalho
-                  que procuras.
+                  Filtra a galeria por área para encontrares o tipo de trabalho que procuras.
                 </p>
               </div>
             </div>

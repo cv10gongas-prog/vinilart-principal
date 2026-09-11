@@ -1,23 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 
-import {
-  BrandBar,
-  BrushGlow,
-  Wordmark,
-} from "@/components/brand";
+import { BrandBar, BrushGlow, Wordmark } from "@/components/brand";
 
-import {
-  CtaAnchor,
-  CtaLink,
-} from "@/components/cta-button";
+import { CtaAnchor, CtaLink } from "@/components/cta-button";
 
 import { MediaSlot } from "@/components/media-slot";
 import { Reveal } from "@/components/reveal";
 
-import {
-  SPORT_STORE_URL,
-  sportServices,
-} from "@/data/site";
+import { SPORT_STORE_URL, sportServices } from "@/data/site";
 
 export function SportBlock() {
   return (
@@ -25,10 +15,7 @@ export function SportBlock() {
       id="vinilart-sport"
       className="surface-grain relative scroll-mt-24 overflow-hidden bg-ink py-20 sm:py-24 lg:py-28 xl:py-32"
     >
-      <div
-        aria-hidden="true"
-        className="surface-diagonal absolute inset-0 opacity-28"
-      />
+      <div aria-hidden="true" className="surface-diagonal absolute inset-0 opacity-28" />
 
       <div
         aria-hidden="true"
@@ -56,9 +43,7 @@ export function SportBlock() {
             <div className="flex items-center gap-3">
               <BrandBar className="h-[2px] w-9 sm:w-10" />
 
-              <span className="eyebrow text-yellow">
-                VinilArt Sport
-              </span>
+              <span className="eyebrow text-yellow">VinilArt Sport</span>
             </div>
 
             <span className="hidden text-[0.6rem] uppercase tracking-[0.2em] text-foreground/28 md:block">
@@ -70,38 +55,26 @@ export function SportBlock() {
         <div className="mt-10 grid gap-12 sm:mt-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-14 xl:gap-20">
           <div className="min-w-0">
             <Reveal>
-              <Wordmark
-                sport
-                className="text-2xl sm:text-3xl lg:text-[2.15rem] xl:text-4xl"
-              />
+              <Wordmark sport className="text-2xl sm:text-3xl lg:text-[2.15rem] xl:text-4xl" />
             </Reveal>
 
             <Reveal delay={60}>
               <h2 className="mt-6 max-w-[650px] text-[2.75rem] leading-[0.92] min-[400px]:text-[3.1rem] sm:mt-7 sm:text-6xl lg:text-[4rem] xl:text-[4.65rem]">
                 Personalizamos
-                <br />
-                a tua{" "}
-
-                <span className="text-gradient-brand">
-                  paixão.
-                </span>
+                <br />a tua <span className="text-gradient-brand">paixão.</span>
               </h2>
             </Reveal>
 
             <Reveal delay={120}>
               <p className="mt-6 max-w-[590px] text-[0.95rem] leading-7 text-foreground/60 sm:mt-7 sm:text-lg">
-                A vertente desportiva da VinilArt, pensada para
-                atletas, equipas, clubes e adeptos que querem
-                levar a sua identidade mais longe.
+                A vertente desportiva da VinilArt, pensada para atletas, equipas, clubes e adeptos
+                que querem levar a sua identidade mais longe.
               </p>
             </Reveal>
 
             <div className="mt-8 sm:mt-10">
               {sportServices.map((service, index) => (
-                <Reveal
-                  key={service}
-                  delay={140 + index * 50}
-                >
+                <Reveal key={service} delay={140 + index * 50}>
                   <div className="group flex items-center justify-between gap-4 border-t border-white/[0.08] py-4 last:border-b">
                     <div className="flex min-w-0 items-center gap-3 sm:gap-5">
                       <span className="shrink-0 font-display text-[0.65rem] font-bold text-foreground/20 transition-colors group-hover:text-yellow sm:text-xs">
@@ -121,10 +94,7 @@ export function SportBlock() {
 
             <Reveal delay={360}>
               <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
-                <CtaAnchor
-                  href={SPORT_STORE_URL}
-                  className="w-full sm:w-auto"
-                >
+                <CtaAnchor href={SPORT_STORE_URL} className="w-full sm:w-auto">
                   Conhecer VinilArt Sport
                 </CtaAnchor>
 
@@ -140,10 +110,7 @@ export function SportBlock() {
             </Reveal>
           </div>
 
-          <Reveal
-            delay={100}
-            className="min-w-0"
-          >
+          <Reveal delay={100} className="min-w-0">
             {/* TELEFONE + TABLET */}
             <div className="lg:hidden">
               <div className="relative overflow-hidden">

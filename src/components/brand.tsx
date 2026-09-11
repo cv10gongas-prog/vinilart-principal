@@ -28,12 +28,7 @@ export function Wordmark({
   }
 
   return (
-    <span
-      className={cn(
-        "inline-flex items-center",
-        className,
-      )}
-    >
+    <span className={cn("inline-flex items-center", className)}>
       <img
         src="/brand/vinilart-wordmark-white.png"
         alt="VinilArt"
@@ -57,11 +52,7 @@ export function BrushGlow({
   tone?: ("magenta" | "cyan" | "yellow") | undefined;
 }) {
   const color =
-    tone === "magenta"
-      ? "var(--magenta)"
-      : tone === "cyan"
-        ? "var(--cyan)"
-        : "var(--yellow)";
+    tone === "magenta" ? "var(--magenta)" : tone === "cyan" ? "var(--cyan)" : "var(--yellow)";
 
   return (
     <div

@@ -1,27 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import {
-  ArrowUpRight,
-  Instagram,
-  MapPin,
-} from "lucide-react";
+import { ArrowUpRight, Instagram, MapPin } from "lucide-react";
 
 import { BrandBar } from "@/components/brand";
 import { PageHero } from "@/components/page-hero";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
 
-import {
-  contact,
-  mapEmbedUrl,
-} from "@/data/site";
+import { contact, mapEmbedUrl } from "@/data/site";
 
 export const Route = createFileRoute("/contactos")({
   head: () => ({
     meta: [
       {
-        title:
-          "Contactos — VinilArt, Oeiras",
+        title: "Contactos — VinilArt, Oeiras",
       },
       {
         name: "description",
@@ -30,13 +22,11 @@ export const Route = createFileRoute("/contactos")({
       },
       {
         property: "og:title",
-        content:
-          "Contactos VinilArt — Oeiras",
+        content: "Contactos VinilArt — Oeiras",
       },
       {
         property: "og:description",
-        content:
-          "O próximo projeto pode começar aqui. Envia o teu pedido à VinilArt.",
+        content: "O próximo projeto pode começar aqui. Envia o teu pedido à VinilArt.",
       },
     ],
   }),
@@ -53,10 +43,7 @@ function ContactosPage() {
           <>
             O próximo projeto
             <br />
-
-            <span className="text-gradient-brand">
-              pode começar aqui.
-            </span>
+            <span className="text-gradient-brand">pode começar aqui.</span>
           </>
         }
         text="Conta-nos o que tens em mente e partilha connosco o ponto de partida do teu próximo projeto."
@@ -75,25 +62,18 @@ function ContactosPage() {
                 <div className="flex items-center gap-3">
                   <BrandBar className="h-[2px] w-9" />
 
-                  <span className="eyebrow">
-                    Vamos falar
-                  </span>
+                  <span className="eyebrow">Vamos falar</span>
                 </div>
 
                 <h2 className="mt-6 text-[2.5rem] leading-[0.95] sm:text-5xl">
                   Tens um projeto
                   <br />
-
-                  <span className="text-gradient-brand">
-                    em mente?
-                  </span>
+                  <span className="text-gradient-brand">em mente?</span>
                 </h2>
 
                 <p className="mt-6 max-w-md text-base leading-7 text-foreground/54">
-                  Envia-nos os detalhes essenciais
-                  através do formulário ou encontra
-                  a VinilArt através dos contactos
-                  abaixo.
+                  Envia-nos os detalhes essenciais através do formulário ou encontra a VinilArt
+                  através dos contactos abaixo.
                 </p>
               </div>
             </Reveal>
@@ -104,9 +84,7 @@ function ContactosPage() {
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
 
                   <div className="min-w-0">
-                    <span className="eyebrow text-[0.58rem]">
-                      Morada
-                    </span>
+                    <span className="eyebrow text-[0.58rem]">Morada</span>
 
                     <address className="mt-3 text-base not-italic leading-7 text-foreground/70">
                       {contact.street}
@@ -126,9 +104,7 @@ function ContactosPage() {
                   <Instagram className="mt-0.5 h-5 w-5 shrink-0 text-magenta" />
 
                   <div className="min-w-0 flex-1">
-                    <span className="eyebrow text-[0.58rem]">
-                      Instagram
-                    </span>
+                    <span className="eyebrow text-[0.58rem]">Instagram</span>
 
                     <div className="mt-3 flex flex-col">
                       <a
@@ -137,9 +113,7 @@ function ContactosPage() {
                         rel="noreferrer"
                         className="group flex items-center justify-between gap-4 py-2 text-sm text-foreground/68 transition-colors hover:text-foreground sm:text-base"
                       >
-                        <span>
-                          {contact.instagram}
-                        </span>
+                        <span>{contact.instagram}</span>
 
                         <ArrowUpRight className="h-4 w-4 shrink-0 text-foreground/25 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </a>
@@ -150,10 +124,7 @@ function ContactosPage() {
                         rel="noreferrer"
                         className="group flex items-center justify-between gap-4 border-t border-white/[0.05] py-2 text-sm text-foreground/68 transition-colors hover:text-foreground sm:text-base"
                       >
-                        <span>
-                          VinilArt Sport —{" "}
-                          {contact.instagramSport}
-                        </span>
+                        <span>VinilArt Sport — {contact.instagramSport}</span>
 
                         <ArrowUpRight className="h-4 w-4 shrink-0 text-foreground/25 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </a>
@@ -183,10 +154,7 @@ function ContactosPage() {
             </Reveal>
           </div>
 
-          <Reveal
-            delay={100}
-            className="lg:sticky lg:top-28"
-          >
+          <Reveal delay={100} className="lg:sticky lg:top-28">
             <QuoteForm />
           </Reveal>
         </div>

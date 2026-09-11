@@ -14,8 +14,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title:
-          "VinilArt — Design, Impressão e Personalização em Oeiras",
+        title: "VinilArt — Design, Impressão e Personalização em Oeiras",
       },
       {
         name: "description",
@@ -28,8 +27,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content:
-          "Comunicação visual, impressão e personalização em Oeiras.",
+        content: "Comunicação visual, impressão e personalização em Oeiras.",
       },
     ],
   }),
@@ -61,9 +59,7 @@ function Hero() {
             <div className="flex items-center gap-3">
               <span className="bar-brand h-[2px] w-9 sm:w-10" />
 
-              <span className="eyebrow text-foreground/[0.65]">
-                Comunicação visual · Oeiras
-              </span>
+              <span className="eyebrow text-foreground/[0.65]">Comunicação visual · Oeiras</span>
             </div>
           </Reveal>
 
@@ -73,41 +69,28 @@ function Hero() {
               <br />
               às tuas
               <br />
-
-              <span className="text-gradient-brand">
-                ideias.
-              </span>
+              <span className="text-gradient-brand">ideias.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={130}>
             <p className="mt-7 max-w-[580px] text-[1.05rem] font-medium leading-[1.7] text-foreground/85 sm:mt-8 sm:text-[1.12rem]">
-              Design, impressão e personalização para marcas que
-              querem destacar-se.
+              Design, impressão e personalização para marcas que querem destacar-se.
             </p>
 
             <p className="mt-4 max-w-[540px] text-sm leading-[1.8] text-foreground/60 sm:mt-5 sm:text-base">
-              Da ideia à aplicação final, transformamos conceitos
-              em soluções visuais com presença, identidade e
-              impacto.
+              Da ideia à aplicação final, transformamos conceitos em soluções visuais com presença,
+              identidade e impacto.
             </p>
           </Reveal>
 
           <Reveal delay={190}>
             <div className="mt-9 flex flex-col gap-4 min-[440px]:flex-row min-[440px]:flex-wrap">
-              <CtaLink
-                to="/contactos"
-                hash="pedido"
-                className="w-full min-[440px]:w-auto"
-              >
+              <CtaLink to="/contactos" hash="pedido" className="w-full min-[440px]:w-auto">
                 Pedir orçamento
               </CtaLink>
 
-              <CtaLink
-                to="/portfolio"
-                variant="outline"
-                className="w-full min-[440px]:w-auto"
-              >
+              <CtaLink to="/portfolio" variant="outline" className="w-full min-[440px]:w-auto">
                 Ver trabalhos
               </CtaLink>
             </div>
@@ -147,7 +130,8 @@ function Hero() {
           <div className="md:hidden">
             <div className="relative">
               <MediaSlot
-                label="Aplicação VinilArt"
+                label="Urban Obras — Logotipo e letras em relevo 3D"
+                src="/portfolio/urban-obras-letras-3d.png"
                 ratio="16 / 10"
                 tone="cyan"
                 showLabel={false}
@@ -174,27 +158,30 @@ function Hero() {
             <div className="relative min-h-[610px] lg:min-h-[670px]">
               <div className="absolute left-[3%] top-[9%] z-10 w-[67%]">
                 <MediaSlot
-                  label="Aplicação de vinil em viatura"
-                  ratio="4 / 5"
+                  label="Urban Obras — Relevo 3D"
+                  src="/portfolio/urban-obras-letras-3d.png"
+                  ratio="4 / 3"
                   tone="cyan"
                   showLabel={false}
                   className="shadow-[0_35px_100px_rgba(0,0,0,0.48)]"
                 />
               </div>
 
-              <div className="float-soft absolute right-[2%] top-[1%] z-20 w-[39%]">
+              <div className="float-soft absolute right-[2%] top-[1%] z-20 w-[42%]">
                 <MediaSlot
-                  label="Impressão de grande formato"
-                  ratio="1 / 1"
+                  label="Jardins de Oeiras — Decoração de viatura"
+                  src="/portfolio/carrinha-jardins-de-oeiras.jpg"
+                  ratio="3 / 4"
                   tone="magenta"
                   showLabel={false}
                   className="shadow-[0_28px_80px_rgba(0,0,0,0.5)]"
                 />
               </div>
 
-              <div className="absolute bottom-[7%] right-[4%] z-30 w-[49%]">
+              <div className="absolute bottom-[7%] right-[4%] z-30 w-[50%]">
                 <MediaSlot
-                  label="Montra decorada"
+                  label="Explicandum — Fachada e montra"
+                  src="/portfolio/explicandum-fachada-montra.jpg"
                   ratio="4 / 3"
                   tone="yellow"
                   showLabel={false}
@@ -223,9 +210,7 @@ function Hero() {
       <div className="relative z-10 mx-auto mt-10 flex max-w-[1440px] items-center gap-3 px-5 text-foreground/40 sm:px-8 lg:absolute lg:bottom-8 lg:left-1/2 lg:mt-0 lg:w-full lg:-translate-x-1/2 lg:px-10">
         <ChevronDown className="h-4 w-4 animate-bounce" />
 
-        <span className="text-[0.6rem] uppercase tracking-[0.2em]">
-          Descobrir
-        </span>
+        <span className="text-[0.6rem] uppercase tracking-[0.2em]">Descobrir</span>
       </div>
     </section>
   );
@@ -245,18 +230,13 @@ function BrandManifesto() {
             <div className="flex items-center gap-3">
               <BrandBar className="h-[2px] w-9" />
 
-              <span className="eyebrow text-foreground/[0.65]">
-                A forma de trabalhar
-              </span>
+              <span className="eyebrow text-foreground/[0.65]">A forma de trabalhar</span>
             </div>
 
             <h2 className="mt-6 max-w-[780px] text-[2.7rem] leading-[0.94] sm:text-5xl lg:text-[4.1rem]">
               Saber fazer…
               <br />
-
-              <span className="text-gradient-brand">
-                como deve ser.
-              </span>
+              <span className="text-gradient-brand">como deve ser.</span>
             </h2>
           </div>
         </Reveal>
@@ -264,9 +244,8 @@ function BrandManifesto() {
         <Reveal delay={100}>
           <div>
             <p className="max-w-xl text-base leading-7 text-foreground/68 sm:text-lg sm:leading-8">
-              Na VinilArt cada projeto passa por diferentes fases,
-              mas o objetivo mantém-se: transformar uma ideia
-              numa solução visual que funcione no mundo real.
+              Na VinilArt cada projeto passa por diferentes fases, mas o objetivo mantém-se:
+              transformar uma ideia numa solução visual que funcione no mundo real.
             </p>
 
             <div className="mt-8 grid grid-cols-3 border-y border-white/[0.07]">
@@ -301,7 +280,6 @@ function BrandManifesto() {
               className="group mt-7 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-cyan"
             >
               Conhecer a VinilArt
-
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </div>
@@ -327,30 +305,22 @@ function ServicesSection() {
               <>
                 Fazemos ideias
                 <br />
-
-                <span className="text-gradient-brand">
-                  ganhar presença.
-                </span>
+                <span className="text-gradient-brand">ganhar presença.</span>
               </>
             }
           />
 
           <Reveal>
             <p className="max-w-xl text-base leading-7 text-foreground/65">
-              Da identidade de uma marca ao espaço físico onde
-              ela vive. Criamos, produzimos e aplicamos soluções
-              visuais para diferentes suportes e necessidades.
+              Da identidade de uma marca ao espaço físico onde ela vive. Criamos, produzimos e
+              aplicamos soluções visuais para diferentes suportes e necessidades.
             </p>
           </Reveal>
         </div>
 
         <div className="mt-12 sm:mt-14 lg:mt-16">
           {services.map((service, index) => (
-            <Reveal
-              key={service.slug}
-              delay={(index % 4) * 45}
-              className="group"
-            >
+            <Reveal key={service.slug} delay={(index % 4) * 45} className="group">
               <Link
                 to="/servicos"
                 hash={service.slug}
@@ -360,9 +330,7 @@ function ServicesSection() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <h3 className="text-xl sm:text-2xl lg:text-3xl">
-                  {service.title}
-                </h3>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl">{service.title}</h3>
 
                 <p className="col-start-2 max-w-xl text-sm leading-6 text-foreground/60 lg:col-start-auto">
                   {service.text}
@@ -376,11 +344,7 @@ function ServicesSection() {
 
         <Reveal>
           <div className="mt-9 flex sm:justify-end lg:mt-12">
-            <CtaLink
-              to="/servicos"
-              variant="outline"
-              className="w-full sm:w-auto"
-            >
+            <CtaLink to="/servicos" variant="outline" className="w-full sm:w-auto">
               Explorar serviços
             </CtaLink>
           </div>
@@ -403,11 +367,7 @@ function Processo() {
           eyebrow="Como trabalhamos"
           title={
             <>
-              Da ideia ao{" "}
-
-              <span className="text-gradient-brand">
-                resultado.
-              </span>
+              Da ideia ao <span className="text-gradient-brand">resultado.</span>
             </>
           }
           subtitle="Um processo simples para transformar uma ideia numa solução visual pronta para ganhar forma."
@@ -430,13 +390,9 @@ function Processo() {
                 {step.n}
               </span>
 
-              <h3 className="mt-6 text-2xl">
-                {step.title}
-              </h3>
+              <h3 className="mt-6 text-2xl">{step.title}</h3>
 
-              <p className="mt-3 max-w-[300px] text-sm leading-6 text-foreground/65">
-                {step.text}
-              </p>
+              <p className="mt-3 max-w-[300px] text-sm leading-6 text-foreground/65">{step.text}</p>
             </Reveal>
           ))}
         </ol>

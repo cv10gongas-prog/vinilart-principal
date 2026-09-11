@@ -7,12 +7,7 @@ type MediaSlotProps = {
 
   ratio?: string | undefined;
 
-  tone?:
-    | "magenta"
-    | "cyan"
-    | "yellow"
-    | "neutral"
-    | undefined;
+  tone?: "magenta" | "cyan" | "yellow" | "neutral" | undefined;
 
   showLabel?: boolean | undefined;
 
@@ -23,10 +18,7 @@ type MediaSlotProps = {
   imageAlt?: string | undefined;
 };
 
-const toneRing: Record<
-  NonNullable<MediaSlotProps["tone"]>,
-  string
-> = {
+const toneRing: Record<NonNullable<MediaSlotProps["tone"]>, string> = {
   magenta: "before:bg-magenta",
   cyan: "before:bg-cyan",
   yellow: "before:bg-yellow",
@@ -72,19 +64,21 @@ export function MediaSlot({
         aria-hidden="true"
         className={cn(
           "surface-diagonal pointer-events-none absolute inset-0",
-          src ? "opacity-10" : "opacity-22",
+          src ? "opacity-0" : "opacity-22",
         )}
       />
 
-      <div
-        aria-hidden="true"
-        className={cn(
-          "pointer-events-none absolute inset-0",
-          src
-            ? "bg-gradient-to-t from-black/95 via-black/55 via-35% to-transparent"
-            : "bg-gradient-to-t from-black/25 via-transparent to-white/[0.015]",
-        )}
-      />
+      {showLabel ? (
+        <div
+          aria-hidden="true"
+          className={cn(
+            "pointer-events-none absolute inset-0",
+            src
+              ? "bg-gradient-to-t from-black/60 via-black/15 via-25% to-transparent"
+              : "bg-gradient-to-t from-black/25 via-transparent to-white/[0.015]",
+          )}
+        />
+      ) : null}
 
       <div
         aria-hidden="true"

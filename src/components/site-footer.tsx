@@ -30,7 +30,10 @@ export function SiteFooter() {
           <Link to="/sobre" className="w-fit text-sm text-foreground/70 hover:text-foreground">
             Sobre
           </Link>
-          <a href="/#vinilart-sport" className="w-fit text-sm text-foreground/70 hover:text-foreground">
+          <a
+            href="/#vinilart-sport"
+            className="w-fit text-sm text-foreground/70 hover:text-foreground"
+          >
             VinilArt Sport
           </a>
           <Link to="/contactos" className="w-fit text-sm text-foreground/70 hover:text-foreground">

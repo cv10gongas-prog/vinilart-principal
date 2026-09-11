@@ -12,10 +12,7 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, text }: PageHeroProps) {
   return (
     <section className="surface-grain relative overflow-hidden bg-ink pb-16 pt-36 sm:pb-20 sm:pt-44 lg:pb-24 lg:pt-52">
-      <div
-        aria-hidden="true"
-        className="surface-diagonal absolute inset-0 opacity-24"
-      />
+      <div aria-hidden="true" className="surface-diagonal absolute inset-0 opacity-24" />
 
       <div
         aria-hidden="true"

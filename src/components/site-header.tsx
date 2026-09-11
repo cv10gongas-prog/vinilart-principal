@@ -2,10 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import {
-  BrandBar,
-  Wordmark,
-} from "@/components/brand";
+import { BrandBar, Wordmark } from "@/components/brand";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -48,9 +45,7 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open
-      ? "hidden"
-      : "";
+    document.body.style.overflow = open ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
@@ -109,9 +104,7 @@ export function SiteHeader() {
           >
             <span className="bar-brand size-2 rounded-full transition-transform duration-300 group-hover:scale-125" />
 
-            <span>
-              VinilArt Sport
-            </span>
+            <span>VinilArt Sport</span>
           </a>
 
           <Link
@@ -122,7 +115,6 @@ export function SiteHeader() {
             }}
           >
             Contactos
-
             <span className="absolute inset-x-0 -bottom-[2px] h-px origin-left scale-x-0 bg-foreground/80 transition-transform duration-300 group-hover:scale-x-100" />
           </Link>
 
@@ -131,9 +123,7 @@ export function SiteHeader() {
             hash="pedido"
             className="group relative ml-1 inline-flex min-h-11 items-center gap-2 overflow-hidden bg-foreground px-5 py-3 text-[0.73rem] font-bold uppercase tracking-[0.1em] text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-white"
           >
-            <span className="relative z-10">
-              Pedir orçamento
-            </span>
+            <span className="relative z-10">Pedir orçamento</span>
 
             <ArrowUpRight className="relative z-10 size-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 
@@ -146,19 +136,11 @@ export function SiteHeader() {
           onClick={() => {
             setOpen((value) => !value);
           }}
-          aria-label={
-            open
-              ? "Fechar menu"
-              : "Abrir menu"
-          }
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
           className="flex size-10 shrink-0 items-center justify-center border border-white/[0.09] bg-white/[0.025] text-foreground transition-colors hover:bg-white/[0.06] sm:size-11 xl:hidden"
         >
-          {open ? (
-            <X className="size-5" />
-          ) : (
-            <Menu className="size-5" />
-          )}
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
 
@@ -166,9 +148,7 @@ export function SiteHeader() {
         className={cn(
           "h-[2px] transition-opacity duration-500",
 
-          scrolled || open
-            ? "opacity-100"
-            : "opacity-55",
+          scrolled || open ? "opacity-100" : "opacity-55",
         )}
       />
 
@@ -191,9 +171,7 @@ export function SiteHeader() {
                 }}
                 className="group flex items-center justify-between border-b border-white/[0.07] py-4 font-display text-[1.65rem] font-extrabold uppercase leading-none tracking-[-0.03em] text-foreground min-[390px]:text-[1.85rem] sm:py-5 sm:text-[2rem]"
               >
-                <span>
-                  {link.label}
-                </span>
+                <span>{link.label}</span>
 
                 <ArrowUpRight className="size-5 shrink-0 text-foreground/28" />
               </Link>
@@ -210,11 +188,7 @@ export function SiteHeader() {
                 <span className="bar-brand size-2.5 shrink-0 rounded-full sm:size-3" />
 
                 <span className="font-display text-[1.65rem] font-extrabold uppercase leading-none tracking-[-0.03em] min-[390px]:text-[1.85rem] sm:text-[2rem]">
-                  VinilArt{" "}
-
-                  <span className="text-gradient-brand">
-                    Sport
-                  </span>
+                  VinilArt <span className="text-gradient-brand">Sport</span>
                 </span>
               </div>
 
@@ -231,9 +205,7 @@ export function SiteHeader() {
               }}
               className="group relative flex min-h-14 w-full items-center justify-center gap-2 overflow-hidden bg-foreground px-5 py-4 text-[0.78rem] font-bold uppercase tracking-[0.1em] text-ink"
             >
-              <span>
-                Pedir orçamento
-              </span>
+              <span>Pedir orçamento</span>
 
               <ArrowUpRight className="size-4" />
 

@@ -1,9 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
-import {
-  BrandBar,
-  BrushGlow,
-} from "@/components/brand";
+import { BrandBar, BrushGlow } from "@/components/brand";
 import { CtaLink } from "@/components/cta-button";
 import { Reveal } from "@/components/reveal";
 
@@ -32,41 +29,27 @@ export function FinalCta() {
 
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-16">
           <Reveal>
-            <span className="eyebrow">
-              O próximo projeto
-            </span>
+            <span className="eyebrow">O próximo projeto</span>
 
             <h2 className="mt-5 max-w-[900px] text-[2.75rem] leading-[0.92] min-[400px]:text-[3.15rem] sm:mt-6 sm:text-6xl lg:text-[4.8rem]">
               Tens uma ideia?
               <br />
-
-              <span className="text-gradient-brand">
-                Vamos dar-lhe forma.
-              </span>
+              <span className="text-gradient-brand">Vamos dar-lhe forma.</span>
             </h2>
 
             <p className="mt-6 max-w-2xl text-[0.95rem] leading-7 text-foreground/60 sm:mt-7 sm:text-lg">
-              Conta-nos o que tens em mente. Falamos sobre o
-              projeto, percebemos o objetivo e encontramos a
-              melhor forma de o tornar real.
+              Conta-nos o que tens em mente. Falamos sobre o projeto, percebemos o objetivo e
+              encontramos a melhor forma de o tornar real.
             </p>
           </Reveal>
 
           <Reveal delay={90}>
             <div className="flex flex-col lg:items-start lg:justify-self-end">
-              <CtaLink
-                to="/contactos"
-                hash="pedido"
-                className="w-full sm:w-fit sm:min-w-[220px]"
-              >
+              <CtaLink to="/contactos" hash="pedido" className="w-full sm:w-fit sm:min-w-[220px]">
                 Pedir orçamento
               </CtaLink>
 
-              <CtaLink
-                to="/contactos"
-                variant="ghost"
-                className="mt-3 w-fit sm:mt-5"
-              >
+              <CtaLink to="/contactos" variant="ghost" className="mt-3 w-fit sm:mt-5">
                 Falar connosco
               </CtaLink>
 
