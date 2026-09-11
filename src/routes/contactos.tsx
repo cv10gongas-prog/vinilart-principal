@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { ArrowUpRight, Instagram, MapPin } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 import { BrandBar } from "@/components/brand";
 import { PageHero } from "@/components/page-hero";
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/contactos")({
       {
         name: "description",
         content:
-          "Fala com a VinilArt sobre o teu projeto de design, impressão ou personalização. Rua São Luís 7A, Oeiras.",
+          "Fala com a VinilArt sobre o teu projeto de design, impressão ou personalização. Contacto direto: +351 913 447 705 ou geral@vinilart.pt.",
       },
       {
         property: "og:title",
@@ -26,7 +26,8 @@ export const Route = createFileRoute("/contactos")({
       },
       {
         property: "og:description",
-        content: "O próximo projeto pode começar aqui. Envia o teu pedido à VinilArt.",
+        content:
+          "O próximo projeto pode começar aqui. Contacta-nos diretamente por telefone, email ou formulário.",
       },
     ],
   }),
@@ -55,7 +56,7 @@ function ContactosPage() {
           className="surface-grid pointer-events-none absolute bottom-0 left-0 hidden h-[55%] w-[44%] opacity-14 lg:block"
         />
 
-        <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-20">
+        <div className="relative z-10 mx-auto grid max-w-[1400px] gap-14 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-20">
           <div>
             <Reveal>
               <div>
@@ -72,46 +73,107 @@ function ContactosPage() {
                 </h2>
 
                 <p className="mt-6 max-w-md text-base leading-7 text-foreground/54">
-                  Envia-nos os detalhes essenciais através do formulário ou encontra a VinilArt
-                  através dos contactos abaixo.
+                  Contacta-nos diretamente por telefone ou e-mail, preenche o formulário para um
+                  pedido detalhado ou visita o nosso espaço em Oeiras.
                 </p>
               </div>
             </Reveal>
 
             <div className="mt-10 border-y border-white/[0.07]">
+              {/* Telefone direto */}
               <Reveal>
-                <div className="flex gap-4 py-6">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-cyan" />
+                <div className="flex gap-4 py-5 sm:py-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-cyan/25 bg-cyan/10 text-cyan">
+                    <Phone className="h-5 w-5" />
+                  </div>
+
+                  <div className="min-w-0">
+                    <span className="eyebrow text-[0.58rem]">Telefone direto</span>
+
+                    <a
+                      href={contact.phoneUrl}
+                      className="mt-2 block font-display text-xl font-bold tracking-tight text-foreground transition-colors hover:text-cyan sm:text-2xl"
+                    >
+                      {contact.phone}
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* E-mails oficiais */}
+              <Reveal delay={40}>
+                <div className="flex gap-4 border-t border-white/[0.07] py-5 sm:py-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-cyan/25 bg-cyan/10 text-cyan">
+                    <Mail className="h-5 w-5" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <span className="eyebrow text-[0.58rem]">E-mails oficiais</span>
+
+                    <div className="mt-2 flex flex-col gap-2">
+                      <div className="flex flex-wrap items-baseline gap-x-3">
+                        <span className="text-xs uppercase tracking-wider text-foreground/45">
+                          Geral:
+                        </span>
+                        <a
+                          href={contact.emailGeneralUrl}
+                          className="font-medium text-foreground transition-colors hover:text-cyan"
+                        >
+                          {contact.emailGeneral}
+                        </a>
+                      </div>
+
+                      <div className="flex flex-wrap items-baseline gap-x-3">
+                        <span className="text-xs uppercase tracking-wider text-foreground/45">
+                          Suporte:
+                        </span>
+                        <a
+                          href={contact.emailSupportUrl}
+                          className="font-medium text-foreground/80 transition-colors hover:text-cyan"
+                        >
+                          {contact.emailSupport}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              {/* Morada */}
+              <Reveal delay={70}>
+                <div className="flex gap-4 border-t border-white/[0.07] py-5 sm:py-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/5 text-foreground/60">
+                    <MapPin className="h-5 w-5" />
+                  </div>
 
                   <div className="min-w-0">
                     <span className="eyebrow text-[0.58rem]">Morada</span>
 
-                    <address className="mt-3 text-base not-italic leading-7 text-foreground/70">
+                    <address className="mt-2 text-sm not-italic leading-6 text-foreground/70 sm:text-base">
                       {contact.street}
                       <br />
-
-                      {contact.city}
-                      <br />
-
                       {contact.zip}
                     </address>
                   </div>
                 </div>
               </Reveal>
 
-              <Reveal delay={70}>
-                <div className="flex gap-4 border-t border-white/[0.07] py-6">
-                  <Instagram className="mt-0.5 h-5 w-5 shrink-0 text-magenta" />
+              {/* Instagram */}
+              <Reveal delay={100}>
+                <div className="flex gap-4 border-t border-white/[0.07] py-5 sm:py-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-magenta/25 bg-magenta/10 text-magenta">
+                    <Instagram className="h-5 w-5" />
+                  </div>
 
                   <div className="min-w-0 flex-1">
-                    <span className="eyebrow text-[0.58rem]">Instagram</span>
+                    <span className="eyebrow text-[0.58rem]">Redes Sociais</span>
 
-                    <div className="mt-3 flex flex-col">
+                    <div className="mt-2 flex flex-col divide-y divide-white/[0.05]">
                       <a
                         href={contact.instagramUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center justify-between gap-4 py-2 text-sm text-foreground/68 transition-colors hover:text-foreground sm:text-base"
+                        className="group flex items-center justify-between gap-4 py-2 text-sm text-foreground/70 transition-colors hover:text-foreground sm:text-base"
                       >
                         <span>{contact.instagram}</span>
 
@@ -122,7 +184,7 @@ function ContactosPage() {
                         href={contact.instagramSportUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="group flex items-center justify-between gap-4 border-t border-white/[0.05] py-2 text-sm text-foreground/68 transition-colors hover:text-foreground sm:text-base"
+                        className="group flex items-center justify-between gap-4 py-2 text-sm text-foreground/70 transition-colors hover:text-foreground sm:text-base"
                       >
                         <span>VinilArt Sport — {contact.instagramSport}</span>
 

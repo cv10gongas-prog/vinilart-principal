@@ -244,79 +244,6 @@ function Hero() {
   );
 }
 
-function BrandManifesto() {
-  return (
-    <section className="relative overflow-hidden border-y border-white/[0.06] bg-charcoal/20 py-20 sm:py-24 lg:py-28">
-      <BrushGlow
-        tone="magenta"
-        className="bottom-[-70%] left-[-20%] h-[500px] w-[500px] opacity-18"
-      />
-
-      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-5 sm:px-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:gap-24">
-        <Reveal>
-          <div>
-            <div className="flex items-center gap-3">
-              <BrandBar className="h-[2px] w-9" />
-
-              <span className="eyebrow text-foreground/[0.65]">A forma de trabalhar</span>
-            </div>
-
-            <h2 className="mt-6 max-w-[780px] text-[2.7rem] leading-[0.94] sm:text-5xl lg:text-[4.1rem]">
-              Saber fazer…
-              <br />
-              <span className="text-gradient-brand">como deve ser.</span>
-            </h2>
-          </div>
-        </Reveal>
-
-        <Reveal delay={100}>
-          <div>
-            <p className="max-w-xl text-base leading-7 text-foreground/68 sm:text-lg sm:leading-8">
-              Na VinilArt cada projeto passa por diferentes fases, mas o objetivo mantém-se:
-              transformar uma ideia numa solução visual que funcione no mundo real.
-            </p>
-
-            <div className="mt-8 grid grid-cols-3 border-y border-white/[0.07]">
-              {[
-                ["Criar", "Ideia"],
-                ["Produzir", "Forma"],
-                ["Aplicar", "Resultado"],
-              ].map(([title, text], index) => (
-                <div
-                  key={title}
-                  className={
-                    index === 1
-                      ? "border-x border-white/[0.07] px-3 py-5 sm:px-5"
-                      : index === 0
-                        ? "py-5 pr-3 sm:pr-5"
-                        : "py-5 pl-3 sm:pl-5"
-                  }
-                >
-                  <span className="font-display text-sm font-extrabold uppercase sm:text-base">
-                    {title}
-                  </span>
-
-                  <span className="mt-1 block text-[0.64rem] uppercase tracking-[0.14em] text-foreground/42">
-                    {text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              to="/sobre"
-              className="group mt-7 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-foreground/70 transition-colors hover:text-cyan"
-            >
-              Conhecer a VinilArt
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function ServicesSection() {
   return (
     <section className="relative overflow-hidden bg-ink py-20 sm:py-24 lg:py-32">
@@ -434,11 +361,9 @@ function Index() {
     <>
       <Hero />
 
-      <BrandManifesto />
+      <Processo />
 
       <ServicesSection />
-
-      <Processo />
 
       <SportBlock />
 

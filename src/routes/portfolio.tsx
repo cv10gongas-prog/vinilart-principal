@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { BrandBar } from "@/components/brand";
 import { FinalCta } from "@/components/final-cta";
-import { PageHero } from "@/components/page-hero";
 import { PortfolioGrid } from "@/components/portfolio-grid";
 import { Reveal } from "@/components/reveal";
 
@@ -10,16 +9,16 @@ export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       {
-        title: "Portefólio — Trabalhos de comunicação visual | VinilArt",
+        title: "Portefólio — Trabalhos realizados | VinilArt",
       },
       {
         name: "description",
         content:
-          "Galeria de trabalhos VinilArt: viaturas, montras, interiores, estampagem, logotipos 3D, sinalética e brindes.",
+          "Galeria de trabalhos reais da VinilArt: viaturas, montras, interiores, estampagem, sinalética e brindes.",
       },
       {
         property: "og:title",
-        content: "Portefólio VinilArt — Ideias que ganham forma",
+        content: "Portefólio VinilArt — Trabalhos realizados",
       },
       {
         property: "og:description",
@@ -34,44 +33,30 @@ export const Route = createFileRoute("/portfolio")({
 function PortfolioPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Portefólio"
-        title={
-          <>
-            Ideias que
-            <br />
-            <span className="text-gradient-brand">ganham forma.</span>
-          </>
-        }
-        text="Explora diferentes áreas do trabalho VinilArt e descobre como cada ideia pode ganhar uma presença própria."
-      />
-
-      <section className="relative overflow-hidden bg-ink py-16 sm:py-20 lg:py-28">
+      <section className="relative overflow-hidden bg-ink pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24">
         <div
           aria-hidden="true"
-          className="surface-grid pointer-events-none absolute right-0 top-0 hidden h-[600px] w-[42%] opacity-14 lg:block"
+          className="surface-grid pointer-events-none absolute right-0 top-0 hidden h-[450px] w-[40%] opacity-12 lg:block"
         />
 
         <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8">
           <Reveal>
-            <div className="grid gap-7 border-b border-white/[0.07] pb-8 sm:grid-cols-[1fr_auto] sm:items-end lg:pb-10">
+            <div className="flex flex-col gap-4 border-b border-white/[0.08] pb-6 sm:flex-row sm:items-end sm:justify-between sm:pb-8">
               <div>
-                <span className="eyebrow">Trabalhos</span>
+                <div className="flex items-center gap-3">
+                  <BrandBar className="h-[2px] w-8" />
+                  <span className="eyebrow">Portefólio</span>
+                </div>
 
-                <h2 className="mt-5 text-[2.4rem] leading-[0.94] sm:text-5xl">
-                  Cada projeto
-                  <br />
-                  <span className="text-gradient-brand">tem a sua forma.</span>
-                </h2>
+                <h1 className="mt-3 text-3xl font-display font-black tracking-tight sm:text-4xl lg:text-5xl">
+                  Trabalhos realizados
+                </h1>
               </div>
 
-              <div className="max-w-sm">
-                <BrandBar className="mb-4 h-[2px] w-12" />
-
-                <p className="text-sm leading-6 text-foreground/50">
-                  Filtra a galeria por área para encontrares o tipo de trabalho que procuras.
-                </p>
-              </div>
+              <p className="max-w-md text-sm leading-relaxed text-foreground/60 sm:text-base">
+                Projetos reais de personalização, decoração e comunicação visual desenvolvidos pela
+                VinilArt.
+              </p>
             </div>
           </Reveal>
 

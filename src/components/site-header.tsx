@@ -72,9 +72,9 @@ export function SiteHeader() {
           <img
             src="/brand/official/vinilart-logo-horizontal-notagline.png"
             alt="VinilArt"
-            width={144}
-            height={32}
-            className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] sm:h-8"
+            width={225}
+            height={50}
+            className="h-[34px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] min-[390px]:h-[38px] sm:h-[42px] lg:h-[46px] xl:h-[50px]"
           />
         </Link>
 

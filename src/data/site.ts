@@ -488,6 +488,13 @@ export const sportServices = [
 ];
 
 export const contact = {
+  emailGeneral: "geral@vinilart.pt",
+  emailGeneralUrl: "mailto:geral@vinilart.pt",
+  emailSupport: "suporte@vinilart.pt",
+  emailSupportUrl: "mailto:suporte@vinilart.pt",
+  phone: "+351 913 447 705",
+  phoneUrl: "tel:+351913447705",
+
   street: "Rua São Luís 7A",
   city: "Oeiras",
   zip: "2780-036 Portugal",
