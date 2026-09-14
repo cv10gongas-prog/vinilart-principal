@@ -50,6 +50,7 @@ const contextWorks = [
     title: "Expositor integrado no espaço",
     client: "Aura",
     dotTone: "bg-cyan",
+    position: "center 48%",
   },
   {
     image: "/portfolio/hasse-sinaletica-stand-01.jpg",
@@ -58,6 +59,7 @@ const contextWorks = [
     title: "Identidade aplicada ao stand",
     client: "Hasse Healthcare",
     dotTone: "bg-yellow",
+    position: "center 45%",
   },
   {
     image: "/portfolio/holy-moly-fachada.jpg",
@@ -66,6 +68,7 @@ const contextWorks = [
     title: "Comunicação exterior",
     client: "Holy Moly",
     dotTone: "bg-magenta",
+    position: "center 48%",
   },
   {
     image: "/portfolio/aura-sinaletica-mesa.jpg",
@@ -74,6 +77,7 @@ const contextWorks = [
     title: "Detalhes de comunicação",
     client: "Aura",
     dotTone: "bg-cyan",
+    position: "center 55%",
   },
 ];
 
@@ -81,7 +85,7 @@ function ServicosPage() {
   return (
     <>
       {/* ================================================================ */}
-      {/* HERO                                                             */}
+      {/* HERO */}
       {/* ================================================================ */}
 
       <section className="surface-grain relative overflow-hidden bg-ink pb-14 pt-32 sm:pb-20 sm:pt-40 lg:pb-24 lg:pt-48">
@@ -149,13 +153,16 @@ function ServicosPage() {
           </div>
 
           <Reveal delay={200} className="mt-12 sm:mt-16">
-            <div className="overflow-hidden border border-white/[0.1] bg-black shadow-2xl">
-              <img
-                src="/portfolio/aura-glow-bar.jpg"
-                alt="Personalização de espaço Aura Glow Bar"
-                loading="eager"
-                className="block h-auto w-full"
-              />
+            <div className="overflow-hidden border border-white/[0.1] bg-ink shadow-2xl">
+              <div className="relative aspect-[21/8] overflow-hidden bg-black">
+                <img
+                  src="/portfolio/aura-glow-bar.jpg"
+                  alt="Personalização de espaço Aura Glow Bar"
+                  loading="eager"
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: "center 44%" }}
+                />
+              </div>
 
               <div className="flex flex-col justify-between gap-2 border-t border-white/[0.08] bg-ink/95 px-5 py-4 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2.5">
@@ -176,7 +183,7 @@ function ServicosPage() {
       </section>
 
       {/* ================================================================ */}
-      {/* ÍNDICE                                                           */}
+      {/* ÍNDICE */}
       {/* ================================================================ */}
 
       <section className="border-y border-white/[0.08] bg-charcoal/30">
@@ -208,13 +215,14 @@ function ServicosPage() {
       </section>
 
       {/* ================================================================ */}
-      {/* SERVIÇOS                                                         */}
+      {/* SERVIÇOS */}
       {/* ================================================================ */}
 
       <section className="relative overflow-hidden bg-ink py-16 sm:py-24 lg:py-32">
         <div className="relative z-10 mx-auto max-w-[1400px] space-y-16 px-5 sm:space-y-24 sm:px-8 lg:space-y-28">
+
           {/* ============================================================ */}
-          {/* 01 LOGOTIPOS 3D                                             */}
+          {/* 01 LOGOTIPOS 3D */}
           {/* ============================================================ */}
 
           <article
@@ -223,13 +231,16 @@ function ServicosPage() {
           >
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
               <Reveal>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/holy-moly-logotipo-parede.jpg"
-                    alt="Identidade Holy Moly aplicada em parede"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/holy-moly-logotipo-parede.jpg"
+                      alt="Identidade Holy Moly aplicada em parede"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 38%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -293,7 +304,7 @@ function ServicosPage() {
           </article>
 
           {/* ============================================================ */}
-          {/* 02 DESIGN + 03 IMPRESSÃO                                    */}
+          {/* 02 DESIGN + 03 IMPRESSÃO */}
           {/* ============================================================ */}
 
           <div className="grid gap-10 border-b border-white/[0.08] pb-16 sm:pb-20 md:grid-cols-2 md:gap-8 lg:gap-12">
@@ -302,13 +313,16 @@ function ServicosPage() {
               className="flex scroll-mt-28 flex-col justify-between"
             >
               <Reveal>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/aura-sinaletica-frase.jpg"
-                    alt="Sinalética personalizada Aura Glow Bar"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/aura-sinaletica-frase.jpg"
+                      alt="Sinalética personalizada Aura Glow Bar"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 45%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -373,13 +387,16 @@ function ServicosPage() {
               className="flex scroll-mt-28 flex-col justify-between"
             >
               <Reveal delay={60}>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/hasse-sinaletica-stand-01.jpg"
-                    alt="Aplicação gráfica e sinalética Hasse Healthcare"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/hasse-sinaletica-stand-01.jpg"
+                      alt="Aplicação gráfica e sinalética Hasse Healthcare"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 44%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -441,7 +458,7 @@ function ServicosPage() {
           </div>
 
           {/* ============================================================ */}
-          {/* 04 MONTRAS                                                  */}
+          {/* 04 MONTRAS */}
           {/* ============================================================ */}
 
           <article
@@ -495,13 +512,16 @@ function ServicosPage() {
               </Reveal>
 
               <Reveal delay={60} className="order-1 lg:order-2">
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/aura-vinil-vidro.jpg"
-                    alt="Vinil aplicado em vidro no espaço Aura"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/aura-vinil-vidro.jpg"
+                      alt="Vinil aplicado em vidro no espaço Aura"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 48%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -522,7 +542,7 @@ function ServicosPage() {
           </article>
 
           {/* ============================================================ */}
-          {/* 05 INTERIORES                                                */}
+          {/* 05 INTERIORES */}
           {/* ============================================================ */}
 
           <article
@@ -531,13 +551,16 @@ function ServicosPage() {
           >
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
               <Reveal>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/aura-espaco-interior.jpg"
-                    alt="Personalização visual do espaço interior Aura"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/aura-espaco-interior.jpg"
+                      alt="Personalização visual do espaço interior Aura"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 48%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -603,7 +626,7 @@ function ServicosPage() {
           </article>
 
           {/* ============================================================ */}
-          {/* 06 VIATURAS                                                  */}
+          {/* 06 VIATURAS */}
           {/* ============================================================ */}
 
           <article
@@ -657,13 +680,16 @@ function ServicosPage() {
               </Reveal>
 
               <Reveal delay={60} className="order-1 lg:order-2">
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/carrinha-resenha-lateral.png"
-                    alt="Personalização gráfica de viatura comercial Resenha WP89 F.C."
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/carrinha-resenha-lateral.png"
+                      alt="Personalização gráfica de viatura comercial Resenha WP89 F.C."
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 50%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
@@ -684,7 +710,7 @@ function ServicosPage() {
           </article>
 
           {/* ============================================================ */}
-          {/* 07 BRINDES + 08 ESTAMPAGEM                                  */}
+          {/* 07 BRINDES + 08 ESTAMPAGEM */}
           {/* ============================================================ */}
 
           <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-12">
@@ -693,13 +719,16 @@ function ServicosPage() {
               className="flex scroll-mt-28 flex-col justify-between"
             >
               <Reveal>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/newway-kit-brindes.png"
-                    alt="Artigos promocionais personalizados Newway"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/newway-kit-brindes.png"
+                      alt="Artigos promocionais personalizados Newway"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 53%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -763,13 +792,16 @@ function ServicosPage() {
               className="flex scroll-mt-28 flex-col justify-between"
             >
               <Reveal delay={60}>
-                <div className="overflow-hidden border border-white/[0.1] bg-black">
-                  <img
-                    src="/portfolio/house-shine-tshirts.jpg"
-                    alt="Vestuário personalizado House Shine"
-                    loading="lazy"
-                    className="block h-auto w-full"
-                  />
+                <div className="overflow-hidden border border-white/[0.1] bg-ink">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                    <img
+                      src="/portfolio/house-shine-tshirts.jpg"
+                      alt="Vestuário personalizado House Shine"
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                      style={{ objectPosition: "center 45%" }}
+                    />
+                  </div>
 
                   <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
@@ -785,7 +817,9 @@ function ServicosPage() {
                     </span>
                   </div>
                 </div>
+              </Reveal>
 
+              <Reveal delay={60}>
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-sm font-bold text-magenta">
@@ -833,7 +867,7 @@ function ServicosPage() {
       </section>
 
       {/* ================================================================ */}
-      {/* TRABALHO EM CONTEXTO                                             */}
+      {/* TRABALHO EM CONTEXTO */}
       {/* ================================================================ */}
 
       <section className="border-y border-white/[0.08] bg-charcoal/25 py-16 sm:py-24 lg:py-32">
@@ -843,7 +877,6 @@ function ServicosPage() {
               <div>
                 <div className="flex items-center gap-3">
                   <BrandBar className="h-[2px] w-9" />
-
                   <span className="eyebrow">O trabalho em contexto</span>
                 </div>
 
@@ -864,16 +897,19 @@ function ServicosPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {contextWorks.map((work, index) => (
               <Reveal key={`${work.client}-${index}`} delay={index * 50}>
                 <div className="overflow-hidden border border-white/[0.08] bg-ink transition-colors hover:border-white/[0.18]">
-                  <div className="bg-black">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-black">
                     <img
                       src={work.image}
                       alt={work.alt}
                       loading="lazy"
-                      className="block h-auto w-full"
+                      className="h-full w-full object-cover"
+                      style={{
+                        objectPosition: work.position,
+                      }}
                     />
                   </div>
 
@@ -902,7 +938,7 @@ function ServicosPage() {
       </section>
 
       {/* ================================================================ */}
-      {/* CTA FINAL                                                        */}
+      {/* CTA FINAL */}
       {/* ================================================================ */}
 
       <section className="surface-grain relative overflow-hidden bg-ink py-16 sm:py-24 lg:py-32">
