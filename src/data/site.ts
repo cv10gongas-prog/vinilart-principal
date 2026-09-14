@@ -66,9 +66,9 @@ export const heroProjects: [HeroProject, HeroProject, HeroProject] = [
   {
     id: "hasse",
     title: "Hasse",
-    category: "Expositores e sinalética",
-    image: "/portfolio/hasse-expositor-interior-01.jpg",
-    alt: "Expositor interior personalizado Hasse",
+    category: "Stand e sinalética",
+    image: "/portfolio/hasse-sinaletica-stand-01.jpg",
+    alt: "Stand e sinalética personalizada Hasse",
     role: "secondary",
     tone: "yellow",
     aspectRatio: "4 / 3",
@@ -180,9 +180,6 @@ export type PortfolioItem = {
 };
 
 export const portfolio: PortfolioItem[] = [
-  // =========================================================
-  // AURA
-  // =========================================================
   {
     id: "p-aura-glow-bar",
     category: "Interiores",
@@ -267,10 +264,6 @@ export const portfolio: PortfolioItem[] = [
     tone: "cyan",
     featured: true,
   },
-
-  // =========================================================
-  // HASSE
-  // =========================================================
   {
     id: "p-hasse-expositor-interior-01",
     category: "Expositores",
@@ -308,10 +301,6 @@ export const portfolio: PortfolioItem[] = [
     ratio: "3 / 4",
     tone: "cyan",
   },
-
-  // =========================================================
-  // HOLY MOLY
-  // =========================================================
   {
     id: "p-holy-moly-fachada",
     category: "Fachadas",
