@@ -44,38 +44,38 @@ const serviceLinks = [
 
 const contextWorks = [
   {
-    image: "/portfolio/mellert-kitchen-montra.jpg",
-    alt: "Comunicação exterior e decoração de montra Mellert Kitchen",
-    category: "Montras",
-    title: "Comunicação exterior de montra",
-    client: "Mellert Kitchen",
+    image: "/portfolio/aura-expositor-produtos-01.jpg",
+    alt: "Expositor de produtos personalizado para Aura",
+    category: "Expositores",
+    title: "Expositor integrado no espaço",
+    client: "Aura",
     aspect: "aspect-[16/10]",
     dotTone: "bg-cyan",
   },
   {
-    image: "/portfolio/carrinha-jardins-de-oeiras.jpg",
-    alt: "Personalização de viatura comercial Jardins de Oeiras",
-    category: "Viaturas",
-    title: "Personalização de viatura",
-    client: "Jardins de Oeiras",
+    image: "/portfolio/hasse-sinaletica-stand-01.jpg",
+    alt: "Sinalética e identidade visual aplicada no stand Hasse Healthcare",
+    category: "Sinalética",
+    title: "Identidade aplicada ao stand",
+    client: "Hasse Healthcare",
     aspect: "aspect-[4/3]",
     dotTone: "bg-yellow",
   },
   {
-    image: "/portfolio/espaco-gaming-mural-parede.jpg",
-    alt: "Decoração gráfica de parede interior Espaço Gaming",
-    category: "Interiores",
-    title: "Decoração gráfica de parede",
-    client: "Espaço Gaming",
+    image: "/portfolio/holy-moly-fachada.jpg",
+    alt: "Fachada personalizada Holy Moly",
+    category: "Fachadas",
+    title: "Comunicação exterior",
+    client: "Holy Moly",
     aspect: "aspect-[4/3]",
     dotTone: "bg-magenta",
   },
   {
-    image: "/portfolio/newway-lanyard-badge.png",
-    alt: "Lanyards e fitas personalizadas Newway",
-    category: "Brindes",
-    title: "Lanyards e identificação",
-    client: "Newway",
+    image: "/portfolio/aura-sinaletica-mesa.jpg",
+    alt: "Sinalética de mesa personalizada para Aura",
+    category: "Sinalética",
+    title: "Detalhes de comunicação",
+    client: "Aura",
     aspect: "aspect-[16/10]",
     dotTone: "bg-cyan",
   },
@@ -86,7 +86,10 @@ function ServicosPage() {
     <>
       {/* 1. HERO */}
       <section className="surface-grain relative overflow-hidden bg-ink pb-14 pt-32 sm:pb-20 sm:pt-40 lg:pb-24 lg:pt-48">
-        <div aria-hidden="true" className="surface-diagonal absolute inset-0 opacity-20" />
+        <div
+          aria-hidden="true"
+          className="surface-diagonal absolute inset-0 opacity-20"
+        />
 
         <div
           aria-hidden="true"
@@ -122,45 +125,52 @@ function ServicosPage() {
 
               <Reveal delay={120}>
                 <p className="mt-6 max-w-[640px] text-[0.98rem] leading-7 text-foreground/60 sm:mt-8 sm:text-lg sm:leading-8">
-                  Da comunicação de marca à aplicação final, desenvolvemos soluções para espaços,
-                  viaturas, montras, produtos e suportes personalizados.
+                  Da comunicação de marca à aplicação final, desenvolvemos
+                  soluções para espaços, montras, produtos, viaturas e suportes
+                  personalizados.
                 </p>
               </Reveal>
             </div>
 
-            <Reveal delay={180} className="hidden lg:block lg:justify-self-end">
+            <Reveal
+              delay={180}
+              className="hidden lg:block lg:justify-self-end"
+            >
               <div className="border-l-2 border-white/[0.12] pl-6 text-sm leading-relaxed text-foreground/45">
                 <span className="block font-mono text-xs uppercase tracking-widest text-foreground/30">
-                  Capacidade de Execução
+                  Capacidade de execução
                 </span>
+
                 <p className="mt-2 max-w-[300px] italic text-foreground/70">
-                  “Respostas gráficas à medida para diferentes suportes, escalas e objetivos de
-                  comunicação.”
+                  “Respostas gráficas à medida para diferentes suportes, escalas
+                  e objetivos de comunicação.”
                 </p>
               </div>
             </Reveal>
           </div>
 
-          {/* Fotografia real hero: Explicandum (Comunicação exterior e montra) */}
+          {/* HERO REAL — AURA */}
           <Reveal delay={200} className="mt-12 sm:mt-16">
             <div className="group overflow-hidden border border-white/[0.1] bg-ink/70 shadow-2xl">
-              <div className="relative aspect-[21/9] sm:aspect-[2.4/1] overflow-hidden bg-black">
+              <div className="relative aspect-[21/9] overflow-hidden bg-black sm:aspect-[2.4/1]">
                 <img
-                  src="/portfolio/explicandum-fachada-montra.jpg"
-                  alt="Comunicação exterior e decoração de montra comercial Explicandum"
+                  src="/portfolio/aura-glow-bar.jpg"
+                  alt="Personalização de espaço Aura Glow Bar"
                   loading="eager"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-t border-white/[0.08] px-5 py-4 bg-ink/95 gap-2">
+              <div className="flex flex-col justify-between gap-2 border-t border-white/[0.08] bg-ink/95 px-5 py-4 sm:flex-row sm:items-center">
                 <div className="flex items-center gap-2.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
-                  <span className="eyebrow text-xs">Produção e aplicação em contexto real</span>
+                  <span className="eyebrow text-xs">
+                    Produção e aplicação em contexto real
+                  </span>
                 </div>
 
-                <span className="font-mono text-xs text-foreground/40 uppercase tracking-wider">
-                  Comunicação exterior & montras — Explicandum
+                <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">
+                  Personalização de espaço — Aura
                 </span>
               </div>
             </div>
@@ -168,7 +178,7 @@ function ServicosPage() {
         </div>
       </section>
 
-      {/* ÍNDICE RÁPIDO DE ÁREAS */}
+      {/* ÍNDICE DE ÁREAS */}
       <section className="border-y border-white/[0.08] bg-charcoal/30">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <div className="flex items-center gap-6 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -187,6 +197,7 @@ function ServicosPage() {
                 <span className="font-mono text-[0.65rem] text-foreground/25 transition-colors group-hover:text-magenta">
                   {item.num}
                 </span>
+
                 {item.name}
               </a>
             ))}
@@ -196,10 +207,10 @@ function ServicosPage() {
         </div>
       </section>
 
-      {/* 2. ESTRUTURA DOS SERVIÇOS — COMPOSIÇÃO EDITORIAL VARIADA */}
+      {/* SERVIÇOS */}
       <section className="relative overflow-hidden bg-ink py-16 sm:py-24 lg:py-32">
-        <div className="relative z-10 mx-auto max-w-[1400px] px-5 sm:px-8 space-y-16 sm:space-y-24 lg:space-y-28">
-          {/* 01. LOGOTIPOS 3D — Bloco horizontal destacado (Imagem Esquerda / Texto Direita) */}
+        <div className="relative z-10 mx-auto max-w-[1400px] space-y-16 px-5 sm:space-y-24 sm:px-8 lg:space-y-28">
+          {/* 01. LOGOTIPOS 3D */}
           <article
             id="logotipos-3d"
             className="scroll-mt-28 border-b border-white/[0.08] pb-16 sm:pb-20"
@@ -209,21 +220,24 @@ function ServicosPage() {
                 <div className="group overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/urban-obras-letras-3d.png"
-                      alt="Logótipo e letras em relevo Urban Obras"
+                      src="/portfolio/holy-moly-logotipo-parede.jpg"
+                      alt="Identidade visual Holy Moly aplicada em parede"
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-3 bg-ink/90">
+
+                  <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
-                      <span className="font-mono text-[0.7rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Identidade em relevo
+
+                      <span className="font-mono text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/75">
+                        Identidade aplicada em parede
                       </span>
                     </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      Urban Obras
+
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
+                      Holy Moly
                     </span>
                   </div>
                 </div>
@@ -232,9 +246,15 @@ function ServicosPage() {
               <Reveal delay={60}>
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-magenta">01</span>
+                    <span className="font-mono text-sm font-bold text-magenta">
+                      01
+                    </span>
+
                     <span className="h-px w-6 bg-white/[0.15]" />
-                    <span className="eyebrow">Identidade e Presença</span>
+
+                    <span className="eyebrow">
+                      Identidade e presença
+                    </span>
                   </div>
 
                   <h2 className="mt-4 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1]">
@@ -242,15 +262,26 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-5 text-base leading-7 text-foreground/60 sm:text-lg">
-                    Elementos tridimensionais e letras em relevo para dar presença e destaque visual
-                    à identidade de uma marca ou espaço comercial.
+                    Elementos tridimensionais, letras, logotipos e aplicações
+                    de identidade para reforçar a presença visual de uma marca
+                    num espaço.
                   </p>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <CtaLink to="/portfolio" variant="outline" className="text-xs">
+                    <CtaLink
+                      to="/portfolio"
+                      variant="outline"
+                      className="text-xs"
+                    >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -259,38 +290,50 @@ function ServicosPage() {
             </div>
           </article>
 
-          {/* 02. DESIGN & 03. IMPRESSÃO — Duo editorial compacto em 2 colunas */}
-          <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-12 border-b border-white/[0.08] pb-16 sm:pb-20">
+          {/* 02 DESIGN + 03 IMPRESSÃO */}
+          <div className="grid gap-10 border-b border-white/[0.08] pb-16 sm:pb-20 md:grid-cols-2 md:gap-8 lg:gap-12">
             {/* 02. DESIGN */}
-            <article id="design" className="scroll-mt-28 flex flex-col justify-between group">
+            <article
+              id="design"
+              className="group scroll-mt-28 flex flex-col justify-between"
+            >
               <Reveal>
                 <div className="overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/chateaubiz-placa-acrilico.png"
-                      alt="Placa de identificação corporativa ChâteauBIZ"
+                      src="/portfolio/aura-sinaletica-frase.jpg"
+                      alt="Sinalética e comunicação visual desenvolvida para Aura"
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-2.5 bg-ink/90">
+
+                  <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-                      <span className="font-mono text-[0.68rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Identificação corporativa
+
+                      <span className="font-mono text-[0.68rem] font-semibold uppercase tracking-wider text-foreground/75">
+                        Conceito e comunicação
                       </span>
                     </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      ChâteauBIZ
+
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
+                      Aura
                     </span>
                   </div>
                 </div>
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-cyan">02</span>
+                    <span className="font-mono text-sm font-bold text-cyan">
+                      02
+                    </span>
+
                     <span className="h-px w-5 bg-white/[0.15]" />
-                    <span className="eyebrow">Conceito e Suportes</span>
+
+                    <span className="eyebrow">
+                      Conceito e suportes
+                    </span>
                   </div>
 
                   <h2 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
@@ -298,15 +341,25 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-3 text-sm leading-relaxed text-foreground/55 sm:text-base">
-                    Desenvolvimento e adaptação gráfica para suportes físicos, placas de
-                    identificação corporativa e peças de comunicação de marca.
+                    Desenvolvimento e adaptação visual para espaços, sinalética,
+                    suportes físicos e diferentes peças de comunicação.
                   </p>
 
                   <div className="mt-6 flex items-center gap-4">
-                    <CtaLink to="/portfolio" variant="outline" className="text-xs">
+                    <CtaLink
+                      to="/portfolio"
+                      variant="outline"
+                      className="text-xs"
+                    >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -315,35 +368,45 @@ function ServicosPage() {
             </article>
 
             {/* 03. IMPRESSÃO */}
-            <article id="impressao" className="scroll-mt-28 flex flex-col justify-between group">
+            <article
+              id="impressao"
+              className="group scroll-mt-28 flex flex-col justify-between"
+            >
               <Reveal delay={60}>
                 <div className="overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/strix-birdtrack-equipamento.png"
-                      alt="Aplicação gráfica em equipamento técnico STRIX Birdtrack"
+                      src="/portfolio/hasse-sinaletica-stand-02.jpg"
+                      alt="Produção gráfica e sinalética aplicada no stand Hasse Healthcare"
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-2.5 bg-ink/90">
+
+                  <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-2.5">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-yellow" />
-                      <span className="font-mono text-[0.68rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Aplicação em equipamento
+
+                      <span className="font-mono text-[0.68rem] font-semibold uppercase tracking-wider text-foreground/75">
+                        Produção e aplicação gráfica
                       </span>
                     </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      STRIX Birdtrack
+
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
+                      Hasse
                     </span>
                   </div>
                 </div>
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-yellow">03</span>
+                    <span className="font-mono text-sm font-bold text-yellow">
+                      03
+                    </span>
+
                     <span className="h-px w-5 bg-white/[0.15]" />
-                    <span className="eyebrow">Produção Visual</span>
+
+                    <span className="eyebrow">Produção visual</span>
                   </div>
 
                   <h2 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
@@ -351,15 +414,25 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-3 text-sm leading-relaxed text-foreground/55 sm:text-base">
-                    Soluções de impressão e aplicação gráfica adaptadas a diferentes suportes,
-                    escalas, equipamentos técnicos e materiais de comunicação.
+                    Impressão e produção gráfica para diferentes formatos,
+                    materiais, escalas e aplicações de comunicação.
                   </p>
 
                   <div className="mt-6 flex items-center gap-4">
-                    <CtaLink to="/portfolio" variant="outline" className="text-xs">
+                    <CtaLink
+                      to="/portfolio"
+                      variant="outline"
+                      className="text-xs"
+                    >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -368,7 +441,7 @@ function ServicosPage() {
             </article>
           </div>
 
-          {/* 04. DECORAÇÃO DE MONTRAS — Bloco horizontal (Texto Esquerda / Imagem Direita) */}
+          {/* 04. MONTRAS */}
           <article
             id="decoracao-de-montras"
             className="scroll-mt-28 border-b border-white/[0.08] pb-16 sm:pb-20"
@@ -377,9 +450,15 @@ function ServicosPage() {
               <Reveal className="order-2 lg:order-1">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-cyan">04</span>
+                    <span className="font-mono text-sm font-bold text-cyan">
+                      04
+                    </span>
+
                     <span className="h-px w-6 bg-white/[0.15]" />
-                    <span className="eyebrow">Comunicação Exterior</span>
+
+                    <span className="eyebrow">
+                      Comunicação exterior
+                    </span>
                   </div>
 
                   <h2 className="mt-4 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1]">
@@ -387,19 +466,26 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-5 text-base leading-7 text-foreground/60 sm:text-lg">
-                    Comunicação visual e personalização de fachadas comerciais para valorizar a
-                    presença exterior e criar impacto imediato no ponto de venda.
+                    Aplicação de vinil, grafismos e elementos de marca em vidro,
+                    montras e superfícies comerciais para comunicar diretamente
+                    no ponto de venda.
                   </p>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
                     <CtaLink
-                      to="/portfolio?categoria=Montras"
+                      to="/portfolio"
                       variant="outline"
                       className="text-xs"
                     >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -410,21 +496,24 @@ function ServicosPage() {
                 <div className="group overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/clinica-veterinaria-queijas.jpg"
-                      alt="Comunicação exterior e montra Clínica Veterinária de Queijas"
+                      src="/portfolio/aura-vinil-vidro.jpg"
+                      alt="Vinil aplicado em vidro no projeto Aura"
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-3 bg-ink/90">
+
+                  <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-                      <span className="font-mono text-[0.7rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Fachada comercial
+
+                      <span className="font-mono text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/75">
+                        Vinil aplicado em vidro
                       </span>
                     </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      Clínica Veterinária de Queijas
+
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
+                      Aura
                     </span>
                   </div>
                 </div>
@@ -432,7 +521,7 @@ function ServicosPage() {
             </div>
           </article>
 
-          {/* 05. DECORAÇÃO DE INTERIORES — Bloco horizontal (Imagem Esquerda / Texto Direita) */}
+          {/* 05. INTERIORES */}
           <article
             id="decoracao-de-interiores"
             className="scroll-mt-28 border-b border-white/[0.08] pb-16 sm:pb-20"
@@ -442,21 +531,24 @@ function ServicosPage() {
                 <div className="group overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/simply-fit-mural-ginasio.jpg"
-                      alt="Decoração gráfica de parede interior Simply Fit"
+                      src="/portfolio/aura-espaco-interior.jpg"
+                      alt="Espaço interior personalizado Aura"
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-3 bg-ink/90">
+
+                  <div className="flex items-center justify-between border-t border-white/[0.08] bg-ink/90 px-4 py-3">
                     <div className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
-                      <span className="font-mono text-[0.7rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Mural gráfico de parede
+
+                      <span className="font-mono text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/75">
+                        Personalização do espaço
                       </span>
                     </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      Simply Fit
+
+                    <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
+                      Aura
                     </span>
                   </div>
                 </div>
@@ -465,9 +557,15 @@ function ServicosPage() {
               <Reveal delay={60}>
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-magenta">05</span>
+                    <span className="font-mono text-sm font-bold text-magenta">
+                      05
+                    </span>
+
                     <span className="h-px w-6 bg-white/[0.15]" />
-                    <span className="eyebrow">Espaços e Ambientes</span>
+
+                    <span className="eyebrow">
+                      Espaços e ambientes
+                    </span>
                   </div>
 
                   <h2 className="mt-4 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1]">
@@ -475,19 +573,26 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-5 text-base leading-7 text-foreground/60 sm:text-lg">
-                    Aplicações visuais e murais gráficos para transformar paredes e valorizar
-                    espaços comerciais, profissionais, desportivos e institucionais.
+                    Personalização visual de interiores, paredes, expositores e
+                    elementos de comunicação para criar espaços coerentes com a
+                    identidade da marca.
                   </p>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
                     <CtaLink
-                      to="/portfolio?categoria=Interiores"
+                      to="/portfolio"
                       variant="outline"
                       className="text-xs"
                     >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -496,7 +601,7 @@ function ServicosPage() {
             </div>
           </article>
 
-          {/* 06. DECORAÇÃO DE VIATURAS — Bloco horizontal (Texto Esquerda / Imagem Direita) */}
+          {/* 06. VIATURAS */}
           <article
             id="decoracao-de-viaturas"
             className="scroll-mt-28 border-b border-white/[0.08] pb-16 sm:pb-20"
@@ -505,9 +610,15 @@ function ServicosPage() {
               <Reveal className="order-2 lg:order-1">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-yellow">06</span>
+                    <span className="font-mono text-sm font-bold text-yellow">
+                      06
+                    </span>
+
                     <span className="h-px w-6 bg-white/[0.15]" />
-                    <span className="eyebrow">Comunicação em Movimento</span>
+
+                    <span className="eyebrow">
+                      Comunicação em movimento
+                    </span>
                   </div>
 
                   <h2 className="mt-4 font-display text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-[1]">
@@ -515,19 +626,26 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-5 text-base leading-7 text-foreground/60 sm:text-lg">
-                    Personalização gráfica de veículos comerciais e frotas de empresas,
-                    transformando cada deslocação numa oportunidade contínua de comunicação.
+                    Personalização gráfica de automóveis, carrinhas e frotas
+                    comerciais para transformar cada deslocação numa extensão
+                    visível da marca.
                   </p>
 
                   <div className="mt-8 flex flex-wrap items-center gap-4">
                     <CtaLink
-                      to="/portfolio?categoria=Viaturas"
+                      to="/portfolio"
                       variant="outline"
                       className="text-xs"
                     >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -535,63 +653,91 @@ function ServicosPage() {
               </Reveal>
 
               <Reveal delay={60} className="order-1 lg:order-2">
-                <div className="group overflow-hidden border border-white/[0.1] bg-ink">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                    <img
-                      src="/portfolio/carrinha-resenha-lateral.png"
-                      alt="Personalização gráfica de viatura comercial Resenha WP89"
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-3 bg-ink/90">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-yellow" />
-                      <span className="font-mono text-[0.7rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Viatura comercial
-                      </span>
-                    </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      Resenha WP89 F.C.
+                <div className="relative min-h-[360px] overflow-hidden border border-white/[0.1] bg-[#0c1119] sm:min-h-[430px]">
+                  <div
+                    aria-hidden="true"
+                    className="surface-grid absolute inset-0 opacity-20"
+                  />
+
+                  <BrushGlow
+                    tone="yellow"
+                    className="-right-20 -top-20 h-[340px] w-[340px] opacity-30"
+                  />
+
+                  <BrushGlow
+                    tone="cyan"
+                    className="-bottom-32 -left-20 h-[360px] w-[360px] opacity-20"
+                  />
+
+                  <div className="absolute left-[8%] top-[-15%] h-[140%] w-[17%] rotate-[24deg] bg-yellow/[0.06]" />
+                  <div className="absolute left-[33%] top-[-15%] h-[140%] w-[12%] rotate-[24deg] bg-cyan/[0.07]" />
+                  <div className="absolute right-[15%] top-[-15%] h-[140%] w-[14%] rotate-[24deg] bg-magenta/[0.06]" />
+
+                  <div className="relative z-10 flex min-h-[360px] flex-col justify-end p-7 sm:min-h-[430px] sm:p-10">
+                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow">
+                      Aplicação personalizada
                     </span>
+
+                    <h3 className="mt-3 max-w-lg font-display text-3xl font-bold uppercase leading-[0.95] text-white sm:text-4xl">
+                      A tua marca
+                      <br />
+                      em movimento.
+                    </h3>
+
+                    <p className="mt-5 max-w-lg text-sm leading-7 text-foreground/50 sm:text-base">
+                      Soluções desenvolvidas à medida da viatura, da identidade
+                      visual e da área disponível para aplicação.
+                    </p>
                   </div>
                 </div>
               </Reveal>
             </div>
           </article>
 
-          {/* 07. BRINDES & 08. ESTAMPAGEM — Duo editorial compacto em 2 colunas */}
+          {/* 07 BRINDES + 08 ESTAMPAGEM */}
           <div className="grid gap-10 md:grid-cols-2 md:gap-8 lg:gap-12">
             {/* 07. BRINDES */}
-            <article id="brindes" className="scroll-mt-28 flex flex-col justify-between group">
+            <article
+              id="brindes"
+              className="group scroll-mt-28 flex flex-col justify-between"
+            >
               <Reveal>
-                <div className="overflow-hidden border border-white/[0.1] bg-ink">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                    <img
-                      src="/portfolio/newway-kit-brindes.png"
-                      alt="Kit de artigos promocionais personalizados Newway"
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-2.5 bg-ink/90">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-                      <span className="font-mono text-[0.68rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Artigos promocionais
-                      </span>
-                    </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      Newway
+                <div className="relative aspect-[16/10] overflow-hidden border border-white/[0.1] bg-[#0c1119]">
+                  <div
+                    aria-hidden="true"
+                    className="surface-grid absolute inset-0 opacity-20"
+                  />
+
+                  <BrushGlow
+                    tone="cyan"
+                    className="-right-24 -top-24 h-[300px] w-[300px] opacity-30"
+                  />
+
+                  <div className="absolute -left-10 top-[-30%] h-[160%] w-[20%] rotate-[24deg] bg-cyan/[0.07]" />
+                  <div className="absolute left-[32%] top-[-30%] h-[160%] w-[16%] rotate-[24deg] bg-magenta/[0.06]" />
+
+                  <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8">
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-cyan">
+                      Personalização de artigos
                     </span>
+
+                    <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white sm:text-3xl">
+                      A marca para além do papel.
+                    </h3>
                   </div>
                 </div>
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-cyan">07</span>
+                    <span className="font-mono text-sm font-bold text-cyan">
+                      07
+                    </span>
+
                     <span className="h-px w-5 bg-white/[0.15]" />
-                    <span className="eyebrow">Promoção e Fidelização</span>
+
+                    <span className="eyebrow">
+                      Promoção e fidelização
+                    </span>
                   </div>
 
                   <h2 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
@@ -599,19 +745,25 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-3 text-sm leading-relaxed text-foreground/55 sm:text-base">
-                    Artigos personalizados para marcas, empresas, eventos e equipas, fortalecendo o
-                    reconhecimento corporativo em qualquer suporte.
+                    Artigos promocionais e brindes personalizados para empresas,
+                    eventos, equipas e ações de comunicação.
                   </p>
 
                   <div className="mt-6 flex items-center gap-4">
                     <CtaLink
-                      to="/portfolio?categoria=Brindes"
+                      to="/portfolio"
                       variant="outline"
                       className="text-xs"
                     >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -620,35 +772,50 @@ function ServicosPage() {
             </article>
 
             {/* 08. ESTAMPAGEM */}
-            <article id="estampagem" className="scroll-mt-28 flex flex-col justify-between group">
+            <article
+              id="estampagem"
+              className="group scroll-mt-28 flex flex-col justify-between"
+            >
               <Reveal delay={60}>
-                <div className="overflow-hidden border border-white/[0.1] bg-ink">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-black">
-                    <img
-                      src="/portfolio/house-shine-tshirts.jpg"
-                      alt="Personalização de vestuário House Shine"
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="flex items-center justify-between border-t border-white/[0.08] px-4 py-2.5 bg-ink/90">
-                    <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
-                      <span className="font-mono text-[0.68rem] uppercase tracking-wider text-foreground/75 font-semibold">
-                        Vestuário personalizado
-                      </span>
-                    </div>
-                    <span className="font-mono text-[0.65rem] text-foreground/35 uppercase tracking-wider">
-                      House Shine
+                <div className="relative aspect-[16/10] overflow-hidden border border-white/[0.1] bg-[#0c1119]">
+                  <div
+                    aria-hidden="true"
+                    className="surface-grid absolute inset-0 opacity-20"
+                  />
+
+                  <BrushGlow
+                    tone="magenta"
+                    className="-left-24 -top-24 h-[300px] w-[300px] opacity-30"
+                  />
+
+                  <BrushGlow
+                    tone="yellow"
+                    className="-bottom-32 -right-16 h-[320px] w-[320px] opacity-20"
+                  />
+
+                  <div className="absolute right-[7%] top-[-30%] h-[160%] w-[19%] rotate-[24deg] bg-magenta/[0.07]" />
+                  <div className="absolute right-[35%] top-[-30%] h-[160%] w-[14%] rotate-[24deg] bg-yellow/[0.05]" />
+
+                  <div className="relative z-10 flex h-full flex-col justify-end p-6 sm:p-8">
+                    <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-magenta">
+                      Têxteis personalizados
                     </span>
+
+                    <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white sm:text-3xl">
+                      Identidade que também se veste.
+                    </h3>
                   </div>
                 </div>
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-sm font-bold text-magenta">08</span>
+                    <span className="font-mono text-sm font-bold text-magenta">
+                      08
+                    </span>
+
                     <span className="h-px w-5 bg-white/[0.15]" />
-                    <span className="eyebrow">Têxteis e Equipas</span>
+
+                    <span className="eyebrow">Têxteis e equipas</span>
                   </div>
 
                   <h2 className="mt-3 font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
@@ -656,19 +823,26 @@ function ServicosPage() {
                   </h2>
 
                   <p className="mt-3 text-sm leading-relaxed text-foreground/55 sm:text-base">
-                    Personalização de vestuário profissional, fardas e têxteis para equipas,
-                    empresas e projetos que exigem rigor de imagem.
+                    Personalização de vestuário, fardas e peças têxteis
+                    adaptadas à identidade de marcas, empresas, equipas e
+                    projetos.
                   </p>
 
                   <div className="mt-6 flex items-center gap-4">
                     <CtaLink
-                      to="/portfolio?categoria=Estampagem"
+                      to="/portfolio"
                       variant="outline"
                       className="text-xs"
                     >
                       Ver trabalhos
                     </CtaLink>
-                    <CtaLink to="/contactos" hash="pedido" variant="ghost" className="text-xs">
+
+                    <CtaLink
+                      to="/contactos"
+                      hash="pedido"
+                      variant="ghost"
+                      className="text-xs"
+                    >
                       Pedir orçamento
                     </CtaLink>
                   </div>
@@ -679,7 +853,7 @@ function ServicosPage() {
         </div>
       </section>
 
-      {/* 3. BLOCO O TRABALHO EM CONTEXTO (VARIEDADE DE SUPORTES REAIS) */}
+      {/* TRABALHO EM CONTEXTO */}
       <section className="border-y border-white/[0.08] bg-charcoal/25 py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-8">
           <Reveal>
@@ -687,11 +861,16 @@ function ServicosPage() {
               <div>
                 <div className="flex items-center gap-3">
                   <BrandBar className="h-[2px] w-9" />
-                  <span className="eyebrow">O trabalho em contexto</span>
+                  <span className="eyebrow">
+                    O trabalho em contexto
+                  </span>
                 </div>
 
                 <h2 className="mt-4 max-w-[750px] text-[2.4rem] leading-[0.94] sm:text-5xl lg:text-6xl">
-                  Da produção à <span className="text-gradient-brand">aplicação final.</span>
+                  Da produção à{" "}
+                  <span className="text-gradient-brand">
+                    aplicação final.
+                  </span>
                 </h2>
               </div>
 
@@ -700,17 +879,19 @@ function ServicosPage() {
                 className="group flex w-fit items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-foreground/55 transition-colors hover:text-cyan"
               >
                 Ver portefólio completo
+
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
             </div>
           </Reveal>
 
-          {/* 4 fotografias reais em formatos diferenciados */}
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {contextWorks.map((work, index) => (
-              <Reveal key={work.client} delay={index * 50}>
+              <Reveal key={`${work.client}-${work.image}`} delay={index * 50}>
                 <div className="group overflow-hidden border border-white/[0.08] bg-ink transition-colors hover:border-white/[0.18]">
-                  <div className={`relative ${work.aspect} overflow-hidden bg-black`}>
+                  <div
+                    className={`relative ${work.aspect} overflow-hidden bg-black`}
+                  >
                     <img
                       src={work.image}
                       alt={work.alt}
@@ -719,17 +900,22 @@ function ServicosPage() {
                     />
                   </div>
 
-                  <div className="p-4 border-t border-white/[0.08] bg-ink/90">
+                  <div className="border-t border-white/[0.08] bg-ink/90 p-4">
                     <div className="flex items-center gap-2">
-                      <span className={`h-1.5 w-1.5 rounded-full ${work.dotTone}`} />
-                      <span className="eyebrow text-xs">{work.category}</span>
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${work.dotTone}`}
+                      />
+
+                      <span className="eyebrow text-xs">
+                        {work.category}
+                      </span>
                     </div>
 
                     <p className="mt-1.5 font-display text-sm font-bold uppercase tracking-wide text-foreground/90">
                       {work.title}
                     </p>
 
-                    <p className="mt-1 font-mono text-[0.65rem] text-foreground/40 uppercase tracking-wider">
+                    <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-wider text-foreground/40">
                       {work.client}
                     </p>
                   </div>
@@ -740,7 +926,7 @@ function ServicosPage() {
         </div>
       </section>
 
-      {/* 4. BLOCO FINAL (CTA) */}
+      {/* CTA FINAL */}
       <section className="surface-grain relative overflow-hidden bg-ink py-16 sm:py-24 lg:py-32">
         <BrushGlow
           tone="magenta"
@@ -767,7 +953,8 @@ function ServicosPage() {
               <span className="eyebrow">Vamos conversar</span>
 
               <h2 className="mt-4 max-w-[850px] text-[2.35rem] leading-[0.93] min-[400px]:text-[2.75rem] sm:mt-6 sm:text-6xl lg:text-[4.6rem]">
-                Que ideia queres pôr <span className="text-gradient-brand">em prática?</span>
+                Que ideia queres pôr{" "}
+                <span className="text-gradient-brand">em prática?</span>
               </h2>
 
               <p className="mt-5 max-w-2xl text-[0.95rem] leading-7 text-foreground/60 sm:mt-7 sm:text-lg">
@@ -776,7 +963,7 @@ function ServicosPage() {
             </Reveal>
 
             <Reveal delay={90}>
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-3.5 sm:gap-4 lg:items-start lg:justify-self-end">
+              <div className="flex flex-col gap-3.5 sm:flex-row sm:gap-4 lg:flex-col lg:items-start lg:justify-self-end">
                 <CtaLink
                   to="/contactos"
                   hash="pedido"
