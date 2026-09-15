@@ -126,6 +126,21 @@ function vinilart_run_setup() {
 		}
 	}
 
+	// 1b. Remove conteudo de exemplo do WordPress (apenas se nao foi editado).
+	$samples = array(
+		array( 'path' => 'sample-page', 'type' => 'page' ),
+		array( 'path' => 'hello-world', 'type' => 'post' ),
+	);
+	foreach ( $samples as $sample ) {
+		$sample_post = get_page_by_path( $sample['path'], OBJECT, $sample['type'] );
+		if ( $sample_post
+			&& 'trash' !== $sample_post->post_status
+			&& '' === get_post_meta( $sample_post->ID, '_vinilart_page', true )
+			&& $sample_post->post_date_gmt === $sample_post->post_modified_gmt ) {
+			wp_trash_post( $sample_post->ID );
+		}
+	}
+
 	// 2. Pagina inicial.
 	if ( isset( $ids['home'] ) ) {
 		update_option( 'show_on_front', 'page' );
