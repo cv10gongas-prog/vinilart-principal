@@ -220,7 +220,6 @@ function ServicosPage() {
 
       <section className="relative overflow-hidden bg-ink py-16 sm:py-24 lg:py-32">
         <div className="relative z-10 mx-auto max-w-[1400px] space-y-16 px-5 sm:space-y-24 sm:px-8 lg:space-y-28">
-
           {/* ============================================================ */}
           {/* 01 LOGOTIPOS 3D */}
           {/* ============================================================ */}
@@ -234,11 +233,11 @@ function ServicosPage() {
                 <div className="overflow-hidden border border-white/[0.1] bg-ink">
                   <div className="relative aspect-[16/10] overflow-hidden bg-black">
                     <img
-                      src="/portfolio/holy-moly-logotipo-parede.jpg"
-                      alt="Identidade Holy Moly aplicada em parede"
+                      src="/portfolio/urban-obras-letras-3d.png"
+                      alt="Letras e logotipo 3D Urban Obras aplicados em parede"
                       loading="lazy"
                       className="h-full w-full object-cover"
-                      style={{ objectPosition: "center 38%" }}
+                      style={{ objectPosition: "center 50%" }}
                     />
                   </div>
 
@@ -247,12 +246,12 @@ function ServicosPage() {
                       <span className="h-1.5 w-1.5 rounded-full bg-magenta" />
 
                       <span className="font-mono text-[0.7rem] font-semibold uppercase tracking-wider text-foreground/75">
-                        Identidade aplicada em parede
+                        Letras e logotipo 3D
                       </span>
                     </div>
 
                     <span className="font-mono text-[0.65rem] uppercase tracking-wider text-foreground/35">
-                      Holy Moly
+                      Urban Obras
                     </span>
                   </div>
                 </div>
