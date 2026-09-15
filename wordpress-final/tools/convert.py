@@ -27,6 +27,8 @@ VOID = {
     "polyline", "polygon", "ellipse", "use", "stop",
 }
 
+SVG_SELF = {"path", "rect", "circle", "line", "polyline", "polygon", "ellipse", "use", "stop"}
+
 TEXT_HOSTS = {
     "h1", "h2", "h3", "h4", "h5", "h6", "p", "span", "li", "strong", "em",
     "figcaption", "label", "button", "a", "address", "td", "th", "div", "dt",
@@ -152,12 +154,14 @@ class Templater(HTMLParser):
         self.emit(f"<!--{data}-->")
 
     def handle_starttag(self, tag, attrs):
-        self.emit(f"<{tag}{self.attrs_to_html(tag, attrs)}>")
+        close = " />" if tag in SVG_SELF else ">"
+        self.emit(f"<{tag}{self.attrs_to_html(tag, attrs)}{close}")
         if tag not in VOID:
             self.stack.append(tag)
 
     def handle_startendtag(self, tag, attrs):
-        self.emit(f"<{tag}{self.attrs_to_html(tag, attrs)}>")
+        close = " />" if tag in SVG_SELF else ">"
+        self.emit(f"<{tag}{self.attrs_to_html(tag, attrs)}{close}")
 
     def handle_endtag(self, tag):
         if self.stack and self.stack[-1] == tag:
