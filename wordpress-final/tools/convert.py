@@ -99,6 +99,7 @@ class Templater(HTMLParser):
         self.page = page
         self.section = section
         self.stack = []
+        self.cstack = []
         self.n = 0
         self.img_n = 0
 
@@ -134,12 +135,12 @@ class Templater(HTMLParser):
                 self.img_n += 1
                 k = f"{self.page}_{self.section}_img{self.img_n:02d}"
                 fields[k] = {"type": "image", "default": value, "page": self.page,
-                             "label": "Imagem: " + os.path.basename(value)}
+                             "label": "Imagem: " + os.path.basename(value), "role": "Imagem"}
                 value = "<?php echo esc_url( vinilart_img('%s') ); ?>" % k
             if name == "alt" and tag == "img":
                 k = f"{self.page}_{self.section}_alt{self.img_n:02d}"
                 fields[k] = {"type": "text", "default": value, "page": self.page,
-                             "label": "Texto alternativo da imagem"}
+                             "label": "Texto alternativo da imagem", "role": "Texto alternativo"}
                 value = "<?php vt('%s'); ?>" % k
             pieces.append(' %s="%s"' % (name, value.replace('"', "&quot;") if name not in ("href", "src", "alt") else value))
         return "".join(pieces)
@@ -206,6 +207,8 @@ class Templater(HTMLParser):
     def handle_endtag(self, tag):
         if self.stack and self.stack[-1] == tag:
             self.stack.pop()
+            if self.cstack:
+                self.cstack.pop()
         if tag not in VOID:
             self.emit(f"</{tag}>")
 
@@ -231,11 +234,14 @@ class Templater(HTMLParser):
         trail = data[len(data.rstrip()):]
         kind = "t"
         k = self.key(kind)
+        pcls = self.cstack[-1][1] if self.cstack else ""
+        long_text = len(text) > 90
         fields[k] = {
-            "type": "textarea" if len(text) > 90 else "text",
+            "type": "textarea" if long_text else "text",
             "default": text,
             "page": self.page,
             "label": (text[:70] + ("…" if len(text) > 70 else "")),
+            "role": self.role_for(parent, pcls, long_text, text),
         }
         self.emit(f"{lead}<?php vt('{k}'); ?>{trail}")
 
@@ -278,8 +284,8 @@ def main():
              "// Contem os textos e imagens por defeito de cada campo editavel.",
              "return array("]
     for k, v in fields.items():
-        lines.append("  %s => array( 'type' => %s, 'label' => %s, 'page' => %s, 'default' => %s )," % (
-            php_str(k), php_str(v["type"]), php_str(v["label"]), php_str(v["page"]), php_str(v["default"])))
+        lines.append("  %s => array( 'type' => %s, 'role' => %s, 'label' => %s, 'page' => %s, 'default' => %s )," % (
+            php_str(k), php_str(v["type"]), php_str(v.get("role", "Texto")), php_str(v["label"]), php_str(v["page"]), php_str(v["default"])))
     lines.append(");")
     (DATA / "fields.php").write_text("\n".join(lines) + "\n")
 
