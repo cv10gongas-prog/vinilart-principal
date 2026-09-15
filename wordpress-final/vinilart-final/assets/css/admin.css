@@ -1,0 +1,36 @@
+.vinilart-admin h2 {
+  margin-top: 2em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #dcdcde;
+}
+
+.vinilart-admin .form-table th {
+  width: 260px;
+  font-weight: 500;
+}
+
+.vinilart-image img {
+  display: block;
+  max-width: 260px;
+  height: auto;
+  margin-bottom: 8px;
+  background: #f0f0f1;
+  border: 1px solid #dcdcde;
+}
+
+.vinilart-image img[src=""] {
+  display: none;
+}
+
+.vinilart-setup-card {
+  max-width: 780px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+}
+
+.vinilart-setup-card ul {
+  list-style: disc;
+  margin-left: 20px;
+}
