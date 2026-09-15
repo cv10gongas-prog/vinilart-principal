@@ -166,7 +166,8 @@ function vinilart_page_content() {
 
 			<?php foreach ( $groups as $group => $list ) : ?>
 				<?php list( $title, $note ) = vinilart_section_label( $page, $group ); ?>
-				<details class="vinilart-card" data-vinilart-card <?php echo ( $open === $group || 1 === count( $groups ) ) ? 'open' : ''; ?>>
+				<?php $is_first = ( $group === (string) array_key_first( $groups ) ); ?>
+				<details class="vinilart-card" data-vinilart-card <?php echo ( $open ? ( $open === $group ) : $is_first ) ? 'open' : ''; ?>>
 					<summary>
 						<span class="vinilart-card-title"><?php echo esc_html( $title ); ?></span>
 						<span class="vinilart-card-count"><?php echo esc_html( sprintf( _n( '%s campo', '%s campos', count( $list ), 'vinilart' ), number_format_i18n( count( $list ) ) ) ); ?></span>
