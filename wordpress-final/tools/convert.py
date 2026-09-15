@@ -154,10 +154,50 @@ class Templater(HTMLParser):
         self.emit(f"<!--{data}-->")
 
     def handle_starttag(self, tag, attrs):
+        cls = ""
+        for name, value in attrs:
+            if name == "class" and value:
+                cls = value
         close = " />" if tag in SVG_SELF else ">"
         self.emit(f"<{tag}{self.attrs_to_html(tag, attrs)}{close}")
         if tag not in VOID:
             self.stack.append(tag)
+            self.cstack.append((tag, cls))
+
+    # ---------- etiquetas humanas ----------
+    def role_for(self, tag, cls, long_text, text):
+        for t, c in reversed(self.cstack):
+            if t == "button":
+                return "Botão"
+            if t == "a":
+                if any(x in c for x in ("cta", "btn", "button", "bg-foreground", "border-white")):
+                    return "Botão"
+                return "Link"
+        if tag == "h1":
+            return "Título principal"
+        if tag == "h2":
+            return "Título"
+        if tag in ("h3", "h4", "h5", "h6"):
+            return "Subtítulo"
+        if tag == "p":
+            return "Parágrafo" if long_text else "Texto"
+        if tag == "figcaption":
+            return "Legenda"
+        if tag == "li":
+            return "Item da lista"
+        if tag == "address":
+            return "Endereço"
+        if tag == "label":
+            return "Nome do campo"
+        if tag == "option":
+            return "Opção da lista"
+        if tag in ("td", "th"):
+            return "Célula"
+        if "eyebrow" in cls:
+            return "Etiqueta"
+        if re.fullmatch(r"\d{1,3}[+%º.]?", text or ""):
+            return "Número"
+        return "Parágrafo" if long_text else "Texto"
 
     def handle_startendtag(self, tag, attrs):
         close = " />" if tag in SVG_SELF else ">"
