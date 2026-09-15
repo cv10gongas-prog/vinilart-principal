@@ -302,3 +302,53 @@ function vinilart_render_page( $page ) {
 		}
 	}
 }
+
+/**
+ * Campos efetivamente usados no site (gerado).
+ *
+ * @return array
+ */
+function vinilart_used_fields() {
+	static $used = null;
+	if ( null === $used ) {
+		$file = VINILART_DIR . '/inc/data/used.php';
+		$used = file_exists( $file ) ? include $file : array();
+	}
+	return $used;
+}
+
+/**
+ * Nomes das secoes em portugues para o painel.
+ *
+ * @return array
+ */
+function vinilart_section_labels() {
+	static $labels = null;
+	if ( null === $labels ) {
+		$file   = VINILART_DIR . '/inc/data/labels.php';
+		$labels = file_exists( $file ) ? include $file : array();
+	}
+	return $labels;
+}
+
+/**
+ * Nome e descricao de uma secao para o painel.
+ *
+ * @param string $page  Pagina.
+ * @param string $group Grupo (s01, s02...).
+ * @return array
+ */
+function vinilart_section_label( $page, $group ) {
+	$labels = vinilart_section_labels();
+	if ( isset( $labels[ $page ][ $group ] ) ) {
+		return $labels[ $page ][ $group ];
+	}
+
+	$sections = vinilart_default_sections();
+	$index    = (int) substr( $group, 1 ) - 1;
+	if ( isset( $sections[ $page ][ $index ]['label'] ) ) {
+		return array( $sections[ $page ][ $index ]['label'], '' );
+	}
+
+	return array( strtoupper( $group ), '' );
+}

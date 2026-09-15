@@ -34,3 +34,17 @@
   list-style: disc;
   margin-left: 20px;
 }
+
+/* Painel organizado por secoes */
+.vinilart-toolbar { display:flex; align-items:center; gap:8px; margin:14px 0 10px; flex-wrap:wrap; }
+.vinilart-search-wrap input { min-width:240px; }
+.vinilart-card { background:#fff; border:1px solid #dcdcde; border-radius:6px; margin:0 0 10px; }
+.vinilart-card > summary { cursor:pointer; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:14px; }
+.vinilart-card > summary:hover { background:#f6f7f7; }
+.vinilart-card[open] > summary { border-bottom:1px solid #f0f0f1; }
+.vinilart-card-title { font-weight:600; }
+.vinilart-card-count { color:#646970; font-size:12px; white-space:nowrap; }
+.vinilart-card-body { padding:4px 16px 12px; }
+.vinilart-card-body .form-table th { width:210px; padding:14px 10px 14px 0; }
+.vinilart-hint { display:block; font-weight:400; color:#646970; font-size:12px; margin-top:3px; }
+.vinilart-card-body tr[hidden] { display:none; }
