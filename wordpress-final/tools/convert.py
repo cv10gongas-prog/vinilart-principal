@@ -168,16 +168,21 @@ class Templater(HTMLParser):
     # ---------- etiquetas humanas ----------
     def role_for(self, tag, cls, long_text, text):
         for t, c in reversed(self.cstack):
-            if t == "button":
-                return "Botão"
-            if t == "a":
-                if any(x in c for x in ("cta", "btn", "button", "bg-foreground", "border-white")):
-                    return "Botão"
-                return "Link"
-        for t, c in reversed(self.cstack):
             if t in ("h1", "h2", "h3", "h4", "h5", "h6"):
                 tag = t
                 break
+        if "eyebrow" in cls and tag not in ("h1", "h2", "h3", "h4", "h5", "h6"):
+            return "Etiqueta"
+        if long_text and tag not in ("h1", "h2", "h3", "h4", "h5", "h6"):
+            return "Parágrafo"
+        if tag not in ("h1", "h2", "h3", "h4", "h5", "h6"):
+            for t, c in reversed(self.cstack):
+                if t == "button":
+                    return "Botão"
+                if t == "a":
+                    if any(x in c for x in ("cta", "btn", "button", "bg-foreground")):
+                        return "Botão"
+                    return "Link"
         if tag == "h1":
             return "Título principal"
         if tag == "h2":
