@@ -119,7 +119,11 @@ class Templater(HTMLParser):
             if name == "style":
                 # remove estilos inline de animacao (passam a ser feitos por CSS/JS)
                 if "opacity" in value and "transition" in value:
+                    self.pending_reveal = True
                     continue
+            if name == "class" and getattr(self, "pending_reveal", False):
+                value = value + " v-reveal"
+                self.pending_reveal = False
             if name == "class" and tag == "div" and "break-inside-avoid" in value:
                 pass
             if name == "href" and value.startswith("/"):
