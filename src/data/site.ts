@@ -91,9 +91,9 @@ export const services: Service[] = [
     slug: "logotipos-3d",
     title: "Logotipos 3D",
     text: "Soluções tridimensionais para dar mais presença e impacto à identidade de uma marca ou espaço.",
-    image: "Logotipo e relevo 3D",
-    sublabel: "Aplicação de identidade visual em parede",
-    src: "/portfolio/holy-moly-logotipo-parede.jpg",
+    image: "Urban Obras — Letras 3D",
+    sublabel: "Letras e identidade visual tridimensional aplicada em parede",
+    src: "/portfolio/urban-obras-letras-3d.png",
     tone: "cyan",
   },
   {
@@ -265,13 +265,6 @@ export const portfolio: PortfolioItem[] = [
     featured: true,
   },
 
-  /*
-   * HASSE
-   *
-   * A VinilArt não fabrica o expositor físico.
-   * O trabalho apresentado é de decoração gráfica,
-   * identidade visual e aplicação no espaço existente.
-   */
   {
     id: "p-hasse-expositor-interior-01",
     category: "Interiores",
@@ -323,8 +316,8 @@ export const portfolio: PortfolioItem[] = [
   {
     id: "p-holy-moly-logotipo-parede",
     category: "Identidade Visual",
-    image: "Holy Moly — Logotipo",
-    sublabel: "Aplicação da identidade visual em parede",
+    image: "Holy Moly — Vinil em Parede",
+    sublabel: "Aplicação de vinil com identidade visual em parede",
     src: "/portfolio/holy-moly-logotipo-parede.jpg",
     ratio: "4 / 3",
     tone: "cyan",
