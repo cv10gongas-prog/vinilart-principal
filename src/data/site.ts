@@ -66,9 +66,9 @@ export const heroProjects: [HeroProject, HeroProject, HeroProject] = [
   {
     id: "hasse",
     title: "Hasse",
-    category: "Stand e sinalética",
+    category: "Decoração de stand e sinalética",
     image: "/portfolio/hasse-sinaletica-stand-01.jpg",
-    alt: "Stand e sinalética personalizada Hasse",
+    alt: "Decoração gráfica e sinalética aplicada ao stand Hasse",
     role: "secondary",
     tone: "yellow",
     aspectRatio: "4 / 3",
@@ -264,11 +264,19 @@ export const portfolio: PortfolioItem[] = [
     tone: "cyan",
     featured: true,
   },
+
+  /*
+   * HASSE
+   *
+   * A VinilArt não fabrica o expositor físico.
+   * O trabalho apresentado é de decoração gráfica,
+   * identidade visual e aplicação no espaço existente.
+   */
   {
     id: "p-hasse-expositor-interior-01",
-    category: "Expositores",
-    image: "Hasse — Expositor Interior",
-    sublabel: "Expositor personalizado integrado no espaço",
+    category: "Interiores",
+    image: "Hasse — Decoração Interior",
+    sublabel: "Decoração gráfica aplicada ao expositor e ao espaço",
     src: "/portfolio/hasse-expositor-interior-01.jpg",
     ratio: "4 / 3",
     tone: "yellow",
@@ -276,9 +284,9 @@ export const portfolio: PortfolioItem[] = [
   },
   {
     id: "p-hasse-expositor-interior-02",
-    category: "Expositores",
-    image: "Hasse — Expositor Interior",
-    sublabel: "Desenvolvimento de solução de exposição personalizada",
+    category: "Interiores",
+    image: "Hasse — Aplicação Gráfica",
+    sublabel: "Aplicação de identidade visual em expositor existente",
     src: "/portfolio/hasse-expositor-interior-02.jpg",
     ratio: "4 / 3",
     tone: "cyan",
@@ -287,7 +295,7 @@ export const portfolio: PortfolioItem[] = [
     id: "p-hasse-sinaletica-stand-01",
     category: "Sinalética",
     image: "Hasse — Stand",
-    sublabel: "Comunicação visual e sinalética de stand",
+    sublabel: "Decoração gráfica e sinalética aplicada ao stand",
     src: "/portfolio/hasse-sinaletica-stand-01.jpg",
     ratio: "3 / 4",
     tone: "magenta",
@@ -296,11 +304,12 @@ export const portfolio: PortfolioItem[] = [
     id: "p-hasse-sinaletica-stand-02",
     category: "Sinalética",
     image: "Hasse — Sinalética",
-    sublabel: "Produção gráfica aplicada a stand",
+    sublabel: "Produção gráfica e aplicação de sinalética em stand",
     src: "/portfolio/hasse-sinaletica-stand-02.jpg",
     ratio: "3 / 4",
     tone: "cyan",
   },
+
   {
     id: "p-holy-moly-fachada",
     category: "Fachadas",
