@@ -1,0 +1,15 @@
+/*
+Theme Name: VinilArt Final
+Theme URI: https://vinilart.pt
+Author: VinilArt
+Description: Tema WordPress do site VinilArt (Oeiras). Reproduz exatamente o design aprovado e torna todo o conteudo editavel no WordPress: textos, imagens, projetos, servicos, menus, contactos e SEO. Depois de ativar, clica em "Configurar VinilArt" para criar as paginas, o menu e importar os projetos.
+Version: 1.0.0
+Requires at least: 6.2
+Requires PHP: 7.4
+Text Domain: vinilart
+Tags: portfolio, business, dark
+*/
+
+/* O CSS real do site esta em assets/css/vinilart.css (gerado a partir do projeto
+   aprovado) e em assets/css/theme.css. Este ficheiro existe apenas para o
+   cabecalho obrigatorio do tema WordPress. */
