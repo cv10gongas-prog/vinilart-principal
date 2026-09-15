@@ -154,11 +154,26 @@ function vinilart_media_slot( $item ) {
 }
 
 /**
- * Grelha de projetos com filtros e lightbox.
+ * Grelha de projetos com filtros e lightbox (sem espaços entre tags, para
+ * o resultado visual ser igual ao site aprovado).
  *
  * @param array $args limit, lightbox.
  */
 function vinilart_portfolio_grid( $args = array() ) {
+	ob_start();
+	vinilart_portfolio_grid_markup( $args );
+	$html = (string) ob_get_clean();
+
+	echo preg_replace( '/>\s+</', '><', $html ); // phpcs:ignore WordPress.Security.EscapeOutput
+}
+
+/**
+ * Markup da grelha de projetos.
+ *
+ * @param array $args limit, lightbox.
+ */
+function vinilart_portfolio_grid_markup( $args = array() ) {
+
 	$args = wp_parse_args(
 		$args,
 		array(
