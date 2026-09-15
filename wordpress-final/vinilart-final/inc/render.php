@@ -95,6 +95,15 @@ function vinilart_projects( $limit = 0 ) {
  * @return array
  */
 function vinilart_project_categories() {
+	$out = array();
+
+	// Ordem = ordem de aparecimento dos projetos (igual ao site aprovado).
+	foreach ( vinilart_projects() as $item ) {
+		if ( ! empty( $item['category'] ) && ! in_array( $item['category'], $out, true ) ) {
+			$out[] = $item['category'];
+		}
+	}
+
 	$terms = get_terms(
 		array(
 			'taxonomy'   => 'vinilart_categoria',
@@ -103,16 +112,17 @@ function vinilart_project_categories() {
 		)
 	);
 
-	$out = array();
-
 	if ( ! is_wp_error( $terms ) ) {
 		foreach ( $terms as $term ) {
-			$out[] = $term->name;
+			if ( ! in_array( $term->name, $out, true ) ) {
+				$out[] = $term->name;
+			}
 		}
 	}
 
 	return $out;
 }
+
 
 /**
  * Imagem de um projeto (mesmo markup do componente MediaSlot).
