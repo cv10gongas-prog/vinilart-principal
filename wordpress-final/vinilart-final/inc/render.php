@@ -97,12 +97,22 @@ function vinilart_projects( $limit = 0 ) {
 function vinilart_project_categories() {
 	$out = array();
 
-	// Ordem = ordem de aparecimento dos projetos (igual ao site aprovado).
+	// Ordem aprovada dos filtros (igual ao site atual); extras entram no fim.
+	$ordem     = array( 'Interiores', 'Expositores', 'Sinalética', 'Montras', 'Fachadas', 'Identidade Visual' );
+	$existentes = array();
+
 	foreach ( vinilart_projects() as $item ) {
-		if ( ! empty( $item['category'] ) && ! in_array( $item['category'], $out, true ) ) {
-			$out[] = $item['category'];
+		if ( ! empty( $item['category'] ) ) {
+			$existentes[] = $item['category'];
 		}
 	}
+
+	foreach ( $ordem as $nome ) {
+		if ( in_array( $nome, $existentes, true ) ) {
+			$out[] = $nome;
+		}
+	}
+
 
 	$terms = get_terms(
 		array(
