@@ -131,65 +131,86 @@ function vinilart_page_content() {
 		$saved = true;
 	}
 
-	$sections = vinilart_default_sections();
-	$labels   = array();
-	if ( isset( $sections[ $page ] ) ) {
-		foreach ( $sections[ $page ] as $index => $section ) {
-			$labels[ sprintf( 's%02d', $index + 1 ) ] = $section['label'];
+	$used   = vinilart_used_fields();
+	$groups = array();
+	foreach ( $fields as $key => $field ) {
+		if ( $field['page'] !== $page || empty( $used[ $key ] ) ) {
+			continue;
 		}
+		$parts                    = explode( '_', $key );
+		$group                    = isset( $parts[1] ) ? $parts[1] : 's01';
+		$groups[ $group ][ $key ] = $field;
 	}
+	ksort( $groups );
+	$open = isset( $_GET['secao'] ) ? sanitize_key( wp_unslash( $_GET['secao'] ) ) : '';
 	?>
 	<div class="wrap vinilart-admin">
 		<h1><?php esc_html_e( 'Textos e imagens do site', 'vinilart' ); ?></h1>
-		<p class="description"><?php esc_html_e( 'Edita aqui todos os textos e imagens de cada página. Deixa um campo vazio para voltar ao texto original.', 'vinilart' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Escolhe a página, abre a secção que queres mudar e edita os textos ou imagens. Deixa um campo vazio para voltar ao conteúdo original.', 'vinilart' ); ?></p>
 		<?php vinilart_admin_tabs( 'vinilart-conteudo', $page ); ?>
 		<?php if ( $saved ) : ?>
 			<div class="notice notice-success"><p><?php esc_html_e( 'Alterações guardadas.', 'vinilart' ); ?></p></div>
 		<?php endif; ?>
+
+		<div class="vinilart-toolbar">
+			<button type="button" class="button" data-vinilart-open-all><?php esc_html_e( 'Abrir tudo', 'vinilart' ); ?></button>
+			<button type="button" class="button" data-vinilart-close-all><?php esc_html_e( 'Fechar tudo', 'vinilart' ); ?></button>
+			<span class="vinilart-search-wrap">
+				<label class="screen-reader-text" for="vinilart-search"><?php esc_html_e( 'Procurar campo', 'vinilart' ); ?></label>
+				<input type="search" id="vinilart-search" placeholder="<?php esc_attr_e( 'Procurar texto…', 'vinilart' ); ?>" data-vinilart-search />
+			</span>
+		</div>
+
 		<form method="post">
 			<?php wp_nonce_field( 'vinilart_content', 'vinilart_content_nonce' ); ?>
-			<?php
-			$current_group = '';
-			foreach ( $fields as $key => $field ) :
-				if ( $field['page'] !== $page ) {
-					continue;
-				}
 
-				$parts = explode( '_', $key );
-				$group = isset( $parts[1] ) ? $parts[1] : '';
-
-				if ( $group !== $current_group ) {
-					if ( '' !== $current_group ) {
-						echo '</tbody></table>';
-					}
-					$current_group = $group;
-					$title         = isset( $labels[ $group ] ) ? $labels[ $group ] : strtoupper( $group );
-					echo '<h2>' . esc_html( $title ) . '</h2><table class="form-table"><tbody>';
-				}
-				?>
-				<tr>
-					<th scope="row"><label for="f_<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $field['label'] ); ?></label></th>
-					<td>
-						<?php if ( 'image' === $field['type'] ) : ?>
-							<?php vinilart_image_field( 'img_' . $key, (int) get_option( 'vinilart_img_' . $key, 0 ), vinilart_asset_url( $field['default'] ) ); ?>
-							<p>
-								<label><?php esc_html_e( 'Texto alternativo (acessibilidade e Google)', 'vinilart' ); ?><br />
-								<input type="text" class="large-text" name="alt_<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( get_option( 'vinilart_f_' . $key . '_alt', '' ) ); ?>" /></label>
-							</p>
-						<?php elseif ( 'textarea' === $field['type'] ) : ?>
-							<textarea id="f_<?php echo esc_attr( $key ); ?>" name="f_<?php echo esc_attr( $key ); ?>" rows="3" class="large-text"><?php echo esc_textarea( vinilart_get( $key ) ); ?></textarea>
-						<?php else : ?>
-							<input type="text" id="f_<?php echo esc_attr( $key ); ?>" name="f_<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( vinilart_get( $key ) ); ?>" class="large-text" />
+			<?php foreach ( $groups as $group => $list ) : ?>
+				<?php list( $title, $note ) = vinilart_section_label( $page, $group ); ?>
+				<details class="vinilart-card" data-vinilart-card <?php echo ( $open === $group || 1 === count( $groups ) ) ? 'open' : ''; ?>>
+					<summary>
+						<span class="vinilart-card-title"><?php echo esc_html( $title ); ?></span>
+						<span class="vinilart-card-count"><?php echo esc_html( sprintf( _n( '%s campo', '%s campos', count( $list ), 'vinilart' ), number_format_i18n( count( $list ) ) ) ); ?></span>
+					</summary>
+					<div class="vinilart-card-body">
+						<?php if ( $note ) : ?>
+							<p class="description"><?php echo esc_html( $note ); ?></p>
 						<?php endif; ?>
-					</td>
-				</tr>
-				<?php
-			endforeach;
+						<table class="form-table"><tbody>
+						<?php foreach ( $list as $key => $field ) : ?>
+							<?php
+							$role = isset( $field['role'] ) ? $field['role'] : __( 'Texto', 'vinilart' );
+							$hint = isset( $field['default'] ) ? $field['default'] : '';
+							if ( 'image' === $field['type'] ) {
+								$hint = '';
+							}
+							?>
+							<tr data-vinilart-field data-search="<?php echo esc_attr( strtolower( $role . ' ' . $hint ) ); ?>">
+								<th scope="row">
+									<label for="f_<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $role ); ?></label>
+									<?php if ( $hint ) : ?>
+										<span class="vinilart-hint"><?php echo esc_html( mb_substr( $hint, 0, 60 ) . ( mb_strlen( $hint ) > 60 ? '…' : '' ) ); ?></span>
+									<?php endif; ?>
+								</th>
+								<td>
+									<?php if ( 'image' === $field['type'] ) : ?>
+										<?php vinilart_image_field( 'img_' . $key, (int) get_option( 'vinilart_img_' . $key, 0 ), vinilart_asset_url( $field['default'] ) ); ?>
+										<p>
+											<label><?php esc_html_e( 'Texto alternativo (descrição da imagem)', 'vinilart' ); ?><br />
+											<input type="text" class="large-text" name="alt_<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( get_option( 'vinilart_f_' . $key . '_alt', '' ) ); ?>" /></label>
+										</p>
+									<?php elseif ( 'textarea' === $field['type'] ) : ?>
+										<textarea id="f_<?php echo esc_attr( $key ); ?>" name="f_<?php echo esc_attr( $key ); ?>" rows="3" class="large-text"><?php echo esc_textarea( vinilart_get( $key ) ); ?></textarea>
+									<?php else : ?>
+										<input type="text" id="f_<?php echo esc_attr( $key ); ?>" name="f_<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( vinilart_get( $key ) ); ?>" class="large-text" />
+									<?php endif; ?>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+						</tbody></table>
+					</div>
+				</details>
+			<?php endforeach; ?>
 
-			if ( '' !== $current_group ) {
-				echo '</tbody></table>';
-			}
-			?>
 			<?php submit_button( __( 'Guardar alterações', 'vinilart' ) ); ?>
 		</form>
 	</div>
