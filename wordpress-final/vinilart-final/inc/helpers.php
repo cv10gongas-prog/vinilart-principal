@@ -133,10 +133,6 @@ function vinilart_url( $path ) {
 		return $custom[ $path ];
 	}
 
-	if ( 0 === strpos( $path, '/#' ) ) {
-		return home_url( '/' ) . substr( $path, 2 ) === home_url( '/' ) ? home_url( '/' ) : home_url( '/' ) . '#' . substr( $path, 2 );
-	}
-
 	$parts = explode( '#', $path, 2 );
 	$page  = vinilart_page_url( $parts[0] );
 

@@ -54,28 +54,6 @@ function vinilart_register_cpt() {
 		)
 	);
 
-	register_post_type(
-		'vinilart_servico',
-		array(
-			'labels'        => array(
-				'name'           => __( 'Serviços', 'vinilart' ),
-				'singular_name'  => __( 'Serviço', 'vinilart' ),
-				'add_new'        => __( 'Adicionar serviço', 'vinilart' ),
-				'add_new_item'   => __( 'Adicionar serviço', 'vinilart' ),
-				'edit_item'      => __( 'Editar serviço', 'vinilart' ),
-				'all_items'      => __( 'Todos os serviços', 'vinilart' ),
-				'featured_image' => __( 'Imagem do serviço', 'vinilart' ),
-				'menu_name'      => __( 'Serviços', 'vinilart' ),
-			),
-			'public'        => true,
-			'has_archive'   => false,
-			'show_in_rest'  => true,
-			'menu_icon'     => 'dashicons-hammer',
-			'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'page-attributes' ),
-			'rewrite'       => array( 'slug' => 'servico' ),
-			'menu_position' => 23,
-		)
-	);
 }
 add_action( 'init', 'vinilart_register_cpt' );
 
@@ -92,14 +70,6 @@ function vinilart_meta_boxes() {
 		'high'
 	);
 
-	add_meta_box(
-		'vinilart_servico_dados',
-		__( 'Detalhes do serviço', 'vinilart' ),
-		'vinilart_servico_box',
-		'vinilart_servico',
-		'side',
-		'high'
-	);
 }
 add_action( 'add_meta_boxes', 'vinilart_meta_boxes' );
 
@@ -165,32 +135,6 @@ function vinilart_projeto_box( $post ) {
 }
 
 /**
- * Caixa do servico.
- *
- * @param WP_Post $post Post.
- */
-function vinilart_servico_box( $post ) {
-	wp_nonce_field( 'vinilart_meta', 'vinilart_meta_nonce' );
-
-	$tone     = get_post_meta( $post->ID, '_vinilart_tone', true );
-	$caption  = get_post_meta( $post->ID, '_vinilart_caption', true );
-	$sublabel = get_post_meta( $post->ID, '_vinilart_sublabel', true );
-
-	echo '<p><label for="vinilart_tone"><strong>' . esc_html__( 'Cor de destaque', 'vinilart' ) . '</strong></label><br />';
-	echo '<select id="vinilart_tone" name="vinilart_tone" style="width:100%">';
-	foreach ( vinilart_tones() as $value => $label ) {
-		printf( '<option value="%s" %s>%s</option>', esc_attr( $value ), selected( $tone, $value, false ), esc_html( $label ) );
-	}
-	echo '</select></p>';
-
-	echo '<p><label for="vinilart_caption"><strong>' . esc_html__( 'Legenda da imagem', 'vinilart' ) . '</strong></label><br />';
-	echo '<input type="text" id="vinilart_caption" name="vinilart_caption" value="' . esc_attr( $caption ) . '" style="width:100%" /></p>';
-
-	echo '<p><label for="vinilart_sublabel"><strong>' . esc_html__( 'Descrição da imagem', 'vinilart' ) . '</strong></label><br />';
-	echo '<input type="text" id="vinilart_sublabel" name="vinilart_sublabel" value="' . esc_attr( $sublabel ) . '" style="width:100%" /></p>';
-}
-
-/**
  * Gravar campos.
  *
  * @param int $post_id ID.
@@ -218,12 +162,6 @@ function vinilart_save_meta( $post_id ) {
 		update_post_meta( $post_id, '_vinilart_featured', isset( $_POST['vinilart_featured'] ) ? '1' : '' );
 	}
 
-	if ( isset( $_POST['vinilart_caption'] ) ) {
-		update_post_meta( $post_id, '_vinilart_caption', sanitize_text_field( wp_unslash( $_POST['vinilart_caption'] ) ) );
-	}
-	if ( isset( $_POST['vinilart_sublabel'] ) ) {
-		update_post_meta( $post_id, '_vinilart_sublabel', sanitize_text_field( wp_unslash( $_POST['vinilart_sublabel'] ) ) );
-	}
 }
 add_action( 'save_post', 'vinilart_save_meta' );
 
@@ -237,7 +175,7 @@ function vinilart_admin_order( $query ) {
 		return;
 	}
 	$type = $query->get( 'post_type' );
-	if ( in_array( $type, array( 'vinilart_projeto', 'vinilart_servico' ), true ) && ! $query->get( 'orderby' ) ) {
+	if ( 'vinilart_projeto' === $type && ! $query->get( 'orderby' ) ) {
 		$query->set( 'orderby', 'menu_order' );
 		$query->set( 'order', 'ASC' );
 	}
