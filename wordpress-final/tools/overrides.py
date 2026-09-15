@@ -70,12 +70,6 @@ def build_form():
     html = html.replace('href="https://www.instagram.com/vinilartsport/"', 'href="<?php echo esc_url( vinilart_contact()[\'ig_sport_url\'] ); ?>"')
 
     # 3. Form: metodo, nonce, anti-spam.
-    html = html.replace(
-        '<form id="pedido"',
-        '<form id="pedido" method="post" action="<?php echo esc_url( get_permalink() ); ?>#pedido" novalidate',
-        1,
-    )
-
     hidden = (
         "<?php wp_nonce_field( 'vinilart_form', 'vinilart_form_nonce' ); ?>"
         "<input type=\"hidden\" name=\"vinilart_form\" value=\"1\" />"
@@ -84,10 +78,22 @@ def build_form():
         "<label>Website<input type=\"text\" name=\"vinilart_website\" value=\"\" tabindex=\"-1\" autocomplete=\"off\" /></label></div>"
     )
 
-    # Inserir os campos escondidos logo depois da abertura do form.
-    anchor = html.index("</form>")
-    open_end = html.index(">", html.index("<form id=\"pedido\"")) + 1
-    html = html[:open_end] + hidden + html[open_end:anchor] + html[anchor:]
+    def form_open(match):
+        attrs = match.group(1)
+        attrs = re.sub(r'\saction="[^"]*"', "", attrs)
+        attrs = re.sub(r"\snovalidate(=\"[^\"]*\")?", "", attrs)
+        return (
+            '<form id="pedido" method="post"'
+            ' action="<?php echo esc_url( get_permalink() ); ?>#pedido" novalidate'
+            + attrs
+            + ">"
+            + hidden
+        )
+
+    html, count = re.subn(r'<form id="pedido"([^>]*)>', form_open, html, count=1)
+    if count != 1:
+        raise SystemExit("form open tag nao encontrada")
+
 
     # 4. Repor valores escritos e marcar erros.
     def field_value(name):
