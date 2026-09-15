@@ -16,6 +16,7 @@ define( 'VINILART_URI', get_template_directory_uri() );
 require_once VINILART_DIR . '/inc/helpers.php';
 require_once VINILART_DIR . '/inc/cpt.php';
 require_once VINILART_DIR . '/inc/render.php';
+require_once VINILART_DIR . '/inc/menus.php';
 require_once VINILART_DIR . '/inc/seo.php';
 require_once VINILART_DIR . '/inc/form.php';
 require_once VINILART_DIR . '/inc/admin.php';

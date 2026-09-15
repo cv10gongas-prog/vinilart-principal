@@ -112,7 +112,7 @@ function vinilart_form_state() {
 
 	if ( $sent ) {
 		$state['sent']   = true;
-		$state['values'] = array_map( '__return_empty_string', $state['values'] );
+		$state['values'] = array_fill_keys( array_keys( $state['values'] ), '' );
 	} else {
 		$state['errors']['geral'] = sprintf(
 			/* translators: %s: email de contacto. */
@@ -122,13 +122,4 @@ function vinilart_form_state() {
 	}
 
 	return $state;
-}
-
-/**
- * Devolve string vazia (usado para limpar os campos).
- *
- * @return string
- */
-function __return_empty_string_vinilart() {
-	return '';
 }

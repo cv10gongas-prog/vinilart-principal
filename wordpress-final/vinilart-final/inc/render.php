@@ -95,6 +95,25 @@ function vinilart_projects( $limit = 0 ) {
  * @return array
  */
 function vinilart_project_categories() {
+	$out = array();
+
+	// Ordem aprovada dos filtros (igual ao site atual); extras entram no fim.
+	$ordem     = array( 'Interiores', 'Expositores', 'Sinalética', 'Montras', 'Fachadas', 'Identidade Visual' );
+	$existentes = array();
+
+	foreach ( vinilart_projects() as $item ) {
+		if ( ! empty( $item['category'] ) ) {
+			$existentes[] = $item['category'];
+		}
+	}
+
+	foreach ( $ordem as $nome ) {
+		if ( in_array( $nome, $existentes, true ) ) {
+			$out[] = $nome;
+		}
+	}
+
+
 	$terms = get_terms(
 		array(
 			'taxonomy'   => 'vinilart_categoria',
@@ -103,16 +122,17 @@ function vinilart_project_categories() {
 		)
 	);
 
-	$out = array();
-
 	if ( ! is_wp_error( $terms ) ) {
 		foreach ( $terms as $term ) {
-			$out[] = $term->name;
+			if ( ! in_array( $term->name, $out, true ) ) {
+				$out[] = $term->name;
+			}
 		}
 	}
 
 	return $out;
 }
+
 
 /**
  * Imagem de um projeto (mesmo markup do componente MediaSlot).
@@ -134,11 +154,26 @@ function vinilart_media_slot( $item ) {
 }
 
 /**
- * Grelha de projetos com filtros e lightbox.
+ * Grelha de projetos com filtros e lightbox (sem espaços entre tags, para
+ * o resultado visual ser igual ao site aprovado).
  *
  * @param array $args limit, lightbox.
  */
 function vinilart_portfolio_grid( $args = array() ) {
+	ob_start();
+	vinilart_portfolio_grid_markup( $args );
+	$html = (string) ob_get_clean();
+
+	echo preg_replace( '/>\s+</', '><', $html ); // phpcs:ignore WordPress.Security.EscapeOutput
+}
+
+/**
+ * Markup da grelha de projetos.
+ *
+ * @param array $args limit, lightbox.
+ */
+function vinilart_portfolio_grid_markup( $args = array() ) {
+
 	$args = wp_parse_args(
 		$args,
 		array(
