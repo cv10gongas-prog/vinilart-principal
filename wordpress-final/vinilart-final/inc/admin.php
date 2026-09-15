@@ -284,7 +284,11 @@ function vinilart_page_sections() {
 				<?php foreach ( $list as $section ) : ?>
 					<tr>
 						<td><input type="number" min="1" name="ordem_<?php echo esc_attr( $section['key'] ); ?>" value="<?php echo esc_attr( $order[ $section['key'] ] ); ?>" style="width:70px" /></td>
-						<td><strong><?php echo esc_html( $section['label'] ); ?></strong></td>
+						<td>
+							<?php list( $s_title, $s_note ) = vinilart_section_label( $page, sprintf( 's%02d', (int) substr( $section['key'], 1, 2 ) ) ); ?>
+							<strong><?php echo esc_html( $s_title ); ?></strong>
+							<?php if ( $s_note ) : ?><br /><span class="description"><?php echo esc_html( $s_note ); ?></span><?php endif; ?>
+						</td>
 						<td><label><input type="checkbox" name="ver_<?php echo esc_attr( $section['key'] ); ?>" value="1" <?php checked( $visible[ $section['key'] ] ); ?> /> <?php esc_html_e( 'Sim', 'vinilart' ); ?></label></td>
 					</tr>
 				<?php endforeach; ?>
