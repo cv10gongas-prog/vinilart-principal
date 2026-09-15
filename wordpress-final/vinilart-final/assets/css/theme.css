@@ -47,3 +47,9 @@ body.v-lock {
 .v-form-message {
   display: block;
 }
+
+/* O WordPress aplica margin ao <figure>; o layout do site nao a tem. */
+figure.media-slot,
+.v-content figure {
+  margin: 0;
+}
