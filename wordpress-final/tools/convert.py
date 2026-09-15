@@ -174,6 +174,10 @@ class Templater(HTMLParser):
                 if any(x in c for x in ("cta", "btn", "button", "bg-foreground", "border-white")):
                     return "Botão"
                 return "Link"
+        for t, c in reversed(self.cstack):
+            if t in ("h1", "h2", "h3", "h4", "h5", "h6"):
+                tag = t
+                break
         if tag == "h1":
             return "Título principal"
         if tag == "h2":
