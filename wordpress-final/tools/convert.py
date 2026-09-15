@@ -1,3 +1,43 @@
+    def role_for(self, tag, cls, long_text, text):
+        for t, c in reversed(self.cstack):
+            if t in ("h1", "h2", "h3", "h4", "h5", "h6"):
+                tag = t
+                break
+        if tag == "h1":
+            return "Título principal"
+        if tag == "h2":
+            return "Título"
+        if tag in ("h3", "h4", "h5", "h6"):
+            return "Subtítulo"
+        if "eyebrow" in cls:
+            return "Etiqueta"
+        if long_text:
+            return "Parágrafo"
+        for t, c in reversed(self.cstack):
+            if t == "button":
+                return "Botão"
+            if t == "a":
+                if any(x in c for x in ("cta", "btn", "button", "bg-foreground")):
+                    return "Botão"
+                return "Link"
+        if tag == "p":
+            return "Texto"
+        if tag == "figcaption":
+            return "Legenda"
+        if tag == "li":
+            return "Item da lista"
+        if tag == "address":
+            return "Endereço"
+        if tag == "label":
+            return "Nome do campo"
+        if tag == "option":
+            return "Opção da lista"
+        if tag in ("td", "th"):
+            return "Célula"
+        if re.fullmatch(r"\d{1,3}[+%º.]?", text or ""):
+            return "Número"
+        return "Texto"
+
 #!/usr/bin/env python3
 """Converte o HTML renderizado do site React (preview) em partials PHP do tema WordPress.
 
